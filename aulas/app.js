@@ -1,3 +1,3 @@
-import { log } from "./log.js"
+import json from "./genres.js";
 
-log("Teste")
+console.log(json);
