@@ -3,6 +3,7 @@ import { listarGeneros } from "./menus/listarGeneros.js";
 import { listarPopulares } from "./menus/listarPopulares.js";
 import { listarEmBreve } from "./menus/listarEmBreve.js";
 import { listarEmCartaz } from "./menus/listarEmCartaz.js"
+import { listarMaisRecente } from "./menus/listarMaisRecente.js";
 
 const menu = [
   ["Listar Gêneros", listarGeneros],
@@ -10,7 +11,7 @@ const menu = [
   ["Em Breve nos Cinemas", listarEmBreve], // https://developers.themoviedb.org/3/movies/get-upcoming Jorge/Nicole
   ["Melhores Avaliados", null], // https://developers.themoviedb.org/3/movies/get-top-rated-movies Felipe/Sabrina
   ["Mais Populares", listarPopulares], // https://developers.themoviedb.org/3/movies/get-popular-movies Paulo/Leonardo Lima
-  ["Mais Recentes", null], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
+  ["Mais Recente", listarMaisRecente], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
   ["Filmes em Alta", null], // https://developers.themoviedb.org/3/trending/get-trending movie/day Patrick/Guilherme
 ];
 
