@@ -7,7 +7,6 @@ import { listarMaisRecente } from "./menus/listarMaisRecente.js";
 import { melhoresAvaliados } from "./menus/listarMelhoresAvaliados.js";
 import { buscarFilme } from "./menus/buscarFilme.js";
 
-
 const menu = [
   ["Listar Gêneros", listarGeneros],
   ["Filmes em Cartaz", listarEmCartaz], // https://developers.themoviedb.org/3/movies/get-now-playing Matheus/Leonardo Guaraná
