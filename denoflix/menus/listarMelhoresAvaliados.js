@@ -1,6 +1,8 @@
 // deno-lint-ignore-file
 
-import { API_KEY, BASE_URL, LANG_PTBR } from "../env.js";
+import { API_KEY, BASE_URL, LANG } from "../env.js";
+import { caseDezMelhores } from "./caseDezMelhores.js";
+import { initFetch } from "../utils/initFetch.js";
 
 //Código dando fetch em mais de uma página e enviando o top 10 ou o top 100 para o usúario
 
@@ -12,39 +14,34 @@ export async function melhoresAvaliados() {
   let z = 0;
   switch (escolha) {
     case 0:
-      const url = `${BASE_URL}movie/top_rated?api_key=${API_KEY}&${LANG_PTBR}`;
-      const pesquisa = await fetch(url);
-      const json = await pesquisa.json();
-      const topRateds = json.results.map((result) => result.title);
-
-      for (let i = 0; i < 10; i++) {
-        result[i] = topRateds[i];
-      }
-
-      console.log("----- Os 10 Melhores Avaliados -----");
-      console.table(result);
+      await caseDezMelhores(result);
       break;
 
     case 1:
       for (let j = 1; j < 7; j++) {
-        const url = `${BASE_URL}movie/top_rated?api_key=${API_KEY}&${LANG_PTBR}&page=${j}`;
-        const pesquisa = await fetch(url);
-        const json = await pesquisa.json();
-        const topRateds = json.results.map((result) => result.title);
-
-        for (let i = 0; i < topRateds.length; i++) {
-          result[z] = topRateds[i];
-          z++;
-        }
+        const url = `${BASE_URL}movie/top_rated?api_key=${API_KEY}&language=${LANG}&page=${j}`;
+        const json = await initFetch(url);
+        const topRateds = json.results.map((result) => {
+          return {
+            title: result.title,
+            release: result.release_date,
+          };
+        });
+        result.push(...topRateds);
       }
-
+      const array = [{ tenso: "tenso" }, { tenso: "tenso" }];
       console.log("----- Os 100 Melhores Avaliados -----");
-      let resultTop100 = [];
-      for (let i = 0; i < 100; i++) {
-        resultTop100[i] = result[i];
-      }
-
-      console.table(resultTop100);
+      // let resultTop100 = [];
+      // for (let i = 0; i < 100; i++) {
+      //   resultTop100[i] = result[i];
+      // }
+      console.table(
+        result.slice(0, 100).sort((a, b) => {
+          if (a.title == b.title) return 0;
+          if (a.title < b.title) return -1;
+          if (a.title > b.title) return 1;
+        })
+      );
       break;
 
     default:
@@ -52,11 +49,10 @@ export async function melhoresAvaliados() {
   }
 }
 
-melhoresAvaliados();
 // Código exibindo apenas a primeira página
 
 // export async function melhoresAvaliados(){
-//     const url = `${BASE_URL}movie/top_rated?api_key=${API_KEY}&${LANG_PTBR}`;
+//     const url = `${BASE_URL}movie/top_rated?api_key=${API_KEY}&${LANG}`;
 //     const pesquisa = await fetch(url);
 //     const json = await pesquisa.json();
 //     const topRateds = json.results.map((result) => result.title);

@@ -2,7 +2,7 @@ import { cliMenu } from "./utils/cliMenu.js";
 import { listarGeneros } from "./menus/listarGeneros.js";
 import { listarPopulares } from "./menus/listarPopulares.js";
 import { listarEmBreve } from "./menus/listarEmBreve.js";
-import { listarEmCartaz } from "./menus/listarEmCartaz.js"
+import { listarEmCartaz } from "./menus/listarEmCartaz.js";
 import { listarMaisRecente } from "./menus/listarMaisRecente.js";
 import { melhoresAvaliados } from "./menus/listarMelhoresAvaliados.js";
 
@@ -17,3 +17,6 @@ const menu = [
 ];
 
 while (await cliMenu("Menu DenoFlix", menu));
+
+//Adicionar na listagem mais dois atributos, para mostrar no table;
+//Filtrar filmes não adultos e adultos, duplicando a tabela e mostrando cada uma;
