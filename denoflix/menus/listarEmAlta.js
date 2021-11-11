@@ -9,5 +9,3 @@ export async function listarEmAlta() {
   console.table(emAlta)
   return emAlta
 }
-
-listarEmAlta()
