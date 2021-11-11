@@ -5,7 +5,8 @@ import { listarEmBreve } from "./menus/listarEmBreve.js";
 import { listarEmCartaz } from "./menus/listarEmCartaz.js";
 import { listarMaisRecente } from "./menus/listarMaisRecente.js";
 import { melhoresAvaliados } from "./menus/listarMelhoresAvaliados.js";
-import { buscarFilme } from "./menus/buscarFilme.js";
+import { buscarFilme } from "./menus/busca.js";
+
 
 const menu = [
   ["Listar Gêneros", listarGeneros],
