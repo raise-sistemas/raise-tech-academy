@@ -4,12 +4,13 @@ import { listarPopulares } from "./menus/listarPopulares.js";
 import { listarEmBreve } from "./menus/listarEmBreve.js";
 import { listarEmCartaz } from "./menus/listarEmCartaz.js"
 import { listarMaisRecente } from "./menus/listarMaisRecente.js";
+import { melhoresAvaliados } from "./menus/listarMelhoresAvaliados.js";
 
 const menu = [
   ["Listar Gêneros", listarGeneros],
   ["Filmes em Cartaz", listarEmCartaz], // https://developers.themoviedb.org/3/movies/get-now-playing Matheus/Leonardo Guaraná
   ["Em Breve nos Cinemas", listarEmBreve], // https://developers.themoviedb.org/3/movies/get-upcoming Jorge/Nicole
-  ["Melhores Avaliados", null], // https://developers.themoviedb.org/3/movies/get-top-rated-movies Felipe/Sabrina
+  ["Melhores Avaliados", melhoresAvaliados], // https://developers.themoviedb.org/3/movies/get-top-rated-movies Felipe/Sabrina
   ["Mais Populares", listarPopulares], // https://developers.themoviedb.org/3/movies/get-popular-movies Paulo/Leonardo Lima
   ["Mais Recente", listarMaisRecente], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
   ["Filmes em Alta", null], // https://developers.themoviedb.org/3/trending/get-trending movie/day Patrick/Guilherme
