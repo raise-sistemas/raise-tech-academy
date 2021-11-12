@@ -17,7 +17,8 @@ export async function listarPopulares() {
   const classAdultos = popularMovies.filter(results => results.adult == true);
   const classLivre = popularMovies.filter(results => results.adult == false);
 
-  console.table(popularMovies);
+  console.log("-= Filmes Adultos =-");
   console.table(classAdultos);
+  console.log("-= Filmes Classificação Livre =-");
   console.table(classLivre);
 }
