@@ -1,24 +1,33 @@
 import { API_KEY, BASE_URL, LANG } from "../env.js";
 import { initFetch } from "../utils/initFetch.js";
 
-export async function listarEmBreve() {
+export async function listUpcoming() {
   const url = `${BASE_URL}movie/upcoming?api_key=${API_KEY}&language=${LANG}`;
 
   const json = await initFetch(url);
-  const upcoming = json.results.map((emBreve) => {
+  const upcoming = json.results.map((movie) => {
     return {
-        title: emBreve.title,
-        release_date: emBreve.release_date,
-        popularity: emBreve.popularity,
-        adult: emBreve.adult
+        title: movie.title,
+        release_date: movie.release_date,
+        popularity: movie.popularity,
+        adult: movie.adult
     }
   });
 
-  const adultos = upcoming.filter(movie => movie.adult == true)
-  const infantis = upcoming.filter(movie => movie.adult == false)
+  let adultsOnly = upcoming.filter(movie => movie.adult);
+
+  if (adultsOnly.length == 0) {
+    adultsOnly = 'Não há filmes adultos'; 
+  }
+
+  let generalAudience = upcoming.filter(movie => !movie.adult);
+
+  if (generalAudience.length == 0) {
+    generalAudience = 'Não há filmes de classificação livre';
+  }
 
   console.table(upcoming);
-  console.table(adultos);
-  console.table(infantis);
+  console.table(adultsOnly);
+  console.table(generalAudience);
 }
 
