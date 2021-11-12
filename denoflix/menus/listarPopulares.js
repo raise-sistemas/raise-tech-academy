@@ -3,9 +3,9 @@ import { initFetch } from "../utils/initFetch.js";
 
 export async function listarPopulares() {
   const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=${LANG}`;
-  const json = await initFetch(url);
+  const query = await initFetch(url);
  
-  const popularMovies = json.results.map((populares) => {
+  const popularMovies = query.results.map((populares) => {
     return {
         title: populares.title,
         original_title: populares.original_title,
@@ -14,8 +14,14 @@ export async function listarPopulares() {
     }
   });
 
-  const classAdultos = popularMovies.filter(results => results.adult == true);
-  const classLivre = popularMovies.filter(results => results.adult == false);
+  let classAdultos = popularMovies.filter(results => results.adult);
+  if (classAdultos.length === 0) {
+    classAdultos = "-= Aviso: Não há filmes adultos!";
+  }
+  let classLivre = popularMovies.filter(results => !results.adult);
+  if (classAdultos.length === 0) {
+    classAdultos = "-= Aviso: Não há filmes classificação livre!";
+  }
 
   console.log("-= Filmes Adultos =-");
   console.table(classAdultos);
