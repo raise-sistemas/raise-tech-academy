@@ -1,4 +1,4 @@
-import { API_KEY, BASE_URL, LANG, BASE_URL_IMDB } from "../env.js";
+import { API_KEY, BASE_URL, LANG } from "../env.js";
 import { initFetch } from '../utils/initFetch.js';
 
 export async function listarMaisRecente() {
@@ -16,7 +16,7 @@ export async function listarMaisRecente() {
     'Título': resposta.title,
     'Status': resposta.status,
     'Adulto': (resposta.adulto) ? 'Sim' : 'Não',
-    'Página no IMDB': (resposta.imdb_id) ? BASE_URL_IMDB + resposta.imdb_id : 'Indisponível',
+    'Página no IMDB': (resposta.imdb_id) ? 'https://www.imdb.com/title/' + resposta.imdb_id : 'Indisponível',
     'Idioma': (linguagem.length) ? linguagem[0].idioma : 'Indisponível',
     'Código idioma': (linguagem.length) ? linguagem[0].codigo : 'Indisponível',
   }
