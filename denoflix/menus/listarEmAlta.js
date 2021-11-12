@@ -3,23 +3,17 @@ import { initFetch } from '../utils/initFetch.js'
 import { listar } from '../menus/listar.js'
 import { isAdult } from './filmesAdultos.js'
 
-export async function listarEmAlta() {
-  const url = `${BASE_URL}trending/movie/day?api_key=${API_KEY}`
-  const response = await initFetch(url)
-  const movies = response.results.map(element => element.title)
-  const filmes = []
+const url = `${BASE_URL}trending/movie/day?api_key=${API_KEY}`
 
-  response.results.forEach(element => {
-    filmes.push({
-      title: element.title,
-      vote_average: element.vote_average,
-      release_date: element.release_date
-    })
+export const listarEmAlta = () =>
+  listar(url, element => {
+    return isAdult(element).map(i =>
+      i.map(j => {
+        return {
+          title: j.title,
+          vote_average: j.vote_average,
+          release_date: j.release_date
+        }
+      })
+    )
   })
-
-  console.table(isAdult(filmes))
-
-  return movies
-}
-
-listarEmAlta()
