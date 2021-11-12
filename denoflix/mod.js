@@ -5,8 +5,8 @@ import { listarEmBreve } from "./menus/listarEmBreve.js";
 import { listarEmCartaz } from "./menus/listarEmCartaz.js";
 import { listarMaisRecente } from "./menus/listarMaisRecente.js";
 import { melhoresAvaliados } from "./menus/listarMelhoresAvaliados.js";
-import { buscarFilme } from "./menus/busca.js";
-
+import { pesquisaFilme } from "./menus/pesquisaFilme.js";
+import { buscarFilme } from "./menus/buscarFilme.js";
 
 const menu = [
   ["Listar Gêneros", listarGeneros],
@@ -16,6 +16,7 @@ const menu = [
   ["Mais Populares", listarPopulares], // https://developers.themoviedb.org/3/movies/get-popular-movies Paulo/Leonardo Lima
   ["Mais Recente", listarMaisRecente], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
   ["Filmes em Alta", null], // https://developers.themoviedb.org/3/trending/get-trending movie/day Patrick/Guilherme
+  ["Pesquisa por filme",pesquisaFilme], //Sabrina e Felipe
   ["Buscar por filme",buscarFilme]
 ];
 
