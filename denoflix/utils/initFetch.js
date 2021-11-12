@@ -4,3 +4,9 @@ export const initFetch = async (url) => {
   const pesquisa = await fetch(url);
   return pesquisa.json();
 };
+
+/* 
+  export const initFetch = url => {
+    return fetch(url);
+  }
+*/
