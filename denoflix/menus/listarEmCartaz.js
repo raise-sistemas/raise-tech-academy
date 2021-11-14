@@ -1,41 +1,32 @@
 import { API_KEY, BASE_URL, LANG } from "../env.js";
 import { listar } from "../menus/listar.js";
-import { compareAverage } from "../utils/compareAverage.js"
+import { rank } from "../utils/rank.js"
+import { formatDate } from "../utils/formatDate.js"
 
-const url = `${BASE_URL}movie/now_playing?api_key=${API_KEY}&language=${LANG}`;
 
-export const listarEmCartaz = () =>  listar(url, (result) => {
-  const parsedResult = result.map((entry) => {
-    if(entry.release_date) {
-      entry.release_date = entry.release_date.replace(/[-]+/g,'/')
-    }
+export const listarEmCartaz = () => {
+  const url = `${BASE_URL}movie/now_playing?api_key=${API_KEY}&language=${LANG}`;
+  console.table([
+    "20 resultados",
+    "40 resultados",
+    "60 resultados",
+    "80 resultados",
+    "100 resultados"
+  ])
+  
+  let end;
+  do {
+    end = 1 + +prompt("Diga o índice do número de resultados a serem buscados:\n")
+  } while(end < 1 || end > 5 || Number.isNaN(end))
+  
+  const pages = listar(url, 1, end)
+
+  return pages((result) => rank(result.map(entry => {
     return {
       title: entry.title,      
       original_language: entry.original_language,
       vote_average: entry.vote_average,
-      release_date: entry.release_date
+      release_date: formatDate(entry.release_date)
     }
-  });
-    
-    return  {
-      top_rated: parsedResult
-        .filter(entry => 8 <= entry.vote_average)
-        .sort(compareAverage),
-
-      good: parsedResult
-        .filter(entry => 6 <= entry.vote_average && entry.vote_average < 8)
-        .sort(compareAverage),
-
-      average: parsedResult
-        .filter(entry => 4 <= entry.vote_average && entry.vote_average < 6)
-        .sort(compareAverage),
-      
-      awlful: parsedResult
-        .filter(entry => 0 < entry.vote_average && entry.vote_average< 4)
-        .sort(compareAverage),
-      
-      no_votes: parsedResult
-        .filter(entry => entry.vote_average === 0)
-    }; 
-}, 1, 2);
-
+  })))
+}
