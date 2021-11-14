@@ -4,10 +4,10 @@ import { formatDate } from "../utils/formatDate.js"
 import { compareAverage } from "../utils/compareAverage.js"
 
 export const buscarFilme = () => {
-    const escolha = prompt("---digite o filme que deseja pesquisar---\n")
+    const escolha = prompt("Digite o filme que deseja pesquisar:\n")
     const url = `${BASE_URL}search/movie?api_key=${API_KEY}&language=${LANG}&query=${escolha}&include_adult=true`
     
-    return listar(url, (result) => {
+    return listar(url)((result) => {
         return {
             search_result: result.map(entry => {
                 return {
