@@ -17,8 +17,8 @@ const menu = [
   ['Mais Populares', listarPopulares], // https://developers.themoviedb.org/3/movies/get-popular-movies Paulo/Leonardo Lima
   ['Mais Recente', listarMaisRecente], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
   ['Filmes em Alta', listarEmAlta], // https://developers.themoviedb.org/3/trending/get-trending movie/day Patrick/Guilherme
-  ['Pesquisa por filme', pesquisaFilme], //Sabrina e Felipe
-  ['Buscar por filme', buscarFilme]
+  ['Pesquisa por filme', pesquisaFilme], // Sabrina e Felipe
+  ['Buscar por filme', buscarFilme]  // Leonardo e Matheus
 ]
 
 while (await cliMenu('Menu DenoFlix', menu));
