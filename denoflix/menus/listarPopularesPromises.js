@@ -5,7 +5,6 @@ export function listarPopularesPromises() {
   
     initFetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=${LANG}`)
     
-    .then(result => result)
     .then(function(query) {
 
         const popularMovies = query.results.map((populares) => {
