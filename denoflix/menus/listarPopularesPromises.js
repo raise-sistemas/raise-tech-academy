@@ -1,6 +1,8 @@
 import { API_KEY, BASE_URL, LANG } from "../env.js"
 import { initFetch } from "../utils/initFetch.js"
 
+// Não está funcionando corretamente, sempre cai no erro.
+
 export function listarPopularesPromises() {
   
     initFetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=${LANG}`)
