@@ -7,7 +7,7 @@ export function listarPopularesPromises() {
   
     initFetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=${LANG}`)
     
-    .then(result => result.json())
+    .then(result => result)
     .then(function(query) {
 
         const popularMovies = query.results.map((populares) => {
@@ -34,7 +34,7 @@ export function listarPopularesPromises() {
         console.table(classLivre)
     })
     
-    .catch(function() {
-        console.log("Aconteceu algum erro!")
+    .catch(function(error) {
+        console.log(error)
     })
 }
