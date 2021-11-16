@@ -16,7 +16,7 @@ const menu = [
   ['Filmes em Cartaz', listarEmCartaz], // https://developers.themoviedb.org/3/movies/get-now-playing Matheus/Leonardo Guaraná
   ['Em Breve nos Cinemas', listUpcoming], // https://developers.themoviedb.org/3/movies/get-upcoming Jorge/Nicole
   ['Melhores Avaliados', melhoresAvaliados], // https://developers.themoviedb.org/3/movies/get-top-rated-movies Felipe/Sabrina
-  ['Mais Populares', listarPopulares], // Paulo/Leonardo Lima
+  ['Mais Populares', listarPopulares], // Paulo Niche e Leonardo Lima
   ['Mais Populares (Com Promises)', listarPopularesPromises],
   ['Mais Recente', listarMaisRecente], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
   ['Filmes em Alta', listarEmAlta], // https://developers.themoviedb.org/3/trending/get-trending movie/day Patrick/Guilherme
