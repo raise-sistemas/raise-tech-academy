@@ -14,6 +14,16 @@ export async function melhoresAvaliados() {
   switch (escolha) {
     case 0:
       await caseDezMelhores(result);
+
+      // Tentativa de obter resultados vindos das promises (tiramos o await e o async pra testar) - Felipe e Sabrina
+
+      // caseDezMelhores(result).then((data) => {
+      //   console.log("----- Os 10 Melhores Avaliados -----");
+      //   console.table(data.slice(0, 10));
+      // }).catch((err) => {
+      //   console.log("Erro: ", err);
+      // });
+
       break;
       
     case 1:
