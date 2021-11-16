@@ -1,7 +1,7 @@
 import { cliMenu } from './utils/cliMenu.js'
 import { listarGeneros } from './menus/listarGeneros.js'
 import { listarPopulares } from './menus/listarPopulares.js'
-import { listarPopularesPromises } from './menus/listarPopularesPromises'
+import { listarPopularesPromises } from './menus/listarPopularesPromises.js'
 import { listUpcoming } from './menus/listarEmBreve.js'
 import { listarEmCartaz } from './menus/listarEmCartaz.js'
 import { listarMaisRecente } from './menus/listarMaisRecente.js'
