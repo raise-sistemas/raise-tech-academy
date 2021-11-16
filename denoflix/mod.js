@@ -9,6 +9,7 @@ import { melhoresAvaliados } from './menus/listarMelhoresAvaliados.js'
 import { pesquisaFilme } from './menus/pesquisaFilme.js'
 import { buscarFilme } from './menus/buscarFilme.js'
 import { listarEmAlta } from './menus/listarEmAlta.js'
+import { searchMovies } from './menus/searchMovie.js'
 
 const menu = [
   ['Listar Gêneros', listarGeneros],
@@ -19,8 +20,9 @@ const menu = [
   ['Mais Populares (Com Promises)', listarPopularesPromises],
   ['Mais Recente', listarMaisRecente], // https://developers.themoviedb.org/3/movies/get-latest-movie Otávio/João
   ['Filmes em Alta', listarEmAlta], // https://developers.themoviedb.org/3/trending/get-trending movie/day Patrick/Guilherme
-  ['Pesquisa por filme', pesquisaFilme], //Sabrina e Felipe
-  ['Buscar por filme', buscarFilme]
+  ['Pesquisa por filme', pesquisaFilme], // Sabrina e Felipe
+  ['Buscar por filme', buscarFilme],  // Leonardo e Matheus
+  ['Search movies', searchMovies], // Jorge e Nicole
 ]
 
 while (await cliMenu('Menu DenoFlix', menu));
