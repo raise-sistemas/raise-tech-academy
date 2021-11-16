@@ -1,8 +1,9 @@
 import { API_KEY, BASE_URL, LANG } from "../env.js"
+import { initFetch } from "../utils/initFetch.js"
 
 export function listarPopularesPromises() {
   
-    fetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=${LANG}`)
+    initFetch(`${BASE_URL}movie/popular?api_key=${API_KEY}&language=${LANG}`)
     
     .then(result => result)
     .then(function(query) {
