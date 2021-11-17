@@ -1,6 +1,6 @@
 import { log } from "./log.js";
 
-const EMPTY = NaN;
+const EMPTY = " ";
 const PLAYER1 = "X";
 const PLAYER2 = "O";
 const board = [
