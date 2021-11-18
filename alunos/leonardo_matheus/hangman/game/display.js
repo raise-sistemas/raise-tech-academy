@@ -1,18 +1,18 @@
-export const display = (gameState, character) => {
+export const display = (gameState, character, log) => {
   
-  console.log(character[6 - gameState.chances])
+  log(character[6 - gameState.chances])
   
   const displayCorrect = gameState.correct.join(" ")
-  console.log(displayCorrect)
+  log(displayCorrect)
 
   let displayBar = ""
   for (let i = 0; i < gameState.secretWord.length; i++){
     displayBar += "▔ "
   }
 
-  console.log(displayBar)
+  log(displayBar)
   if(gameState.wrong.length) {
-    console.log("Letras erradas: " + gameState.wrong.join(" "))
+    log("Letras erradas: " + gameState.wrong.join(" "))
   }
   
 

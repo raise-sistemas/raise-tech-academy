@@ -9,5 +9,5 @@ Deno.test("check data integrity", () => {
     correct: [" ", " ", " ", " "],
     wrong: []
   }
-  assertEquals(display(input, [""]), input)
+  assertEquals(display(input, [""], console.log), input)
 })

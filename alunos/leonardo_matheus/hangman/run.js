@@ -12,8 +12,8 @@ export const run = (game) => {
   console.clear()
 
   const current = pipe(game)(
-    gameState => display(gameState, character),
-    getInput,
+    gameState => display(gameState, character, console.log),
+    gameState => getInput(gameState, prompt),
     tuple => checkInput(tuple, specialChar),
     updateState
   )
@@ -21,7 +21,7 @@ export const run = (game) => {
   if(current.status === "playing") return run(current)
 
   console.clear()
-  return display(game, character).status
+  return display(game, character, console.log).status
 }
 
 
