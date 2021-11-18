@@ -1,33 +1,14 @@
-import words from "./words.js";
-const index = Math.round(Math.random() * words.length);
-const secretWord = words[index];
-console.log(secretWord.toUpperCase());
-console.log(`
-┏━━┑
-┃  │
-┃  ╰
-┃
-┃
-┃
-┃
-┃
-┃
-┃
-┗━━━━━━━┛
-`);
-console.log(`
-┏━━┑
-┃  │
-┃  ╰█
-┃  ┍┻┑
-┃  │┃│
-┃  ┘┃└
-┃  ┏┻┓
-┃  ┃ ┃
-┃  ┃ ┃
-┃  ┗ ┗
-┗━━━━━━━┛
-A E C D E F G H I E
-▔ ▔ ▔ ▔ ▔ ▔ ▔ ▔ ▔ ▔
-Letras erradas: T J L
-`);
+import { pipe } from "./utils/pipe.js"
+import {
+  getSecretWord, 
+  init,
+} from "./game/index.js"
+import { run } from "./run.js"
+
+
+pipe()(
+  getSecretWord,
+  init,
+  newGame => run(newGame, console.log, prompt, console.clear),
+  console.log
+)
