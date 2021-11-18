@@ -11,6 +11,10 @@ export const display = (gameState, character) => {
   }
 
   console.log(displayBar)
+  if(gameState.wrong.length) {
+    console.log("Letras erradas: " + gameState.wrong.join(" "))
+  }
+  
 
   return gameState
 }
