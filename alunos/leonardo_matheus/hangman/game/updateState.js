@@ -5,4 +5,5 @@ export const updateState = (gameState) => {
   if(!gameState.correct.includes(" ")) {
     gameState.status = "Victory"
   }
+  return gameState
 }
