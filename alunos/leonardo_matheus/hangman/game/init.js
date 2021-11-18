@@ -5,7 +5,7 @@ export const init = (secretWord) => {
   }
   return {
     secretWord: secretWord,
-    status: 0,
+    status: "playing",
     chances: 6,
     correct: correct,
     wrong: []
