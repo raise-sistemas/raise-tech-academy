@@ -5,7 +5,7 @@ export const getInput = (gameState) => {
     if(input) input = input.toUpperCase()
   } while(
       !input ||
-      !(/[A-Z]/).test(input) || 
+      !(/[A-ZÇ]/).test(input) || 
       gameState.correct.includes(input) || 
       gameState.wrong.includes(input)
   )
