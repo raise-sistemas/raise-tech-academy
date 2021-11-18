@@ -1,29 +1,40 @@
-export function tips (word) {
-
-  function classWord() {
+// deno-lint-ignore-file require-await
+export async function tips(word) {
+  async function classWord() {
     const url = `https://significado.herokuapp.com/${word}`
     const response = await fetch(url)
     const json = await response.json()
     return json[0].class
   }
 
-  function syllablesCount() {
-      const url = `https://significado.herokuapp.com/syllables/${word}`
-      const response = await fetch(url)
-      const json = await response.json()
-      return json.syllablesCount 
-  } 
+  async function syllablesCount() {
+    const url = `https://significado.herokuapp.com/syllables/${word}`
+    const response = await fetch(url)
+    const json = await response.json()
+    return json.syllablesCount
+  }
 
-  function etymology() {
+  async function etymology() {
     const url = `https://significado.herokuapp.com/${word}`
     const response = await fetch(url)
     const json = await response.json()
-    return json[0].etymology      
-  } 
 
-  const number = Math.round(Math.random(1,3))
+    if (json[0].etymology == '') {
+      return 'Não temos etimologia para esta palavra.'
+    } else {
+      return json[0].etymology.replace(word, '*'.repeat(word.length))
+    }
+  }
+  
+  // const tips = [await classWord(), await syllablesCount(), await etymology()]
+  // const sortition = Math.round(Math.random() * (3 - 1) + 1)
+  // console.log(tips[sortition - 1])
 
-  return [classWord(), syllablesCount(), etymology()]
+  return {
+    class: await classWord(),
+    syllabesCount: await syllablesCount(),
+    etymology: await etymology()
+  }
 }
 
-tips()
+console.table(await tips('carta'))
