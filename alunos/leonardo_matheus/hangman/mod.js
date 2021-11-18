@@ -6,7 +6,7 @@ import {
 import { run } from "./run.js"
 
 
-const game = pipe()(
+pipe()(
   getSecretWord,
   init,
   run,
