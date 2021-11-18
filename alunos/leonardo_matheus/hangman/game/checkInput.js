@@ -1,6 +1,6 @@
 
 export const checkInput = (tuple, removeSpecials) => {
-const input = tuple[0].replace(/Ç/,"C")
+const input = removeSpecials(tuple[0])
 const gameState = tuple[1]
 let count = 0;
 const parsedWord =  removeSpecials(gameState.secretWord)
