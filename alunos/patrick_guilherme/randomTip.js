@@ -5,8 +5,13 @@ export async function randomTip(word) {
   const sortition = Math.round(Math.random() * (3 - 1) + 1)
 
   if (sortition == 1) {
-    return allTips.class
+    return allTips.Classe
   }
-  else if{}
-  // console.log(tips[sortition - 1])
-}
+  else if(sortition == 2) {
+    return `A quantidade de sílabas é: ${allTips.Sílabas}`
+  }
+  else {
+  return allTips.Etimologia
+}}
+
+console.log(await randomTip('estratégia'))

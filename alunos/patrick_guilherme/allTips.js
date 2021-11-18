@@ -19,7 +19,7 @@ export async function tips(word) {
     const response = await fetch(url)
     const json = await response.json()
 
-    if (json[0].etymology == '') {
+    if (!json[0].etymology) {
       return 'Não temos etimologia para esta palavra.'
     } else {
       return json[0].etymology.replace(word, '*'.repeat(word.length))
@@ -27,10 +27,9 @@ export async function tips(word) {
   }
 
   return {
-    class: await classWord(),
-    syllabesCount: await syllablesCount(),
-    etymology: await etymology()
+    Classe: await classWord(),
+    Sílabas: await syllablesCount(),
+    Etimologia: await etymology()
   }
 }
 
-console.table(await tips('carta'))
