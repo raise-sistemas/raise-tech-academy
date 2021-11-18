@@ -1,18 +1,35 @@
 import { pipe } from "./utils/pipe.js"
 import { character } from "./assets/character.js"
+import { specialChar } from "./utils/specialChar.js"
 import {
   getSecretWord, 
-  init, 
+  init,
   display, 
-  getInput 
+  getInput,
+  checkInput,
+  updateState
 } from "./game/index.js"
 
-const run = pipe()
 
-run(
+const game = pipe()(
   getSecretWord,
-  init,
-  gameState => display(gameState, character),
-  getInput
-  // To do ...
+  init
 )
+
+
+while(game.status === "playing"){
+  console.clear()
+  
+  const run = pipe(game) 
+
+  run(
+    gameState => display(gameState, character),
+    getInput,
+    tuple => checkInput(tuple, specialChar),
+    updateState
+  )
+  
+}
+
+console.clear()
+console.log(display(game, character).status)
