@@ -9,5 +9,6 @@ import { run } from "./run.js"
 const game = pipe()(
   getSecretWord,
   init,
-  run
+  run,
+  console.log
 )
