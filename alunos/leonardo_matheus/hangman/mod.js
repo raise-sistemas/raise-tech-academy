@@ -9,6 +9,6 @@ import { run } from "./run.js"
 pipe()(
   getSecretWord,
   init,
-  run,
+  newGame => run(newGame, console.log, prompt, console.clear),
   console.log
 )

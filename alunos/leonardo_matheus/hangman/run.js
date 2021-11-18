@@ -8,19 +8,19 @@ import {
   updateState
 } from "./game/index.js"
 
-export const run = (game) => {
-  console.clear()
+export const run = (game, log, input, clear) => {
+  clear()
 
   const current = pipe(game)(
-    gameState => display(gameState, character, console.log),
-    gameState => getInput(gameState, prompt),
+    gameState => display(gameState, character, log),
+    gameState => getInput(gameState, input),
     tuple => checkInput(tuple, specialChar),
     updateState
   )
   
-  if(current.status === "playing") return run(current)
+  if(current.status === "playing") return run(current, log, input, clear)
 
-  console.clear()
+  clear()
   return display(game, character, console.log).status
 }
 
