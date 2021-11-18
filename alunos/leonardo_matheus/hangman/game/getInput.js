@@ -1,7 +1,7 @@
-export const getInput = (gameState) => {
+export const getInput = (gameState, getEntry) => {
   let input;
   do {
-    input = prompt("Digite a Próxima Letra:")
+    input = getEntry("Digite a Próxima Letra:")
     if(input) input = input.toUpperCase()
   } while(
       !input ||
