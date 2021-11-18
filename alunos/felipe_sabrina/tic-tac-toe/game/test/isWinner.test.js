@@ -9,7 +9,7 @@ Deno.test("Nenhum vencedor", () => {
     [EMPTY, EMPTY, EMPTY],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), false);
+  assertEquals(isWinner(PLAYER1, board), 0);
 });
 
 Deno.test("board não cheio com um vencedor", () => {
@@ -19,7 +19,7 @@ Deno.test("board não cheio com um vencedor", () => {
     [EMPTY, EMPTY, PLAYER1],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), true);
+  assertEquals(isWinner(PLAYER1, board), 1);
 });
 
 Deno.test("board cheio com um vencedor", () => {
@@ -29,7 +29,7 @@ Deno.test("board cheio com um vencedor", () => {
     [PLAYER2, PLAYER2, PLAYER1],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), true);
+  assertEquals(isWinner(PLAYER1, board), 1);
 });
 
 Deno.test("board cheio com nenhum vencedor", () => {
@@ -39,5 +39,5 @@ Deno.test("board cheio com nenhum vencedor", () => {
       [PLAYER1, PLAYER2, PLAYER1],
     ];
   
-    assertEquals(isWinner(PLAYER1, board), false);
+    assertEquals(isWinner(PLAYER1, board), 0);
   });
