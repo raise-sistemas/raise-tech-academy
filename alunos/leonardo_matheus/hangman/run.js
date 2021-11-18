@@ -21,7 +21,7 @@ export const run = (game) => {
   if(current.status === "playing") return run(current)
 
   console.clear()
-  console.log(display(game, character).status)
+  return display(game, character).status
 }
 
 
