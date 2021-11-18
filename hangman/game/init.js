@@ -1,8 +1,7 @@
 export const init = (secretWord) => {
-  const correct = []
-  for(let i = 0; i < secretWord.length; i++) {
-    correct.push(" ")
-  }
+  const correct = new Array(secretWord.length)
+  correct.fill(" ")
+
   return {
     secretWord: secretWord,
     status: "playing",
