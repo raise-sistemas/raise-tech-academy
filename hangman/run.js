@@ -1,6 +1,6 @@
 import { pipe } from "./utils/pipe.js"
 import { character } from "./assets/character.js"
-import { specialChar } from "./utils/specialChar.js"
+import { removeSpecials } from "./utils/removeSpecials.js"
 import {
   display, 
   getInput,
@@ -14,14 +14,14 @@ export const run = (game, log, input, clear) => {
   const current = pipe(game)(
     gameState => display(gameState, character, log),
     gameState => getInput(gameState, input),
-    tuple => checkInput(tuple, specialChar),
+    tuple => checkInput(tuple, removeSpecials),
     updateState
   )
   
   if(current.status === "playing") return run(current, log, input, clear)
 
   clear()
-  
+
   return display(game, character, log)
 }
 
