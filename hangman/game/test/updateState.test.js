@@ -1,59 +1,70 @@
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 import { updateState } from "../updateState.js"
 
-Deno.test("check continue condition", () => {
+Deno.test("check continue condition", async () => {
   const init = {
     secretWord: "MAÇÃ",
     status: "playing",
     chances: 6,
     correct: [" ", "A", "Ç", "Ã"],
-    wrong: []
+    wrong: [],
+    tips: {
+      class: [],
+      synonyms: []
+    }
+    
   }
-  assertEquals(updateState(init), init)
+  assertEquals(await updateState(init), init)
 })
 
-Deno.test("check win condition", () => {
+Deno.test("check win condition", async () => {
   const init = {
     secretWord: "MAÇÃ",
     status: "playing",
     chances: 6,
     correct: ["M", "A", "Ç", "Ã"],
-    wrong: []
+    wrong: [],
+    tips: {
+      class: [],
+      synonyms: []
+    }
   }
   const end = {
     secretWord: "MAÇÃ",
     status: "Victory",
     chances: 6,
     correct: ["M", "A", "Ç", "Ã"],
-    wrong: []
+    wrong: [],
+    tips: {
+      class: [],
+      synonyms: []
+    }
   }
-  assertEquals(updateState(init), end)
+  assertEquals(await updateState(init), end)
 })
 
-Deno.test("check lose condition", () => {
+Deno.test("check lose condition", async () => {
   const init = {
     secretWord: "MAÇÃ",
     status: "playing",
     chances: 0,
     correct: [" ", "A", "Ç", "Ã"],
-    wrong: ["W", "Q", "R", "I", "K", "F"]
+    wrong: ["W", "Q", "R", "I", "K", "F"],
+    tips: {
+      class: [],
+      synonyms: []
+    }
   }
   const end = {
     secretWord: "MAÇÃ",
     status: "Game Over",
     chances: 0,
     correct: [" ", "A", "Ç", "Ã"],
-    wrong: ["W", "Q", "R", "I", "K", "F"]
+    wrong: ["W", "Q", "R", "I", "K", "F"],
+    tips: {
+      class: [],
+      synonyms: []
+    }
   }
-  assertEquals(updateState(init), end)
+  assertEquals(await updateState(init), end)
 })
-
-/*
-{
-  secretWord: "MAÇÃ",
-  status: "playing",
-  chances: 6,
-  correct: [" ", " ", " ", " "],
-  wrong: []
-}
-*/

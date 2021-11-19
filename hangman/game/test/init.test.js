@@ -1,27 +1,35 @@
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 import { init } from "../init.js"
 
-Deno.test("check the output with a known secret word: 1", () => {
+Deno.test("check the output with a known secret word: 1", async () => {
   const word = "MAÇÃ"
   const result = {
     secretWord: "MAÇÃ",
     status: "playing",
     chances: 6,
     correct: [" ", " ", " ", " "],
-    wrong: []
+    wrong: [],
+    tips: {
+      class: [],
+      synonyms: []
+    }
   }
-  assertEquals(init(word), result)
+  assertEquals(await init(word), result)
 })
 
-Deno.test("check the output with a known secret word: 2", () => {
+Deno.test("check the output with a known secret word: 2", async () => {
   const word = "PROTOTYPE"
   const result = {
     secretWord: "PROTOTYPE",
     status: "playing",
     chances: 6,
     correct: [" ", " ", " ", " ", " ", " ", " ", " ", " "],
-    wrong: []
+    wrong: [],
+    tips: {
+      class: [],
+      synonyms: []
+    }
   }
-  assertEquals(init(word), result)
+  assertEquals(await init(word), result)
 })
 
