@@ -10,7 +10,7 @@ import { intSquareRoot } from './numbers/intSquareRoot.js'
 import { triangular } from './numbers/triangular.js'
 
 await serve(request => {
-  count++
+  
   const url = new URL(request.url)
   switch (url.pathname) {
     case '/':
