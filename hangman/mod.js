@@ -1,4 +1,5 @@
 import { pipe } from "./utils/pipe.js"
+import { tips } from "./utils/tips.js"
 import {
   getSecretWord, 
   init,
@@ -6,9 +7,10 @@ import {
 import { run } from "./run.js"
 
 
-pipe()(
+const game = await pipe()(
   getSecretWord,
-  init,
-  newGame => run(newGame, console.log, prompt, console.clear),
-  console.log
+  secretWord => init(secretWord, tips),
+  newGame => run(newGame, console.log, prompt, console.clear)
 )
+
+
