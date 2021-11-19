@@ -1,4 +1,4 @@
-export function mutlipleOfFive() {
+export function multipleOfFive() {
   const multipleOfFive = []
   for (let i = 5; i <= 1000000; i++) {
     if (Number.isInteger(i / 5)) {
@@ -8,4 +8,4 @@ export function mutlipleOfFive() {
   return multipleOfFive
 }
 
-console.log(mutlipleOfFive())
+console.log(multipleOfFive())
