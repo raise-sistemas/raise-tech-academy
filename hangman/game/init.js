@@ -10,8 +10,8 @@ export const init = async (secretWord, getTips = () => {}) => {
     correct: correct,
     wrong: [],
     tips: {
-      class: tips.class,
-      synonyms: tips.synonyms
+      class: tips ? tips.class : [],
+      synonyms: tips ? tips.synonyms : []
     }
   }
   
