@@ -1,5 +1,5 @@
 
-export const checkInput = async (tuple, removeSpecials) => {
+export const checkInput = (tuple, removeSpecials) => {
 const input = removeSpecials(tuple[0])
 const gameState = tuple[1]
 let count = 0;

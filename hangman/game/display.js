@@ -1,4 +1,4 @@
-export const display = async (gameState, character, log) => {
+export const display = (gameState, character, log) => {
   
   log(character[6 - gameState.chances])
   
@@ -27,22 +27,11 @@ export const display = async (gameState, character, log) => {
       gameState.tips.synonyms.length > 5 ?  
         5 : 
         gameState.tips.synonyms.length
+
     const synonymsArr = gameState.tips.synonyms.slice(0, count)
     const synonyms = synonymsArr.join(" \| ")
+    
     log(`Sinônimos: ${synonyms}`)
-  }
-  
-  // End Game
-  if(gameState.status !== "playing"){
-    log()
-    if(gameState.status === "Game Over") {
-      log("%c" + gameState.status, "color: red;")
-      log()
-      log(`A palavra secreta era: ${gameState.secretWord}`)
-    }
-    if(gameState.status === "Victory") {
-      log("%c" + gameState.status, "color: green;")
-    }
   }
 
   return gameState

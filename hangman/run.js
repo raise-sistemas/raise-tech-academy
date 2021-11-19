@@ -8,10 +8,10 @@ import {
   updateState
 } from "./game/index.js"
 
-export const run = async (game, log, input, clear) => {
+export const run = (game, log, input, clear) => {
   clear()
 
-  const current = await pipe(game)(
+  const current = pipe(game)(
     gameState => display(gameState, character, log),
     gameState => getInput(gameState, input),
     tuple => checkInput(tuple, specialChar),
@@ -21,6 +21,7 @@ export const run = async (game, log, input, clear) => {
   if(current.status === "playing") return run(current, log, input, clear)
 
   clear()
+  
   return display(game, character, log)
 }
 

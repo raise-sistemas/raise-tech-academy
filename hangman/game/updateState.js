@@ -1,4 +1,4 @@
-export const updateState = async (gameState) => {
+export const updateState = (gameState) => {
   if(gameState.chances === 0){
     gameState.status = "Game Over"
   }
