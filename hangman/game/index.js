@@ -4,6 +4,8 @@ import { getSecretWord } from "./getSecretWord.js"
 import { init } from "./init.js"
 import { checkInput } from "./checkInput.js"
 import { updateState } from "./updateState.js"
+import { getTips } from "./getTips.js";
+import { endGame } from "./endGame.js"
 
 export {
   display,
@@ -11,5 +13,7 @@ export {
   getSecretWord,
   init,
   checkInput,
-  updateState
+  updateState,
+  getTips,
+  endGame
 }
