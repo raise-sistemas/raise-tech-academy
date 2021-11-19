@@ -7,7 +7,7 @@ import { perfect } from './numbers/perfect.js'
 import { intSquareRoot } from './numbers/intSquareRoot.js'
 import { triangular } from './numbers/triangular.js'
 
-const numbers = [
+export const numbers = [
   'Numbers',
   {
     Types: [
@@ -18,8 +18,7 @@ const numbers = [
       'fibonacci',
       'perfect',
       'squareRoot',
-      'triangular',
-      'prime'
+      'triangular'
     ]
   },
   {
