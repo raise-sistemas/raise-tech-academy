@@ -1,4 +1,4 @@
-export const getInput = (gameState, getEntry) => {
+export const getInput = async (gameState, getEntry) => {
   let input;
   do {
     input = getEntry("Digite a Próxima Letra:")
