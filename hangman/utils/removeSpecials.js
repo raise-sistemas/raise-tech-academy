@@ -1,4 +1,4 @@
-export const specialChar = (str) => {
+export const removeSpecials = (str) => {
   return str
     .replace(/Ã|Â|Á|À/, "A")
     .replace(/Õ|Ô|Ò|Ó/, "O")
