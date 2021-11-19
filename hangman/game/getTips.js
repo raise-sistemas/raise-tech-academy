@@ -1,5 +1,6 @@
 import { BASE_URL } from "../env.js" 
-export const tips = async (word) => {
+
+export const getTips = async (word) => {
   const responses = []
 
   responses.push(fetch(`${BASE_URL}${word}`)
