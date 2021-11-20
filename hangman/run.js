@@ -22,7 +22,7 @@ export const run = (game, log, input, clear) => {
 
   clear()
 
-  return display(game, character, log)
+  return display(current, character, log)
 }
 
 
