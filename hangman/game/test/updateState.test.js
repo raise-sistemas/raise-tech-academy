@@ -1,7 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 import { updateState } from "../updateState.js"
 
-Deno.test("check continue condition", async () => {
+Deno.test("check continue condition", () => {
   const init = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -14,10 +14,10 @@ Deno.test("check continue condition", async () => {
     }
     
   }
-  assertEquals(await updateState(init), init)
+  assertEquals(updateState(init), init)
 })
 
-Deno.test("check win condition", async () => {
+Deno.test("check win condition", () => {
   const init = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -40,10 +40,10 @@ Deno.test("check win condition", async () => {
       synonyms: []
     }
   }
-  assertEquals(await updateState(init), end)
+  assertEquals(updateState(init), end)
 })
 
-Deno.test("check lose condition", async () => {
+Deno.test("check lose condition", () => {
   const init = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -66,5 +66,5 @@ Deno.test("check lose condition", async () => {
       synonyms: []
     }
   }
-  assertEquals(await updateState(init), end)
+  assertEquals(updateState(init), end)
 })

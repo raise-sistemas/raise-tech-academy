@@ -1,7 +1,7 @@
 import { run } from "../run.js"
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 
-Deno.test("check win condition", async () => {
+Deno.test("check win condition", () => {
   const doNothing = (...params) => {}
   const getInput = () => "M"
   const game = {
@@ -15,11 +15,11 @@ Deno.test("check win condition", async () => {
       synonyms: []
     }
   }
-  const end = await run(game, doNothing, getInput, doNothing)
+  const end = run(game, doNothing, getInput, doNothing)
   assertEquals(end.status, "Victory")
 })
 
-Deno.test("check defeat condition", async () => {
+Deno.test("check defeat condition", () => {
   const doNothing = (...params) => {}
   const getInput = () => "F"
   const game = {
@@ -33,6 +33,6 @@ Deno.test("check defeat condition", async () => {
       synonyms: []
     }
   }  
-  const end = await run(game, doNothing, getInput, doNothing)
+  const end = run(game, doNothing, getInput, doNothing)
   assertEquals(end.status, "Game Over")
 })

@@ -1,7 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 import { getInput } from "../getInput.js"
 
-Deno.test("check lowercase entry", async () => {
+Deno.test("check lowercase entry", () => {
   const game = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -13,10 +13,10 @@ Deno.test("check lowercase entry", async () => {
       synonyms: []
     }
   }
-  assertEquals(await getInput(game, () => "a"), ["A", game])
+  assertEquals(getInput(game, () => "a"), ["A", game])
 })
 
-Deno.test("check uppercase entry", async () => {
+Deno.test("check uppercase entry", () => {
   const game = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -28,10 +28,10 @@ Deno.test("check uppercase entry", async () => {
       synonyms: []
     }
   }
-  assertEquals(await getInput(game, () => "F"), ["F", game])
+  assertEquals(getInput(game, () => "F"), ["F", game])
 })
 
-Deno.test("check word entry", async () => {
+Deno.test("check word entry", () => {
   const game = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -43,10 +43,10 @@ Deno.test("check word entry", async () => {
       synonyms: []
     }
   }
-  assertEquals(await getInput(game, () => "hello"), ["H", game])
+  assertEquals(getInput(game, () => "hello"), ["H", game])
 })
 
-Deno.test("check quote entry", async () => {
+Deno.test("check quote entry", () => {
   const game = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -58,5 +58,5 @@ Deno.test("check quote entry", async () => {
       synonyms: []
     }
   }
-  assertEquals(await getInput(game, () => "we were not expecting this input"), ["W", game])
+  assertEquals(getInput(game, () => "we were not expecting this input"), ["W", game])
 })

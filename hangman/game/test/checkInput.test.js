@@ -1,9 +1,9 @@
-import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts"
 import { checkInput } from "../checkInput.js"
-import { specialChar } from "../../utils/specialChar.js"
+import { removeSpecials } from "../../utils/removeSpecials.js"
 
 
-Deno.test("check right answer", async () => {
+Deno.test("check right answer", () => {
   const input = "M"
   const init = {
     secretWord: "MAÇÃ",
@@ -27,10 +27,10 @@ Deno.test("check right answer", async () => {
       synonyms: []
     }
   }
-  assertEquals(await checkInput([input, init], specialChar), end)
+  assertEquals(checkInput([input, init], removeSpecials), end)
 })
 
-Deno.test("check right answer with Ç", async () => {
+Deno.test("check right answer with Ç", () => {
   const input = "Ç"
   const init = {
     secretWord: "MAÇÃ",
@@ -54,10 +54,10 @@ Deno.test("check right answer with Ç", async () => {
       synonyms: []
     }
   }
-  assertEquals(await checkInput([input, init], specialChar), end)
+  assertEquals(checkInput([input, init], removeSpecials), end)
 })
 
-Deno.test("check right answer with C as Ç", async () => {
+Deno.test("check right answer with C as Ç", () => {
   const input = "C"
   const init = {
     secretWord: "MAÇÃ",
@@ -81,10 +81,10 @@ Deno.test("check right answer with C as Ç", async () => {
       synonyms: []
     }
   }
-  assertEquals(await checkInput([input, init], specialChar), end)
+  assertEquals(checkInput([input, init], removeSpecials), end)
 })
 
-Deno.test("check right answer with special character", async () => {
+Deno.test("check right answer with special character", () => {
   const input = "A"
   const init = {
     secretWord: "MAÇÃ",
@@ -108,10 +108,10 @@ Deno.test("check right answer with special character", async () => {
       synonyms: []
     }
   }
-  assertEquals(await checkInput([input, init], specialChar), end)
+  assertEquals(checkInput([input, init], removeSpecials), end)
 })
 
-Deno.test("check wrong answer", async () => {
+Deno.test("check wrong answer", () => {
   const input = "W"
   const init = {
     secretWord: "MAÇÃ",
@@ -135,5 +135,5 @@ Deno.test("check wrong answer", async () => {
       synonyms: []
     }
   }
-  assertEquals(await checkInput([input, init], specialChar), end)
+  assertEquals(checkInput([input, init], removeSpecials), end)
 })

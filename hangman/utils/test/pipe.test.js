@@ -1,12 +1,12 @@
 import { pipe } from "../pipe.js"
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 
-Deno.test("check number operations", async () => {
+Deno.test("check number operations", () => {
   const input = 5
   const addFive = num => num + 5
   const multiplyByThree = num => num * 3
   const subtractEight = num => num - 8
-  const result = await pipe(input)(
+  const result = pipe(input)(
     addFive,
     multiplyByThree,
     subtractEight
@@ -14,12 +14,12 @@ Deno.test("check number operations", async () => {
   assertEquals(result, 22)
 })
 
-Deno.test("check string operations", async () => {
+Deno.test("check string operations", () => {
   const str = "hello"
   const str2 = "world"
   const strConcat = x => y => x + " " + y
   const upperCase = str => str.toUpperCase()
-  const result = await pipe(str2)(
+  const result = pipe(str2)(
     strConcat(str),
     upperCase
   )

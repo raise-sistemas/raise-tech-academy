@@ -1,7 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.115.1/testing/asserts.ts";
 import { display } from "../display.js"
 
-Deno.test("check data integrity", async () => {
+Deno.test("check data integrity", () => {
   const input = {
     secretWord: "MAÇÃ",
     status: "playing",
@@ -13,5 +13,5 @@ Deno.test("check data integrity", async () => {
       synonyms: []
     }
   }
-  assertEquals(await display(input, [""], console.log), input)
+  assertEquals(display(input, [""], console.log), input)
 })
