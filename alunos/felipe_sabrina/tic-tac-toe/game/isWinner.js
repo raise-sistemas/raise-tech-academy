@@ -1,14 +1,17 @@
 //ok
 import {win} from "../utils/general.js";
 export function isWinner(currentPlayer, board){  
-    for(let i = 0; i < win.length ; i++){
-      if(board[win[i][0][0]][win[i][0][1]] === currentPlayer && 
-        board[win[i][1][0]][win[i][1][1]] === currentPlayer && 
-        board[win[i][2][0]][win[i][2][1]] === currentPlayer ){
-        console.log(`${currentPlayer} venceu o jogo!!!`);
-        return 1;
-      }
-      }
+      let result = false;
+      win.forEach((element) => {
+        if(board[element[0]][element[1]] === currentPlayer && 
+          board[element[2]][element[3]] === currentPlayer && 
+          board[element[4]][element[5]] === currentPlayer ){
+            console.log(`${currentPlayer} venceu o jogo!!!`);
+            result = true;
+            return 1;
+          }})
+      if(result)return 1;
+
       return 0;
   }
   
