@@ -16,10 +16,28 @@ export function start(){
       choice(currentPlayer, constants.board);
       drawBoard(constants.board);
       if(isWinner(currentPlayer, constants.board)){
-        currentPlayer = constants.PLAYER1;
+        switch (currentPlayer) {
+          case constants.PLAYER1:
+            currentPlayer = constants.PLAYER1;
+            break;
+          case constants.PLAYER2:
+            currentPlayer = constants.PLAYER2;
+            break;
+          default:
+            break;
+        }
         if (!continueChoice(constants.board))break;
       }else{
-        currentPlayer = constants.PLAYER2;
+        switch (currentPlayer) {
+          case constants.PLAYER1:
+            currentPlayer = constants.PLAYER2;
+            break;
+          case constants.PLAYER2:
+            currentPlayer = constants.PLAYER1;
+            break;
+          default:
+            break;
+        }
       }
       if(isBoardFull(constants.board, constants.EMPTY)){
         if (!continueChoice(constants.board))break;
@@ -29,10 +47,28 @@ export function start(){
       choice(currentPlayer, constants.board);
       drawBoard(constants.board);
       if(isWinner(currentPlayer, constants.board)){
-        currentPlayer = constants.PLAYER2;
+        switch (currentPlayer) {
+          case constants.PLAYER1:
+            currentPlayer = constants.PLAYER1;
+            break;
+          case constants.PLAYER2:
+            currentPlayer = constants.PLAYER2;
+            break;
+          default:
+            break;
+        }
         if (!continueChoice(constants.board))break;
       }else{
-        currentPlayer = constants.PLAYER1;
+        switch (currentPlayer) {
+          case constants.PLAYER1:
+            currentPlayer = constants.PLAYER2;
+            break;
+          case constants.PLAYER2:
+            currentPlayer = constants.PLAYER1;
+            break;
+          default:
+            break;
+        }
       }
       if(isBoardFull(constants.board, constants.EMPTY)){
         if (!continueChoice(constants.board))break;
