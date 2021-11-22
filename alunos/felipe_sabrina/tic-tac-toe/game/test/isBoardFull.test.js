@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.114.0/testing/asserts.ts";
 import { isBoardFull } from "../isBoardFull.js";
-import {EMPTY, PLAYER1} from "../../utils/general.js";
+import { EMPTY, PLAYER1 } from "../../utils/general.js";
 
 Deno.test("board vazio", () => {
   const board = [
