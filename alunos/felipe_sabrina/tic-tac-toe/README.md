@@ -1,3 +1,17 @@
+## Tarefas
+
+- Conseguir detectar que o jogo será empate antes de terminar (boardFull)
+- Validar linha e coluna entre 0 e 2
+- Trocar console.table(board) por uma tela customizada:
+```javascript
+console.log(`
+ O │   │ X
+───┼───┼───
+ X │ O │ X
+───┼───┼───
+ O │   │ X
+`);
+```
 ## Pontos Positivos:
 
 - Deixar o ponto de entrada (mod.js ou index.js) o mais simples possível,
