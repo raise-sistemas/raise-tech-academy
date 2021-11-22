@@ -1,5 +1,5 @@
 //ok
-import { win } from "../utils/general.js";
+import { WIN } from "../utils/general.js";
 import { PLAYER1 } from "../utils/general.js";
 import { PLAYER2 } from "../utils/general.js";
 
@@ -11,7 +11,7 @@ export let playerTwoValue = 0;
 // Trocar 1 e 0 por true e false
 export function isWinner(currentPlayer, board) {
   let result = false;
-  win.forEach((element) => {
+  WIN.forEach((element) => {
     if (
       board[element[0]][element[1]] === currentPlayer &&
       board[element[2]][element[3]] === currentPlayer &&

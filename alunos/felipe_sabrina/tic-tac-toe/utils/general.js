@@ -1,8 +1,8 @@
 //ok
-// utilizar constantes exportadas em maiúsculo
+// utilizar constantes exportadas em maiúsculo - OK!
 // Agrupar constantes com quem as utiliza,
 // neste caso que é utilizado por uma única função: isWinner
-export const win = [
+export const WIN = [
   // de lado
   [0, 0, 0, 1, 0, 2],
   [1, 0, 1, 1, 1, 2],
@@ -21,7 +21,7 @@ export const PLAYER2 = "O";
 export const EMPTY = " ";
 
 // utilizar constantes exportadas em maiúsculo
-export const board = [
+export const BOARD = [
   [EMPTY, EMPTY, EMPTY],
   [EMPTY, EMPTY, EMPTY],
   [EMPTY, EMPTY, EMPTY],
