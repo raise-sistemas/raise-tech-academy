@@ -8,22 +8,22 @@ import * as constants from "../utils/general.js";
 // import {restart} from "./restart.js";
 
 export function start() {
-  drawBoard(constants.board);
+  drawBoard(constants.BOARD);
   let currentPlayer;
   currentPlayer = constants.PLAYER1;
   while (true) {
     score();
-    choice(currentPlayer, constants.board);
-    drawBoard(constants.board);
-    if (isWinner(currentPlayer, constants.board)) {
-      if (!continueChoice(constants.board)) break;
+    choice(currentPlayer, constants.BOARD);
+    drawBoard(constants.BOARD);
+    if (isWinner(currentPlayer, constants.BOARD)) {
+      if (!continueChoice(constants.BOARD)) break;
     } else {
       currentPlayer = currentPlayer === constants.PLAYER1
         ? constants.PLAYER2
         : constants.PLAYER1;
     }
-    if (isBoardFull(constants.board, constants.EMPTY)) {
-      if (!continueChoice(constants.board)) break;
+    if (isBoardFull(constants.BOARD, constants.EMPTY)) {
+      if (!continueChoice(constants.BOARD)) break;
     }
   }
 }
