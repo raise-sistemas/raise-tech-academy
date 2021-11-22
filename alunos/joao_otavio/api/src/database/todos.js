@@ -19,6 +19,7 @@ export const create = (title) => {
   }
 
   todos.push(todo);
+  localStorage.setItem('todos', JSON.stringify(todos));
   return todo;
 }
 
@@ -44,6 +45,7 @@ export const update = (id, title) => {
 
   todo.title = title;
   todo.updateAt = new Date();
+  localStorage.setItem('todos', JSON.stringify(todos));
   return todo;
 }
 
@@ -56,6 +58,7 @@ export const toggleCompleted = (id) => {
 
   todo.completed = !todo.completed;
   todo.updateAt = new Date();
+  localStorage.setItem('todos', JSON.stringify(todos));
   return true;
 }
 
@@ -67,7 +70,6 @@ export const remove = (id) => {
     return false
   
   todos.splice(index, 1);
+  localStorage.setItem('todos', JSON.stringify(todos));
   return true;
 }
-
-localStorage.setItem('todos', JSON.stringify(todos));
