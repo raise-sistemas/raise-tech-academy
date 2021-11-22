@@ -1,29 +1,34 @@
-import { choice } from "./choice.js";
-import { continueChoice } from "./continueChoice.js";
+import { playerOneScore, playerTwoScore } from "./setScore.js";
+import * as constants from "../utils/general.js";
+import { continueGame } from "./continueGame.js";
+import { isBoardFull } from "./isBoardFull.js";
 import { drawBoard } from "./drawBoard.js";
 import { drawScore } from "./drawScore.js";
+import { setScore } from "./setScore.js";
 import { isWinner } from "./isWinner.js";
-import { isBoardFull } from "./isBoardFull.js";
-import * as constants from "../utils/general.js";
-// import {restart} from "./restart.js";
+import { choice } from "./choice.js";
 
 export function start() {
+  let currentPlayer = constants.PLAYER1;
+
   drawBoard(constants.BOARD);
-  let currentPlayer;
-  currentPlayer = constants.PLAYER1;
+  
   while (true) {
-    drawScore();
+    drawScore(playerOneScore, playerTwoScore);
     choice(currentPlayer, constants.BOARD);
     drawBoard(constants.BOARD);
+
     if (isWinner(currentPlayer, constants.BOARD)) {
-      if (!continueChoice(constants.BOARD)) break;
+      setScore(currentPlayer);
+      
+      if (!continueGame(constants.BOARD)) break;
     } else {
       currentPlayer = currentPlayer === constants.PLAYER1
         ? constants.PLAYER2
         : constants.PLAYER1;
     }
     if (isBoardFull(constants.BOARD, constants.EMPTY)) {
-      if (!continueChoice(constants.BOARD)) break;
+      if (!continueGame(constants.BOARD)) break;
     }
   }
 }

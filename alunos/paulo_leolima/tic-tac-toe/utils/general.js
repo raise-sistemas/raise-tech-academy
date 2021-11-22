@@ -1,4 +1,3 @@
-// Utilizar constantes exportadas em maiúsculo - OK!
 /* Agrupar constantes com quem as utiliza,
    neste caso que é utilizado por uma única função: isWinner OK!
 */
