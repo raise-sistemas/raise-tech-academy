@@ -13,13 +13,13 @@ export function isWinner(currentPlayer, board){
       board[element[2]][element[3]] === currentPlayer && 
       board[element[4]][element[5]] === currentPlayer ){
         if(currentPlayer === PLAYER1){
-          console.log("entrei");
+          //console.log("entrei");
           playerOneValue++;
         }
         if(currentPlayer === PLAYER2){
           playerTwoValue++;
         }
-        console.log(`${currentPlayer} venceu o jogo!!!`);
+        console.log(`${currentPlayer} - Venceu o jogo!!!\n`);
         result = true;
         return 1;
       }})
