@@ -4,14 +4,11 @@ Matheus/Leonardo Guaraná
 João/Otávio
 Guilherme/Patrick
 
-### TO DO
-- Revisar o código
-- Implementar features novas(incluindo os testes), caso pense em algo
 
 ### COMANDOS ÚTEIS
 Com o terminal na pasta Hangman:
 
-- Executar o programa
+- Executar o jogo
 ```
 deno run --allow-net mod.js
 ```
