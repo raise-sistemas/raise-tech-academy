@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo da Velha</title>
+
+  <link rel="stylesheet" href="./assets/app.css">
+</head>
+
+<body>
+ 
+  <div id="finished" class="hidden">
+    <div><h2>O JOGO TERMINOU</h2>
+    </div>
+    <div>
+      <button onclick="restart()">Reiniciar</button>
+    </div>
+  </div>
+  <script  type="module" src="./game/createBoard.js"></script>
+  <script src="./game/restart.js"></script>
+</body>
+
+</html>
