@@ -1,4 +1,7 @@
 //ok
+// utilizar constantes exportadas em maiúsculo
+// Agrupar constantes com quem as utiliza,
+// neste caso que é utilizado por uma única função: isWinner
 export const win = [
   // de lado
   [0, 0, 0, 1, 0, 2],
@@ -17,6 +20,7 @@ export const PLAYER1 = "X";
 export const PLAYER2 = "O";
 export const EMPTY = " ";
 
+// utilizar constantes exportadas em maiúsculo
 export const board = [
   [EMPTY, EMPTY, EMPTY],
   [EMPTY, EMPTY, EMPTY],

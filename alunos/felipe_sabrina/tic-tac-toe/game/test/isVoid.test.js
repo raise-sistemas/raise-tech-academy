@@ -2,6 +2,7 @@ import { assertEquals } from "https://deno.land/std@0.114.0/testing/asserts.ts";
 import { isVoid } from "../isVoid.js";
 import { EMPTY, PLAYER1, PLAYER2 } from "../../utils/general.js";
 
+// Tirar o prompt do isVoid para poder realizar os testes
 Deno.test("Board vazio", () => {
   const board = [
     [EMPTY, EMPTY, EMPTY],

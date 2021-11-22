@@ -6,6 +6,9 @@ import { PLAYER2 } from "../utils/general.js";
 export let playerOneValue = 0;
 export let playerTwoValue = 0;
 
+// renomear a função para deixar claro o que ela realmente faz
+// separar a verificação de quem ganhou da modificação do score
+// Trocar 1 e 0 por true e false
 export function isWinner(currentPlayer, board) {
   let result = false;
   win.forEach((element) => {
@@ -16,9 +19,11 @@ export function isWinner(currentPlayer, board) {
     ) {
       if (currentPlayer === PLAYER1) {
         //console.log("entrei");
+        // Retirar essa mutação para um local mais claro
         playerOneValue++;
       }
       if (currentPlayer === PLAYER2) {
+        // Retirar essa mutação para um local mais claro
         playerTwoValue++;
       }
       console.log(`${currentPlayer} - Venceu o jogo!!!\n`);

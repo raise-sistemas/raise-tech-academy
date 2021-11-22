@@ -1,4 +1,5 @@
 import { EMPTY } from "../utils/general.js";
+// renomear para resetBoard
 export function restart(board) {
   board.forEach((element) => {
     element[0] = EMPTY;
