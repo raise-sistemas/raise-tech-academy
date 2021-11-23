@@ -16,7 +16,7 @@ console.log(`
 
 - Deixar o ponto de entrada (mod.js ou index.js) o mais simples possível,
   chamando uma função externa. - OK!
-- Formatar sempre o código com o deno fmt ou outro padrão definido.
+- Formatar sempre o código com o deno fmt ou outro padrão definido. - OK! (Prettier)
 - Procurar exportar apenas uma função por arquivo. - OK!
 - Utilizar boolean onde true/false for desejado (ao invés de 1 ou 0). - OK!
 - Sempre utilizar nomes mais descritivos. - OK!
