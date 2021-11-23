@@ -1,56 +1,78 @@
-import { secretWord } from "./game/getSecretWord.js";
+import { getNewSecretWord } from "./game/getSecretWord.js";
 import { checkLetter } from "./game/checkLetter.js";
 import { printGame } from "./game/printGame.js";
 
-const word = new Array(secretWord.length);
-word.fill('_');
+let stop = false;
+do {
 
-let countError = 0;
-const errorsList = [];
+    console.log("(!) Você pode digitar 0 a qualquer momento para encerrar o jogo");
+    
+    const secretWord = getNewSecretWord();
+    const word = new Array(secretWord.length);
+    word.fill('_');
 
-do{
-    printGame(word, errorsList, countError);
+    let countError = 0;
+    const errorsList = [];
+    let message = "";
 
-    let letra = prompt('Digite uma letra:').toUpperCase();
-
-    if (checkLetter(letra)) {
-
-        if (!word.includes(letra) && !errorsList.includes(letra)) {
+    do {
+    
+        printGame(word, errorsList, countError, message);
+        message = "";
+        
+        let letter = prompt('Digite uma letra:');
+        
+        if (letter != null) {
+            if (letter != "0") {
+                if (checkLetter(letter)) {
+                    letter = letter.toUpperCase();
+                    if (!word.includes(letter) && !errorsList.includes(letter)) {
+                        
+                        let haveInWord = false;
+                        
+                        for (const i in secretWord) {
+                            if (letter === secretWord[i]) {
+                                word[i] = letter;
+                                haveInWord = true;
+                            }
+                        }
+    
+                        if (!haveInWord) {
+                            countError++;
+                            errorsList.push(letter);
+                        }
             
-            let possui = false;
+                    } else {
+                        message = "Esta letra já foi digitada!";
+                    }
             
-            for (const i in secretWord) {
-                if (letra === secretWord[i]) {
-                    word[i] = letra;
-                    possui = true;
+                } else {
+                    message = "Letra inválida, tente novamente!";
                 }
-            }
             
-            if (!possui) {
-                countError++;
-                if (!errorsList.includes(letra)) {
-                    errorsList.push(letra);
-                }
+            } else {
+                stop = true;
             }
-
         } else {
-            console.log('Letra já foi digitada');
+            message = "Letra inválida, tente novamente!";
         }
-
+    
+    } while(word.includes('_') && countError < 6 && !stop);
+    
+    if (!stop) {
+        
+        printGame(word, errorsList, countError, message);
+    
+        if (countError >= 6) {
+            console.log('VOCÊ PERDEU :(');
+            console.log(`A palavra era: ${secretWord}`);
+        } else {    
+            console.log('PARABÉNS, VOCÊ VENCEU!');
+        }
+    
     } else {
-        console.log('Letra inválida! Tente novamente');
+        break;
     }
 
-    alert();
-    console.clear();
-
-}while(word.includes('_') && countError < 6);
-
-printGame(word, errorsList, countError);
-
-if (countError >= 6) {
-    console.log('VOCÊ PERDEU!');
-    console.log(`A palavra era: ${secretWord}`);
-} else {    
-    console.log('PARABÉNS! VOCÊ VENCEU!');
-}
+} while (prompt('Jogar novamente? (sim/nao)').toLowerCase() == "sim");
+console.log("Jogo terminado!");
