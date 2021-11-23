@@ -2,10 +2,9 @@ import { getNewSecretWord } from "./game/getSecretWord.js";
 import { checkLetter } from "./game/checkLetter.js";
 import { printGame } from "./game/printGame.js";
 
+let firstPlay = true;
 let stop = false;
 do {
-
-    console.log("(!) Você pode digitar 0 a qualquer momento para encerrar o jogo");
     
     const secretWord = getNewSecretWord();
     const word = new Array(secretWord.length);
@@ -18,6 +17,10 @@ do {
     do {
     
         printGame(word, errorsList, countError, message);
+        if (firstPlay) {
+            console.log("(!) Você pode digitar 0 a qualquer momento para encerrar o jogo");
+            firstPlay = false;
+        }
         message = "";
         
         let letter = prompt('Digite uma letra:');
