@@ -1,6 +1,6 @@
-import { drawScore } from "./drawScore.js";
-import { drawBoard } from "./drawBoard.js";
-import { resetBoard } from "./resetBoard.js";
+import { drawScore } from "./draw/drawScore.js";
+import { drawBoard } from "./draw/drawBoard.js";
+import { resetBoard } from "./board/resetBoard.js";
 
 // Separar o input da decisão baseada no input
 export function continueGame(board) {

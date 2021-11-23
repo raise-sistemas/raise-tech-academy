@@ -1,4 +1,4 @@
-import { EMPTY } from "../utils/general.js";
+import { EMPTY } from "../utils/basicElements.js";
 
 export function resetBoard(board) {
   board.forEach((element) => {

@@ -1,4 +1,4 @@
-import { PLAYER1 } from "../utils/general.js";
+import { PLAYER1 } from "../utils/basicElements.js";
 
 export let playerOneScore = 0;
 export let playerTwoScore = 0;
@@ -10,4 +10,3 @@ export function setScore(currentPlayer) {
         return playerTwoScore++;
     }
 }
-// continuar aqui!!!

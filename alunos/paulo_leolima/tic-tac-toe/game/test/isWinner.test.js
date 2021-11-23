@@ -1,43 +1,85 @@
 import { assertEquals } from "https://deno.land/std@0.114.0/testing/asserts.ts";
 import { isWinner } from "../isWinner.js";
-import { EMPTY, PLAYER1, PLAYER2 } from "../../utils/general.js";
 
-Deno.test("Nenhum vencedor", () => {
+const empty = " ";
+const player = "X";
+
+Deno.test("player vencedor linha 1", () => {
   const board = [
-    [EMPTY, EMPTY, EMPTY],
-    [EMPTY, EMPTY, EMPTY],
-    [EMPTY, EMPTY, EMPTY],
+    [player, player, player],
+    [empty, empty, empty],
+    [empty, empty, empty],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), 0);
+  assertEquals(isWinner(player, board), true);
 });
 
-Deno.test("board não cheio com um vencedor", () => {
+Deno.test("player vencedor linha 2", () => {
   const board = [
-    [PLAYER1, PLAYER2, PLAYER2],
-    [PLAYER2, PLAYER1, EMPTY],
-    [EMPTY, EMPTY, PLAYER1],
+    [empty, empty, empty],
+    [player, player, player],
+    [empty, empty, empty],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), 1);
+  assertEquals(isWinner(player, board), true);
 });
 
-Deno.test("board cheio com um vencedor", () => {
+Deno.test("player vencedor linha 3", () => {
   const board = [
-    [PLAYER1, PLAYER1, PLAYER1],
-    [PLAYER2, PLAYER1, PLAYER2],
-    [PLAYER2, PLAYER2, PLAYER1],
+    [empty, empty, empty],
+    [empty, empty, empty],
+    [player, player, player],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), 1);
+  assertEquals(isWinner(player, board), true);
 });
 
-Deno.test("board cheio com nenhum vencedor", () => {
+Deno.test("player vencedor coluna 1", () => {
   const board = [
-    [PLAYER1, PLAYER1, PLAYER2],
-    [PLAYER2, PLAYER2, PLAYER1],
-    [PLAYER1, PLAYER2, PLAYER1],
+    [player, empty, empty],
+    [player, empty, empty],
+    [player, empty, empty],
   ];
 
-  assertEquals(isWinner(PLAYER1, board), 0);
+  assertEquals(isWinner(player, board), true);
+});
+
+Deno.test("player vencedor coluna 2", () => {
+  const board = [
+    [empty, player, empty],
+    [empty, player, empty],
+    [empty, player, empty],
+  ];
+
+  assertEquals(isWinner(player, board), true);
+});
+
+Deno.test("player vencedor coluna 3", () => {
+  const board = [
+    [empty, empty, player],
+    [empty, empty, player],
+    [empty, empty, player],
+  ];
+
+  assertEquals(isWinner(player, board), true);
+});
+
+Deno.test("player vencedor diagonal 1", () => {
+  const board = [
+    [empty, empty, player],
+    [empty, player, empty],
+    [player, empty, empty],
+  ];
+
+  assertEquals(isWinner(player, board), true);
+});
+
+Deno.test("player vencedor diagonal 2", () => {
+  const board = [
+    [player, empty, empty],
+    [empty, player, empty],
+    [empty, empty, player],
+  ];
+
+  assertEquals(isWinner(player, board), true);
 });

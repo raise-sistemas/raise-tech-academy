@@ -1,7 +1,3 @@
-// renomear a função para deixar claro o que ela realmente faz - OK!
-// separar a verificação de quem ganhou da modificação do score
-// Trocar 1 e 0 por true e false - OK!
-
 const WIN = [
   // de lado
   [0, 0, 0, 1, 0, 2],
