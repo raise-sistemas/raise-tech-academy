@@ -1,18 +1,18 @@
 const WIN = [
-  // de lado
+  // Linhas
   [0, 0, 0, 1, 0, 2],
   [1, 0, 1, 1, 1, 2],
   [2, 0, 2, 1, 2, 2],
-  //em pe
+  // Colunas
   [0, 0, 1, 0, 2, 0],
   [0, 1, 1, 1, 2, 1],
   [0, 2, 1, 2, 2, 2],
-  //diagonais
+  // Diagonais
   [0, 0, 1, 1, 2, 2],
   [0, 2, 1, 1, 2, 0],
 ];
 
-export function isWinner(currentPlayer, board) {
+export function winGame(currentPlayer, board) {
   let result = false;
   WIN.forEach((element) => {
     if (
@@ -20,7 +20,6 @@ export function isWinner(currentPlayer, board) {
       board[element[2]][element[3]] === currentPlayer &&
       board[element[4]][element[5]] === currentPlayer
     ) {
-      console.log(`${currentPlayer} - Venceu o jogo!\n`);
       result = true;
       return true;
     }

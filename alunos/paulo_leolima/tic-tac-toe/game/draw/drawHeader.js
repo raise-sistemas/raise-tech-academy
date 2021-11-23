@@ -1,4 +1,4 @@
 export function drawHeader() {
-    console.clear();
-    console.log("---==< Jogo da Velha >==---");
+  console.clear();
+  console.log("-=[Jogo da Velha]=-");
 }

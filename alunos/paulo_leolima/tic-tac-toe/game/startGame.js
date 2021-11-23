@@ -1,33 +1,37 @@
+import { EMPTY, BOARD, PLAYER1, PLAYER2 } from "./utils/basicElements.js";
 import { playerOneScore, playerTwoScore } from "./score/setScore.js";
-import * as basicElements from "./utils/basicElements.js";
+import { congratulations } from "./congratulations.js";
 import { isBoardFull } from "./board/isBoardFull.js";
 import { drawScreen } from "./draw/drawScreen.js";
 import { continueGame } from "./continueGame.js";
 import { setScore } from "./score/setScore.js";
-import { yourTurn } from "./move/yourTurn.js";
-import { isWinner } from "./isWinner.js";
+import { replayGame } from "./replayGame.js";
+import { gameInput } from "./gameInput.js";
+import { winGame } from "./winGame.js";
+import { endGame } from "./endGame.js";
 
-export function start() {
-  let currentPlayer = basicElements.PLAYER1;
+export function startGame() {
+  let currentPlayer = PLAYER1;
 
-  while (true) {
-    drawScreen(basicElements.BOARD, playerOneScore, playerTwoScore);
-    yourTurn(currentPlayer, basicElements.BOARD);
+  do {
+    drawScreen(BOARD, playerOneScore, playerTwoScore);
+    gameInput(BOARD, currentPlayer)
 
-    if (isWinner(currentPlayer, basicElements.BOARD)) {
+    if (winGame(currentPlayer, BOARD)) {
+      drawScreen(BOARD, playerOneScore, playerTwoScore);
+      congratulations(currentPlayer);
       setScore(currentPlayer);
-      
-      if (!continueGame(basicElements.BOARD)) break;
+
+      if (!replayGame(BOARD, continueGame())) break;
     } else {
-      currentPlayer = currentPlayer === basicElements.PLAYER1
-        ? basicElements.PLAYER2
-        : basicElements.PLAYER1;
+      currentPlayer = currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1;
     }
 
-    if (isBoardFull(basicElements.BOARD, basicElements.EMPTY)) {
-      gameOver();
-      
-      if (!continueGame(basicElements.BOARD)) break;
+    if (isBoardFull(BOARD, EMPTY)) {
+      drawScreen(BOARD, playerOneScore, playerTwoScore);
+      endGame();
+
+      if (!replayGame(BOARD, continueGame())) break;
     }
-  }
+  } while (true);
 }
