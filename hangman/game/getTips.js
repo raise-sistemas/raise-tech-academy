@@ -1,23 +1,26 @@
-import { BASE_URL } from "../env.js" 
+import { BASE_URL } from "../env.js";
+
+function fetchJson(path) {
+  return fetch(`${BASE_URL}${path}`)
+    .then((response) => response.json());
+}
+
+function fetchInfo(word) {
+  return fetchJson(word).then((json) => json.shift());
+}
+
+function fetchSynonyms(word) {
+  return fetchJson(`synonyms/${word}`);
+}
 
 export const getTips = async (word) => {
-  const responses = []
+  const [info, synonyms] = await Promise.all([
+    fetchInfo(word),
+    fetchSynonyms(word),
+  ]);
 
-  responses.push(fetch(`${BASE_URL}${word}`)
-    .then(response => response.json())
-    .then(json => Promise.resolve(...json))
-    .catch(e => console.log(e))
-    
-  )
-  responses.push(fetch(`${BASE_URL}synonyms/${word}`)
-    .then(response => response.json())
-    .then(json => Promise.resolve(json))
-    .catch(e => console.log(e))
-  )
-
-  const results = await Promise.all(responses)
   return {
-    class: results[0].class,
-    synonyms: results[1]
-  }
-}
+    class: info.class,
+    synonyms,
+  };
+};

@@ -1,28 +1,20 @@
-import { pipe } from "./utils/pipe.js"
-import { character } from "./assets/character.js"
-import { removeSpecials } from "./utils/removeSpecials.js"
-import {
-  display, 
-  getInput,
-  checkInput,
-  updateState
-} from "./game/index.js"
+import { pipe } from "./utils/pipe.js";
+import { character } from "./assets/character.js";
+import { checkInput, display, getInput, updateState } from "./game/index.js";
 
 export const run = (game, log, input, clear) => {
-  clear()
+  clear();
 
   const current = pipe(game)(
-    gameState => display(gameState, character, log),
-    gameState => getInput(gameState, input),
-    tuple => checkInput(tuple, removeSpecials),
-    updateState
-  )
-  
-  if(current.status === "playing") return run(current, log, input, clear)
+    (gameState) => display(gameState, character, log),
+    (gameState) => getInput(gameState, input),
+    checkInput,
+    updateState,
+  );
 
-  clear()
+  if (current.status === "playing") return run(current, log, input, clear);
 
-  return display(current, character, log)
-}
+  clear();
 
-
+  return display(current, character, log);
+};

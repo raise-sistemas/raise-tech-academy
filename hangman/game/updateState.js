@@ -1,9 +1,11 @@
 export const updateState = (gameState) => {
-  if(gameState.chances === 0){
-    gameState.status = "Game Over"
+  // se acabaram as tentativas
+  if (gameState.chances === 0) {
+    gameState.status = "Game Over";
   }
-  if(!gameState.correct.includes(" ")) {
-    gameState.status = "Victory"
+  // se não falta nenhuma letra
+  if (!gameState.correct.includes(" ")) {
+    gameState.status = "Victory";
   }
-  return gameState
-}
+  return gameState;
+};
