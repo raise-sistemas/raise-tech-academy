@@ -1,3 +1,3 @@
-import { drawMenu } from "./drawMenu.js";
+import { displayMenu } from "./display/displayMenu.js";
 
-drawMenu();
+displayMenu();
