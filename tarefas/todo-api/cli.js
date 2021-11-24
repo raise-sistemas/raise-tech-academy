@@ -1,0 +1,13 @@
+import * as Todos from "./todo-lib.js";
+console.clear();
+console.table(Todos.listTodos());
+Todos.addTodo("Comprar Leite");
+Todos.addTodo("Comprar Pão");
+console.table(Todos.listTodos());
+const todos = Todos.listTodos();
+const primeiro = todos[0];
+console.log(Todos.getTodo(primeiro.id));
+Todos.removeTodo(primeiro.id);
+Todos.updateTodo(todos[1].id, "Tarefa Alterada");
+Todos.toggleTodo(todos[1].id);
+console.table(Todos.listTodos());
