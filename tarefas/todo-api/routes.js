@@ -10,4 +10,4 @@ routes.get("/todo", actions.getTodoAction);
 routes.get("/todos/:id", actions.getTodoAction);
 routes.post("/todos", actions.addTodoAction);
 routes.patch("/todos/:id/toggle", actions.toggleTodoAction);
-routes.delete("todos/:id/remove", actions.removeTodoAction);
+routes.delete("/todos/:id/remove", actions.removeTodoAction);
