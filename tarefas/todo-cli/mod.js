@@ -11,8 +11,8 @@ import { cliMenu } from "./utils/cliMenu.js";
   ]
 */
 const menu = [ //entradas de teste, o primeiro a adicionar as funções pode remover os foo
-  ["foo1", () => console.log("foo1")],
+  ["Remover TO-DO", () => console.log("foo1")], // Add função.
   ["foo2", () => console.log("foo2")]
 ];
 
-while(await cliMenu("To Do Menu", menu));
+while(await cliMenu("  --==<[ TO-DO Menu ]>==--", menu));
