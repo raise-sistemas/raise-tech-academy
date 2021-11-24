@@ -33,7 +33,6 @@ export class Router extends BaseRouter {
         };
       }
     }
-
     return false;
   }
 }

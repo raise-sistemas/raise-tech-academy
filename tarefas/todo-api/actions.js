@@ -1,4 +1,4 @@
-import { addTodo, getTodo, listTodos, toggleTodo } from "./todo-lib.js";
+import { addTodo, getTodo, listTodos, toggleTodo, removeTodo } from "./todo-lib.js";
 import { htmlResponse } from "./utils/htmlResponse.js";
 import { routes } from "./routes.js";
 
@@ -20,10 +20,6 @@ export async function addTodoAction(request) {
   return addTodo(title);
 }
 
-/**
- * GET /todos/:id
- * GET /todo?id=:id
- */
 export function getTodoAction(request, { id }) {
   const url = new URL(request.url);
   id = id || url.searchParams.get("id");
@@ -34,4 +30,10 @@ export function toggleTodoAction(request, { id }) {
   const url = new URL(request.url);
   id = id || url.searchParams.get("id")
   return toggleTodo(id);
+}
+
+export function removeTodoAction(request, { id }) {
+  const url = new URL(request.url);
+  id = id || url.searchParams.get("id")
+  return removeTodo(id);
 }

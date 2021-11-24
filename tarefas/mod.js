@@ -2,9 +2,9 @@ import { cliMenu } from "./cliMenu.js";
 const tarefas = JSON.parse(localStorage.getItem("tarefas") || "[]");
 
 function addMenu() {
-  const nova_tarefa = prompt("O que deseja fazer?");
-  if (nova_tarefa === null) return;
-  tarefas.push(nova_tarefa);
+  const novaTarefa = prompt("O que deseja fazer?");
+  if (novaTarefa === null) return;
+  tarefas.push(novaTarefa);
 }
 
 function delMenu() {
