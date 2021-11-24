@@ -4,6 +4,22 @@ Matheus/Leonardo Guaraná
 João/Otávio
 Guilherme/Patrick
 
+## TO DO
+
+Separar o display e o endGame, preferenciamente em funções que retornam strings.
+Implementar as funções que realmente fazem o display.
+
+Revisar checkInput
+
+Centralizar as pastas de teste
+
+Rever getInput
+
+updateState não faz o que o nome sugere
+
+colocar o mod.js dentro de uma função
+
+
 
 ### COMANDOS ÚTEIS
 Com o terminal na pasta Hangman:
@@ -34,3 +50,6 @@ deno test utils/
 ```
 deno test --allow-net game/
 ```
+
+
+
