@@ -1,4 +1,4 @@
-import { cliMenu } from "../utils/cliMenu.js";
+import { cliMenu } from "../menus/cliMenu.js";
 
 // Cada entrada do menu é um array com o título da entrada na posição 0 e a referência
 // a função na posição 1
