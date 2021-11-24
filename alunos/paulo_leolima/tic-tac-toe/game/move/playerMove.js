@@ -1,3 +1,3 @@
-export function playerMove(board, pos, currentPlayer) {
-  return (board[pos] = currentPlayer);
+export function playerMove(board, row, col, currentPlayer) {
+  return (board[row][col] = currentPlayer);
 }

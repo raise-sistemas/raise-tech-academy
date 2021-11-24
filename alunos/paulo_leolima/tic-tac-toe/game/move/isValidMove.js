@@ -1,14 +1,7 @@
-export function isValidMove(pos) {
+export function isValidMove(row, col) {
   if (
-    pos === 0 ||
-    pos === 1 ||
-    pos === 2 ||
-    pos === 3 ||
-    pos === 4 ||
-    pos === 5 ||
-    pos === 6 ||
-    pos === 7 ||
-    pos === 8
+    (row === 0 || row === 1 || row === 2) &&
+    (col === 0 || col === 1 || col === 2)
   ) {
     return true;
   } else {
