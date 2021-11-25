@@ -19,7 +19,7 @@ export function listTodos() {
 // GET /todos/:id
 // GET /todo?id=:id
 export function getTodo(id) {
-  return getTdoById(id);
+  return getTodoById(id);
 }
 
 // POST /todos
