@@ -17,7 +17,7 @@ export function startGame() {
     drawScreen(BOARD, playerOneScore, playerTwoScore);
     gameInput(BOARD, currentPlayer);
 
-    if (winnerCheck(currentPlayer, BOARD)) {
+    if (winnerCheck(BOARD, currentPlayer)) {
       drawScreen(BOARD, playerOneScore, playerTwoScore);
       congratulations(currentPlayer);
       setScore(currentPlayer);

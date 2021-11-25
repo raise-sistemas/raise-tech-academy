@@ -4,11 +4,11 @@ import { drawScreen } from "./draw/drawScreen.js";
 import { playerMove } from "./move/playerMove.js";
 import { gameInput } from "./gameInput.js"
 
-export function yourTurn(board, row, col, currentPlayer) {
+export function yourTurn(board, pos, currentPlayer) {
   // Verifica se o slot está vazio.
-  if (isEmptySlot(board, row, col)) {
+  if (isEmptySlot(board, pos)) {
     // Caso esteja vazio, a jogada é concluída.
-    playerMove(board, row, col, currentPlayer);
+    playerMove(board, pos, currentPlayer);
   } else {
     // Caso já esteja preenchido, a jogada é refeita.
     drawScreen(board, playerOneScore, playerTwoScore);

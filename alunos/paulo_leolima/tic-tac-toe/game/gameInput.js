@@ -4,13 +4,12 @@ import { yourTurn } from "./yourTurn.js";
 
 export function gameInput(board, currentPlayer) {
   const input = prompt(`\nJogador: ${currentPlayer}\nSua vez:`);
-  const row = +input.charAt(0);
-  const col = +input.charAt(1);
+  const pos = (+input.charAt(0)) - 1;
 
   // Verifica se o input é válido.
-  if (isValidMove(row, col)) {
+  if (isValidMove(pos)) {
     // Caso seja válido, a jogada é concluída.
-    yourTurn(board, row, col, currentPlayer);
+    yourTurn(board, pos, currentPlayer);
   } else {
     // Caso o input seja inválido, a jogada é refeita.
     drawScreen(board, playerOneScore, playerTwoScore);
