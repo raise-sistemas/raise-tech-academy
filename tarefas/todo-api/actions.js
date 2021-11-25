@@ -1,4 +1,4 @@
-import { addTodo, getTodo, listTodos, toggleTodo, removeTodo } from "./todo-lib.js";
+import { addTodo, getTodo, listTodos, toggleTodo, removeTodo, updateTodo } from "./todo-lib.js";
 import { htmlResponse } from "./utils/htmlResponse.js";
 import { routes } from "./routes.js";
 
