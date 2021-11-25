@@ -1,5 +1,12 @@
 export function chooseTodo(todos){
-  console.table(todos);
+  console.table(todos.map(entry => {
+    return {
+      title: entry.title,
+      completed: entry.completed,
+      updatedAt: entry.updatedAt,
+      createdAt: entry.createdAt,
+    }
+  }));
   const index = +prompt('Digite a tarefa que deseja alterar:');
 
   if(index > todos.length) {
