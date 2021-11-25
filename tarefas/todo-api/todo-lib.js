@@ -13,7 +13,7 @@ function getTodoById(id) {
 // GET /todos
 export function listTodos() {
   // essa função faz uma cópia do array e dos objetos dentro de cada posição do array
-  return todo;
+  return todos.slice().map((todo) => ({ ...todo }));
 }
 
 // GET /todos/:id
