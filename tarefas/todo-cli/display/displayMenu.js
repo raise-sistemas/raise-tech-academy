@@ -6,6 +6,7 @@ import { menuHome } from '../menus/menuHome.js'
 import { getTodoMenus } from '../menus/getTodoMenus.js'
 import { updateTodo } from '../menus/updateMenu.js'
 import { addTodoMenu } from '../menus/addTodoMenu.js'
+import { todosMenu } from '../menus/todosMenu.js';
 
 // Cada entrada do menu é um array com o título da entrada na posição 0 e a referência
 // a função na posição 1
@@ -19,7 +20,7 @@ import { addTodoMenu } from '../menus/addTodoMenu.js'
 */
 export async function displayMenu() {
   const menu = [
-    //entradas de teste, o primeiro a adicionar as funções pode remover os foo
+    ['Listar Tarefas', todosMenu], // Lista todas as tarefas
     ['Pegar tarefa', getTodoMenus], // Pega a tarefa pelo ID
     ['Adiciona tarefa', addTodoMenu], // Pega a tarefa pelo ID
     ['Toggle tarefa', toggleMenu], // Add função.
