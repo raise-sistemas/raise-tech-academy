@@ -17,9 +17,14 @@ async function getTodos() {
 export async function removeMenu() {
   const todos = await getTodos();
   const todo = chooseTodo(todos);
-  const updatedTodo = await remove(todo.id);
+  remove(todo.id);
+}
 
-  console.table(updatedTodo);
-
-  return updatedTodo;
+export async function removeCompletedMenu() {
+  const todos = await getTodos();
+  todos.forEach((todos) => {
+    if (todos.completed) {
+      remove(todos.id);
+    }
+  });
 }

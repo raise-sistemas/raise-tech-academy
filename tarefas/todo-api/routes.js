@@ -1,6 +1,6 @@
 import { Router } from "./router.js";
 import * as actions from "./actions.js";
-import { emptyFaviconResponse } from "../../todo-api-v2/lib/emptyFaviconResponse.js";
+//import { emptyFaviconResponse } from "../../todo-api-v2/lib/emptyFaviconResponse.js";
 
 export const routes = new Router();
 
@@ -16,7 +16,7 @@ export const routes = new Router();
 //     }),
 // );
 
-routes.get("/favicon.ico", emptyFaviconResponse);
+//routes.get("/favicon.ico", emptyFaviconResponse);
 routes.get("/", actions.rootAction);
 routes.get("/routes", actions.routesAction);
 routes.get("/todos", actions.listTodosAction);
