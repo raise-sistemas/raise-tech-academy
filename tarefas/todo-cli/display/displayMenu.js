@@ -22,17 +22,17 @@ import { menuGetTodo } from "../menus/menuGetTodo.js";
 */
 export async function displayMenu() {
   const menu = [
-    ["Listar Tarefas", todosMenu], // Lista todas as tarefas
-    ["Pegar tarefa", getTodoMenus], // Pega a tarefa pelo ID
+    ["Home", menuHome], // Exibe o conteúdo da Home
+    ["Rotas", menuRoutes], // Lista todas as rotas disponíveis
     ["Adiciona tarefa", addTodoMenu], // Pega a tarefa pelo ID
     ["Listar Todos", menuListTodos],
+    ["Listar Tarefas", todosMenu], // Lista todas as tarefas
     ["Get todos", menuGetTodo],
-    ["Toggle tarefa", toggleMenu], // Add função.
+    ["Pegar tarefa", getTodoMenus], // Pega a tarefa pelo ID
     ["Update Todo", updateTodo],
-    ["Remove tarefa", removeMenu], // Remove uma tarefa da lista.
-    ["Remove tarefas concluídas", removeCompletedMenu], // Remove da lista as tarefas finalizadas.
-    ["Rotas", menuRoutes], // Lista todas as rotas disponíveis
-    ["Home", menuHome], // Exibe o conteúdo da Home
+    ["Toggle tarefa", toggleMenu], // Alterar tarefa.
+    ["Remover tarefa", removeMenu], // Remove uma tarefa da lista.
+    ["Remover tarefas concluídas", removeCompletedMenu], // Remove as tarefas finalizadas.
   ];
 
   while (await cliMenu("TO-DO Menu", menu));
