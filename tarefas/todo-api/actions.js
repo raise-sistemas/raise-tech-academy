@@ -32,6 +32,14 @@ export function toggleTodoAction(request, { id }) {
   return toggleTodo(id);
 }
 
+export async function updateTodoAction(request, { id }) {
+  const url = new URL(request.url);
+  const { title } = await request.json();
+  id = id || url.searchParams.get("id")
+  return updateTodo(id, title);
+}
+
+
 export function removeTodoAction(request, { id }) {
   const url = new URL(request.url);
   id = id || url.searchParams.get("id")
