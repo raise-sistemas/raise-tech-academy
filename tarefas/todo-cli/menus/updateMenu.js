@@ -1,17 +1,11 @@
-import { patchRequest } from "../utils/patchRequest.js"
-import { BASE_URL } from "../env.js"
-import { chooseTodo } from "../display/chooseTodo.js"
+import { patchRequest } from "../utils/patchRequest.js";
+import { BASE_URL } from "../env.js";
+import { chooseTodo } from "../display/chooseTodo.js";
 
-async function update(id, answer) {  
+async function update(id, title) {
   const url = `${BASE_URL}todos/${id}/update`;
-
-  const req = await patchRequest(url, {
-    method: 'PATCH',
-    headers: {
-      'Content-type': 'application/json'
-    },
-    body: JSON.stringify({title:answer})
-  });
+  const payload = { title };
+  const req = await patchRequest(url, payload);
 
   return req;
 }
@@ -23,10 +17,10 @@ async function getTodos() {
   return todos;
 }
 
-export async function updateTodo(){
+export async function updateTodo() {
   const todos = await getTodos();
   const todo = chooseTodo(todos);
   const answer = prompt("Digite a nova tarefa: ");
-  const updated = await update(todo.id , answer);
+  const updated = await update(todo.id, answer);
   return updated;
 }

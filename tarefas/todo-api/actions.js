@@ -11,7 +11,34 @@ import { htmlResponse } from "./utils/htmlResponse.js";
 import { routes } from "./routes.js";
 
 export function rootAction() {
-  const body = "<h1>TODO API</h1>";
+  const body = `
+<h1>TODO API</h1>
+<a href="/todos/new">Novo Todo</a>
+`;
+  return htmlResponse(body);
+}
+
+export async function createTodoAction(request) {
+  if (
+    request.headers.get("content-type") === "application/x-www-form-urlencoded"
+  ) {
+    const payload = Object.fromEntries(await request.formData());
+    const body =
+      `<h2>Todo <u><i>${payload.title}</i></u> criada com sucesso</h2>`;
+    return htmlResponse(body);
+  }
+}
+
+export function newTodoAction() {
+  const body = `
+<a href="/">Home</a>
+<form method="post" action="/todos/create">
+  <input name="title" />
+  <input type="hidden" name="completed" value="" />
+  <input type="checkbox" name="completed" value="1" />
+  <button type="submit">Enviar</button>
+</form>
+`;
   return htmlResponse(body);
 }
 

@@ -1,5 +1,6 @@
 import { Router } from "./router.js";
 import * as actions from "./actions.js";
+import { emptyFaviconResponse } from "../../todo-api-v2/lib/emptyFaviconResponse.js";
 
 export const routes = new Router();
 
@@ -15,11 +16,15 @@ export const routes = new Router();
 //     }),
 // );
 
+routes.get("/favicon.ico", emptyFaviconResponse);
 routes.get("/", actions.rootAction);
 routes.get("/routes", actions.routesAction);
 routes.get("/todos", actions.listTodosAction);
 routes.get("/todos/completed", actions.listTodosCompletedAction);
 routes.get("/todo", actions.getTodoAction);
+routes.get("/todos/new{.html}?", actions.newTodoAction);
+routes.post("/todos/create", actions.createTodoAction);
+
 routes.get("/todos/:id", actions.getTodoAction);
 routes.post("/todos", actions.addTodoAction);
 routes.patch("/todos/:id/toggle", actions.toggleTodoAction);
