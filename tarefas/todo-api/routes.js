@@ -8,7 +8,7 @@ routes.get("/routes", actions.routesAction);
 routes.get("/todos", actions.listTodosAction);
 routes.get("/todo", actions.getTodoAction);
 routes.get("/todos/:id", actions.getTodoAction);
-routes.post("site.com.br/todo", actions.addTodoAction);
+routes.post("/todos", actions.addTodoAction);
 routes.patch("/todos/:id/toggle", actions.toggleTodoAction);
 routes.patch("/todos/:id/update", actions.updateTodoAction);
 routes.delete("/todos/:id/remove", actions.removeTodoAction);
