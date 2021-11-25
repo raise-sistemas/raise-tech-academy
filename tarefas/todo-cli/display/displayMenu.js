@@ -17,13 +17,12 @@ import { menuHome } from '../menus/menuHome.js';
 */
 export async function displayMenu() {
   const menu = [
-    //entradas de teste, o primeiro a adicionar as funções pode remover os foo
-
-    ["Toggle tarefa", toggleMenu], // Add função.
+    ["Home", menuHome], // Exibe o conteúdo da Home
     ["Update Todo", updateTodo],
+    ["Marcar tarefa como completa/incompleta", toggleMenu], // Add função.
     ["Remove tarefa", removeMenu],
     ["Rotas", menuRoutes], // Lista todas as rotas disponíveis
-    ["Home", menuHome], // Exibe o conteúdo da Home
+    
   ];
 
   while (await cliMenu("TO-DO Menu", menu));
