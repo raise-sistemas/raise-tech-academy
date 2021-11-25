@@ -1,9 +1,11 @@
+import { BASE_URL } from '../env.js'
+
 export async function getTodoMenus() {
   const id = prompt('Digite o ID da tarefa: ')
-  const response = await fetch(`http://localhost:8000/todos/${id}`)
+  const response = await fetch(`${BASE_URL}todo${id}`)
 
   try {
-    console.log(await response.json())
+    console.table(await response.json())
   } catch {
     console.error('ID inválida, tente novamente!')
   }
