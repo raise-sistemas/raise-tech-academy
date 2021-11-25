@@ -4,12 +4,8 @@ import { removeMenu } from '../menus/removeMenu.js'
 import { menuRoutes } from '../menus/menuRoutes.js'
 import { menuHome } from '../menus/menuHome.js'
 import { getTodoMenus } from '../menus/getTodoMenus.js'
-import { cliMenu } from '../menus/cliMenu.js'
-import { toggleMenu } from '../menus/toggleMenu.js'
 import { updateTodo } from '../menus/updateMenu.js'
-import { removeMenu } from '../menus/removeMenu.js'
-import { menuRoutes } from '../menus/menuRoutes.js'
-import { menuHome } from '../menus/menuHome.js'
+import { addTodoMenu } from '../menus/addTodoMenu.js'
 
 // Cada entrada do menu é um array com o título da entrada na posição 0 e a referência
 // a função na posição 1
@@ -25,6 +21,7 @@ export async function displayMenu() {
   const menu = [
     //entradas de teste, o primeiro a adicionar as funções pode remover os foo
     ['Pegar tarefa', getTodoMenus], // Pega a tarefa pelo ID
+    ['Adiciona tarefa', addTodoMenu], // Pega a tarefa pelo ID
     ['Toggle tarefa', toggleMenu], // Add função.
     ['Update Todo', updateTodo],
     ['Remove tarefa', removeMenu],
