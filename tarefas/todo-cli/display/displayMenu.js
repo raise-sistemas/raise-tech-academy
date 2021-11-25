@@ -21,7 +21,6 @@ export async function displayMenu() {
 
     ["Toggle tarefa", toggleMenu], // Add função.
     ["Update Todo", updateTodo],
-    ["Toggle tarefa", toggleMenu],
     ["Remove tarefa", removeMenu],
     ["Rotas", menuRoutes], // Lista todas as rotas disponíveis
     ["Home", menuHome], // Exibe o conteúdo da Home
