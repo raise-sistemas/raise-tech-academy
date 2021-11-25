@@ -33,7 +33,7 @@ Otávio/João - routes.get("/", actions.rootAction);
 
 
 Patrick/Guilherme - routes.get("/todos/:id", actions.getTodoAction);
-                    routes.post("/todos", actions.addTodoAction);
+                    routes.post("/todos", actions.addTodoAction); addToDosMenu, getToDoMenus, dentro de toDoCli, chamar as funções no displayMenu
 
 
 Jorge/Nicole -  routes.get("/todos", actions.listTodosAction);
