@@ -16,6 +16,10 @@ export function listTodos() {
   return todos.slice().map((todo) => ({ ...todo }));
 }
 
+export function listTodosCompleted() {
+  return listTodos().filter((todo) => todo.completed);
+}
+
 // GET /todos/:id
 // GET /todo?id=:id
 export function getTodo(id) {
