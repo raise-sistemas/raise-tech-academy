@@ -13,13 +13,13 @@ function getTodoById(id) {
 // GET /todos
 export function listTodos() {
   // essa função faz uma cópia do array e dos objetos dentro de cada posição do array
-  return structuredClone(todos);
+  return todo;
 }
 
 // GET /todos/:id
 // GET /todo?id=:id
 export function getTodo(id) {
-  return structuredClone(getTodoById(id));
+  return getTdoById(id);
 }
 
 // POST /todos
@@ -29,7 +29,7 @@ export function addTodo(title) {
   const todo = { id, title, completed: false, createdAt, updatedAt: createdAt };
   todos.push(todo);
 
-  return structuredClone(todo);
+  return todo;
 }
 
 // DELETE /todos/:id
@@ -51,7 +51,7 @@ export function updateTodo(id, title) {
   todo.title = title;
   todo.updatedAt = new Date();
 
-  return structuredClone(todo);
+  return todo;
 }
 
 // PATCH /todos/:id/toggle
@@ -61,5 +61,5 @@ export function toggleTodo(id) {
   todo.completed = !todo.completed;
   todo.updatedAt = new Date();
 
-  return structuredClone(todo);
+  return todo;
 }
