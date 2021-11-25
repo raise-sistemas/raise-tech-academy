@@ -1,5 +1,6 @@
 import { cliMenu } from "../menus/cliMenu.js";
 import { toggleMenu } from "../menus/toggleMenu.js";
+import { updateTodo } from "../menus/updateMenu.js";
 
 // Cada entrada do menu é um array com o título da entrada na posição 0 e a referência
 // a função na posição 1
@@ -16,6 +17,7 @@ export async function displayMenu() {
     //entradas de teste, o primeiro a adicionar as funções pode remover os foo
     ["Toggle tarefa", toggleMenu], // Add função.
     ["foo2", () => console.log("foo2")],
+    ["Update Todo", updateTodo]
   ];
 
   while (await cliMenu("-=<[ TO-DO Menu ]>=-", menu));
