@@ -6,19 +6,19 @@ Guilherme/Patrick
 
 ## TO DO
 
-Separar o display e o endGame, preferenciamente em funções que retornam strings.
-Implementar as funções que realmente fazem o display.
+Rever {
 
-Revisar checkInput
+  getInput 
+
+  checkInput (separar em duas funções)
+
+  updateState (não faz o que o nome sugere
+  
+}
+
+colocar o mod.js dentro de uma função(adicionar opção de continar após o término)
 
 Centralizar as pastas de teste
-
-Rever getInput
-
-updateState não faz o que o nome sugere
-
-colocar o mod.js dentro de uma função
-
 
 
 ### COMANDOS ÚTEIS

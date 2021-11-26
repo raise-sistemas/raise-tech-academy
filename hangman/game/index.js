@@ -1,19 +1,8 @@
-import { display } from "./display.js"
-import { getInput } from "./getInput.js"
-import { getSecretWord } from "./getSecretWord.js"
-import { init } from "./init.js"
-import { checkInput } from "./checkInput.js"
-import { updateState } from "./updateState.js"
-import { getTips } from "./getTips.js";
-import { endGame } from "./endGame.js"
+export { getInput } from "./getInput.js"
+export { getSecretWord } from "./getSecretWord.js"
+export { init } from "./init.js"
+export { checkInput } from "./checkInput.js"
+export { updateState } from "./updateState.js"
+export { getTips } from "./getTips.js"
 
-export {
-  display,
-  getInput,
-  getSecretWord,
-  init,
-  checkInput,
-  updateState,
-  getTips,
-  endGame
-}
+

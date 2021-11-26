@@ -1,20 +1,26 @@
 import { pipe } from "./utils/pipe.js";
-import { character } from "./assets/character.js";
-import { checkInput, display, getInput, updateState } from "./game/index.js";
+import { checkInput, getInput, updateState } from "./game/index.js";
+import { mainView } from "./views/mainView.js"
+import { endView } from "./views/endView.js"
 
-export const run = (game, log, input, clear) => {
-  clear();
 
+export const run = (game, input) => {
+  
+  console.clear();
+  
+  console.log(mainView(game))
+  
   const current = pipe(game)(
-    (gameState) => display(gameState, character, log),
     (gameState) => getInput(gameState, input),
     checkInput,
     updateState,
   );
 
-  if (current.status === "playing") return run(current, log, input, clear);
+  if (current.status === "playing") return run(current, input);
 
-  clear();
-
-  return display(current, character, log);
+  console.clear();
+  
+  console.log(endView(current));
+  
+  return current;
 };
