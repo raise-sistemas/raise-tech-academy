@@ -1,4 +1,4 @@
-const WINCASES = [
+export const WINCASES = [
   // Linhas
   [0, 1, 2],
   [3, 4, 5],

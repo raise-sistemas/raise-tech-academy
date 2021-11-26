@@ -9,6 +9,7 @@ import { setScore } from "./score/setScore.js";
 import { replayGame } from "./replayGame.js";
 import { gameInput } from "./gameInput.js";
 import { endGame } from "./endGame.js";
+import {isFutureDraw} from "./isFutureDraw.js";
 
 export function startGame() {
   let currentPlayer = PLAYER1;
@@ -26,12 +27,12 @@ export function startGame() {
     } else {
       currentPlayer = currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1;
     }
-
     if (isBoardFull(BOARD, EMPTY)) {
       drawScreen(BOARD, playerOneScore, playerTwoScore);
       endGame();
 
       if (!replayGame(BOARD, continueGame())) break;
     }
+    isFutureDraw(BOARD, currentPlayer);
   } while (true);
 }
