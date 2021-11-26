@@ -1,6 +1,8 @@
 import { pipe } from "./utils/pipe.js";
 import { checkInput, getInput, updateState } from "./game/index.js";
 import { mainView } from "./views/mainView.js"
+import { endView } from "./views/endView.js"
+
 
 export const run = (game, input) => {
   
@@ -18,7 +20,7 @@ export const run = (game, input) => {
 
   console.clear();
   
-  console.log(mainView(current));
+  console.log(endView(current));
   
   return current;
 };
