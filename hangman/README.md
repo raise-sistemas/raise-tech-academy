@@ -6,19 +6,9 @@ Guilherme/Patrick
 
 ## TO DO
 
-Rever {
-
-  getInput 
-
-  checkInput (separar em duas funções)
-
-  updateState (não faz o que o nome sugere
-  
-}
-
-colocar o mod.js dentro de uma função(adicionar opção de continar após o término)
-
 Centralizar as pastas de teste
+
+Realizar revisão final e refatoramento
 
 
 ### COMANDOS ÚTEIS
