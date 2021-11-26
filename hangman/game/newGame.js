@@ -1,6 +1,7 @@
-export const init = (secretWord, tips) => {
+export const newGame = (secretWord, tips) => {
   const correct = new Array(secretWord.length);
   correct.fill(" ");
+  
   return {
     secretWord,
     status: "playing",

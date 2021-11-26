@@ -1,26 +1,25 @@
-import { pipe } from "./utils/pipe.js";
-import { checkInput, getInput, updateState } from "./game/index.js";
+
+import { updateState , getInput, updateStatus } from "./game/index.js";
 import { mainView } from "./views/mainView.js"
 import { endView } from "./views/endView.js"
 
 
-export const run = (game, input) => {
+export const run = (newRound, input) => {
+  console.clear();
+
+  console.log(mainView(newRound))
+
+  const entry = getInput(prompt, newRound.correct, newRound.wrong);
+
+  const updatedGame = updateState(entry, newRound);
   
+  const endRound = updateStatus(updatedGame);
+
+  if (endRound.status === "playing") return run(endRound, input);
+
   console.clear();
   
-  console.log(mainView(game))
+  console.log(endView(endRound));
   
-  const current = pipe(game)(
-    (gameState) => getInput(gameState, input),
-    checkInput,
-    updateState,
-  );
-
-  if (current.status === "playing") return run(current, input);
-
-  console.clear();
-  
-  console.log(endView(current));
-  
-  return current;
+  return endRound;
 };
