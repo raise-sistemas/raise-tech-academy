@@ -33,6 +33,10 @@ export function startGame() {
 
       if (!replayGame(BOARD, continueGame())) break;
     }
-    isFutureDraw(BOARD, currentPlayer);
+    if(isFutureDraw(BOARD, currentPlayer)){
+      drawScreen(BOARD, playerOneScore, playerTwoScore);
+      console.log("Fim de jogo, deu velha, não há mais como vencer!");
+      if (!replayGame(BOARD, continueGame())) break;
+    };
   } while (true);
 }
