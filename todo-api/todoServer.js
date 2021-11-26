@@ -1,8 +1,8 @@
-import { routeHandler } from "./routeHandler.js";
+import { mainHandler } from "./mainHandler.js";
 
 export async function todoServer(request) {
   try {
-    return await routeHandler(request);
+    return await mainHandler(request);
   } catch (e) {
     console.error(e);
     return new Response(e.message, { status: 500 });

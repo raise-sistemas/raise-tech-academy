@@ -62,13 +62,7 @@ export function isFutureDraw(board, currentPlayer){
                 result = 1;
                 return true;
             }
-            if (index > 0){
-                if((players.x === 1 || players.o === 1) && board[index] === EMPTY && board[index - 1] === EMPTY){
-                    twoTrueDraw += 2;
-                    result = 1;
-                    return true;
-                }
-            }
+           
         })
         
     })
