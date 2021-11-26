@@ -35,16 +35,12 @@ export function iaPlayer(board){
            }
            //Melhor chance de vitória
            if (players.o === 2 && board[savingEmptyIndex]  === EMPTY){
-               console.log("PLAYER O  E  BOARD", players.o, savingEmptyIndex);
-               console.log("PRIMEIRA");
                 bestOption.one = savingEmptyIndex;
             }
                
           
             //Melhor chance de defender
             if (players.x === 2 && board[savingEmptyIndex] === EMPTY){
-                console.log("PLAYER x  E  BOARD", players.x, savingEmptyIndex);
-                console.log("SEGUNDA");
                 bestOption.two = savingEmptyIndex;
             }
                 
@@ -52,7 +48,6 @@ export function iaPlayer(board){
             //Melhorando a chance de vitória
             if (index >= 1){
                 if (players.o === 1 && board[index - 1] === EMPTY && board[index] === EMPTY){
-                    console.log("TERCEIRA");
                     bestOption.three = index;
                 }
             }
@@ -61,7 +56,6 @@ export function iaPlayer(board){
             //Começando o jogo
             if (index >= 2){
                 if (board[index - 2] === EMPTY && board[index - 1] === EMPTY && board[index] === EMPTY){
-                    console.log("QUARTA");
                     bestOption.four = index;
                 }
 
