@@ -4,7 +4,7 @@ import * as actions from "./actions.js";
 
 export const routes = new Router();
 
-routes.options("/*", handleCors);
+routes.options("/*", handleCors); // Testar o Options.
 routes.get("/", actions.rootAction);
 routes.get("/routes", actions.routesAction);
 
