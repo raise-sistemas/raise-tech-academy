@@ -1,3 +1,9 @@
+if (typeof structuredClone === "undefined") {
+  self.structuredClone = function (data) {
+    return JSON.parse(JSON.stringify(data));
+  };
+}
+
 // TAREFA: Armazenar os todos no localStorage,
 // para não perder a cada reboot do server.
 const todos = [];
