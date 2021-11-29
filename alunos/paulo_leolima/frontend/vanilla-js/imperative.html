@@ -73,15 +73,23 @@
         };
       }
 
+      function buildCompletedTodo(id, title) {
+        return {
+          id,
+          title,
+          completed: true,
+        };
+      }
+
       function addTodo(title) {
-        const todo = buildTodo(title);
+        const todo = buildTodo(title.id, title);
         todos.push(todo);
         appendTodo(todo.title);
         updateCounter();
       }
 
       function addCompletedTodo(title) {
-        const completedTodo = buildTodo(title);
+        const completedTodo = buildCompletedTodo(title);
         completedTodos.push(completedTodo);
         appendCompletedTodo(completedTodo.title);
         updateCompletedCounter();
