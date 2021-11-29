@@ -13,6 +13,8 @@
 
 ## Declarativo
 
+https://todomvc.com/examples/react/#/
+
 `View = F(state)`
 
 A minha tela é o resultado de uma função sobre o estado da aplicação.
