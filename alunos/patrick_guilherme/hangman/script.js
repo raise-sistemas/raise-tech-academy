@@ -23,3 +23,12 @@ for (let index = 0; index < state1.length; index++) {
 //   newGame => run(newGame, console.log, prompt, console.clear),
 //   console.log
 // )
+
+// function clearInput() {
+//   document.querySelector('input').value = ''
+// }
+
+const button = document.querySelector('button')
+button.addEventListener('click', function () {
+  document.querySelector('input').value = ''
+})
