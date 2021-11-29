@@ -1,0 +1,56 @@
+body {
+  background-color: #545454;
+  color: #CCC;
+  font-family: 'sans';
+}
+
+#app {
+
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  margin: auto auto;
+  width: 50%;
+  flex-direction: column;
+  min-height: 600px;
+  border-radius: 3%;
+  box-shadow: 2px 2px #131313;
+  
+}
+
+.edit-box {
+  display: block;
+  width: 280px;
+}
+
+button, button:focus{
+  outline: none;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+button:active{
+  outline: none;
+  background: transparent;
+  border: 1px solid grey;
+}
+
+#add-todo {
+  margin-top: 20px; 
+  width: 280px;
+}
+
+.list-item {
+  font-size: 14px;
+  color: #CCC;
+  width: 200px;
+  font-family: 'sans';
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* #completed-li {
+  margin-bottom: 150px;
+} */
