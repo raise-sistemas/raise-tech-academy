@@ -6,9 +6,12 @@ import {
 import { run } from '../../leonardo_matheus/hangman/run.js'
 import { character } from '../../leonardo_matheus/hangman/assets/character.js'
 
+// Traz o primeiro status do jogo
 let state1 = character[0]
+// Separa os caracteres por linha, para poder inserir no HTML
 state1 = state1.split('\n')
 
+// Esse "for" pega cada uma das linhas do desenho da forca, e adiciona elas a uma div.
 for (let index = 0; index < state1.length; index++) {
   const div = document.createElement('div')
   const section1 = document.querySelector('.section1')
@@ -16,6 +19,22 @@ for (let index = 0; index < state1.length; index++) {
   div.innerHTML = state1[index]
   section1.appendChild(div)
 }
+
+// Para verificar se o que foi digitado é uma letra:
+const checker = /[a-z]/i
+
+// Atribui dois eventos ao botão Enter
+document.querySelector('button').addEventListener('click', function () {
+  // Verifica se realmente foi uma letra e guarda ela na variável.
+  let letra = document.querySelector('input').value[0]
+  if (!checker.test(letra)) {
+    alert('Digite apenas letras!')
+  }
+
+  // Depois limpa o input
+  document.querySelector('input').value = ''
+  console.log(checker.test(letra))
+})
 
 // pipe()(
 //   getSecretWord,
@@ -27,8 +46,3 @@ for (let index = 0; index < state1.length; index++) {
 // function clearInput() {
 //   document.querySelector('input').value = ''
 // }
-
-const button = document.querySelector('button')
-button.addEventListener('click', function () {
-  document.querySelector('input').value = ''
-})
