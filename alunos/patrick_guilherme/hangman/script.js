@@ -33,7 +33,6 @@ document.querySelector('button').addEventListener('click', function () {
 
   // Depois limpa o input
   document.querySelector('input').value = ''
-  console.log(checker.test(letra))
 })
 
 // pipe()(
