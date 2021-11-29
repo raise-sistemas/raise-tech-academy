@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,9 +18,9 @@
 
     <hr />
 
-    <h2>Produtos Comprados (2)</h2>
-    <ol>
-      <li>
+    <h2>Produtos Comprados (<span id="todoCompletedCounter">2</span>)</h2>
+    <ol id="completedTodos">
+      <li id="lasCompletedItem">
         <button>⭕️</button>
         <s>Leite Integral</s>
       </li>
@@ -39,12 +39,30 @@
         ).length;
       }
 
+      function updateCompletedCounter() {
+        document.getElementById("todoCompletedCounter").innerText =
+          completedTodos.filter(
+            (completedTodo) => !completedTodo.completed
+          ).length;
+      }
+
       function appendTodo(title) {
         const newTodo = document.createElement("li");
-        newTodo.innerHTML = `<button>✅</button> ${title}`;
+        newTodo.innerHTML = `<button id="${title.id}" onclick="addCompletedTodo(${title})">✅</button> ${title}`;
         document
           .getElementById("todos")
           .insertBefore(newTodo, document.getElementById("lastItem"));
+      }
+
+      function appendCompletedTodo(title) {
+        const completedTodo = document.createElement("li");
+        completedTodo.innerHTML = `<button id="${title.id}" onclick="addTodo(${title})">⭕️</button> <s>${title}</s>`;
+        document
+          .getElementById("completedTodos")
+          .insertBefore(
+            completedTodo,
+            document.getElementById("lastCompletedItem")
+          );
       }
 
       function buildTodo(title) {
@@ -62,6 +80,13 @@
         updateCounter();
       }
 
+      function addCompletedTodo(title) {
+        const completedTodo = buildTodo(title);
+        completedTodos.push(completedTodo);
+        appendCompletedTodo(completedTodo.title);
+        updateCompletedCounter();
+      }
+
       const addInput = document.getElementById("addInput");
       addInput.addEventListener("keypress", (e) => {
         if (e.code === "Enter") {
@@ -71,6 +96,9 @@
       });
 
       todos.forEach((todo) => appendTodo(todo.title));
+      completedTodos.forEach((completedTodo) =>
+        appendCompletedTodo(completedTodo.title)
+      );
     </script>
   </body>
 </html>
