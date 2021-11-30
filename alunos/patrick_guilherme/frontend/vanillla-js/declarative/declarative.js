@@ -1,5 +1,5 @@
 import { App } from './App.js'
-import { todos, deleteTodo } from './models.js'
+import { todos } from './models.js'
 
 import './events.js'
 
