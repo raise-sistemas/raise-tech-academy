@@ -1,4 +1,4 @@
-export const todos = [
+export let todos = [
   buildTodo('Pão Francês'),
   buildTodo('Leite Integral'),
   buildTodo('Margarina Qualy 500g', true)
@@ -20,8 +20,8 @@ export function addTodo(title) {
 }
 
 export function deleteTodo(id) {
-  const todo = todos.find(todo => todo.id === id)
-  todo.filter(todo => todo.id !== todo.id)
+  const todo = todos.filter(todo => todo.id !== id)
+  todos = todo
 }
 
 export function toggleTodo(id) {
