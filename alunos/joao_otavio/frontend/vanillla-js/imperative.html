@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,9 +18,9 @@
 
     <hr />
 
-    <h2>Produtos Comprados (<span id="todoCompletedCounter">2</span>)</h2>
-    <ol id="completedTodos">
-      <li id="lasCompletedItem">
+    <h2>Produtos Comprados (2)</h2>
+    <ol id="todosChecks">
+      <li id="lastItemCheck">
         <button>⭕️</button>
         <s>Leite Integral</s>
       </li>
@@ -39,30 +39,20 @@
         ).length;
       }
 
-      function updateCompletedCounter() {
-        document.getElementById("todoCompletedCounter").innerText =
-          completedTodos.filter(
-            (completedTodo) => !completedTodo.completed
-          ).length;
-      }
-
       function appendTodo(title) {
         const newTodo = document.createElement("li");
-        newTodo.innerHTML = `<button id="${title.id}" onclick="addCompletedTodo(${title})">✅</button> ${title}`;
+        newTodo.innerHTML = `<button id="checkButton">✅</button> ${title}`;
         document
           .getElementById("todos")
           .insertBefore(newTodo, document.getElementById("lastItem"));
       }
 
-      function appendCompletedTodo(title) {
-        const completedTodo = document.createElement("li");
-        completedTodo.innerHTML = `<button id="${title.id}" onclick="addTodo(${title})">⭕️</button> <s>${title}</s>`;
+      function checkTodo(title) {
+        const newTodo = document.createElement("li");
+        newTodo.innerHTML = `<button id="uncheckButton">⭕️</button> <s>${title}<s>`;
         document
-          .getElementById("completedTodos")
-          .insertBefore(
-            completedTodo,
-            document.getElementById("lastCompletedItem")
-          );
+          .getElementById("todosChecks")
+          .insertBefore(newTodo, document.getElementById("lastItemCheck"));
       }
 
       function buildTodo(title) {
@@ -73,26 +63,16 @@
         };
       }
 
-      function buildCompletedTodo(id, title) {
-        return {
-          id,
-          title,
-          completed: true,
-        };
-      }
-
       function addTodo(title) {
-        const todo = buildTodo(title.id, title);
+        const todo = buildTodo(title);
         todos.push(todo);
         appendTodo(todo.title);
         updateCounter();
       }
 
-      function addCompletedTodo(title) {
-        const completedTodo = buildCompletedTodo(title);
-        completedTodos.push(completedTodo);
-        appendCompletedTodo(completedTodo.title);
-        updateCompletedCounter();
+      function removeTodo(position) {
+        todos.splice(todos.indexOf(position));
+        updateCounter();
       }
 
       const addInput = document.getElementById("addInput");
@@ -104,9 +84,18 @@
       });
 
       todos.forEach((todo) => appendTodo(todo.title));
-      completedTodos.forEach((completedTodo) =>
-        appendCompletedTodo(completedTodo.title)
-      );
+
+      var checkButton = document.getElementById("checkButton");
+      checkButton.onclick = function() {
+        removeTodo(0);
+        checkTodo(todos[0].title); // teste
+      };
+
+      var uncheckButton = document.getElementById("uncheckButton");
+      uncheckButton.onclick = function() {
+        appendTodo(todos[0].title); // teste
+      };
+      
     </script>
   </body>
 </html>
