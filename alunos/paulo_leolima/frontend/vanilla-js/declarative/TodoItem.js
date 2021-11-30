@@ -5,6 +5,9 @@ export function TodoItem({ todo }) {
       ${todo.completed ? "⭕️" : "✅"}
     </button>
     ${todo.completed ? `<s>${todo.title}</s>` : todo.title}
+    <button onClick="deleteTodo('${todo.id}')">
+      X
+    </button>
   </li>
   `;
 }

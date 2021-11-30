@@ -19,11 +19,6 @@ export function addTodo(title) {
   todos.push(todo);
 }
 
-export function deleteTodo(id) {
-  const todo = todos.findIndex((todo) => todo.id === id);
-  todos.splice(todo, 1);
-}
-
 export function toggleTodo(id) {
   const todo = todos.find((todo) => todo.id === id);
   todo.completed = !todo.completed;
