@@ -1,6 +1,6 @@
 import { addTodo, toggleTodo } from './models.js'
 import { render } from './declarative.js'
-import { deleteTodo } from './models.js'
+// import { deleteTodo } from './models.js'
 
 globalThis.newTodoOnKeyPress = function (e) {
   if (e.key === 'Enter') {
