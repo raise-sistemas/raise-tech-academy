@@ -12,7 +12,7 @@ export function App({ todos }) {
       <div>
         <img src="./assets/images/imagem1.png">
       </div>
-      <input class="form-input" placeholder="To buy..." type="text" onKeyPress="newTodoOnKeyPress(event)"/>
+      <input class="form-input" placeholder="Para comprar..." type="text" onKeyPress="newTodoOnKeyPress(event)"/>
     </div>
     <div class="container">
       <div class="box-list">
