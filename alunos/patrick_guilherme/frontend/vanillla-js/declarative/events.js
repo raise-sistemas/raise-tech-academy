@@ -15,6 +15,6 @@ globalThis.toggleTodo = function (id) {
 }
 
 globalThis.deleteTodo = function (id) {
-  toggleTodo(id)
+  deleteTodo(id)
   render()
 }

@@ -8,7 +8,7 @@ export function TodoItem({ todo }) {
     <button onClick="deleteTodo('${todo.id}')">
     ❌
     </button>
-    <button class="editar" onClick="editiTodo('${todo.id}')">
+    <button class="editar" onClick="editTodo('${todo.id}')">
     Editar
     </button>
   </li>

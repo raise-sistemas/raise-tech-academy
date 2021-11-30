@@ -28,3 +28,8 @@ export function toggleTodo(id) {
   const todo = todos.find(todo => todo.id === id)
   todo.completed = !todo.completed
 }
+
+export function editTodo(id) {
+  const todo = todos.find(todo => todo.id === id)
+  
+}
