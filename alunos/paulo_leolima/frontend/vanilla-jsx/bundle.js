@@ -1,9 +1,11 @@
 function TodoItem({ todo  }) {
-    const icon = todo.completed ? "⭕️" : "✅";
+    const icon = todo.completed ? "⭕" : "✔️";
     const title = todo.completed ? React.createElement("s", null, todo.title) : todo.title;
     return React.createElement("li", null, React.createElement("button", {
         onClick: "toggleTodo('${todo.id}')"
-    }, icon), title);
+    }, icon), title, React.createElement("button", {
+        onClick: "deleteTodo('${todo.id}')"
+    }, "✖️"));
 }
 function ListTodos({ todos , children  }) {
     const lis = todos.map((todo)=>React.createElement(TodoItem, {
