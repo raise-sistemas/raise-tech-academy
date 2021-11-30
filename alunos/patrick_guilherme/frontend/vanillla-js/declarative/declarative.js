@@ -1,6 +1,6 @@
 import { App } from './App.js'
-import { todos } from './models.js'
-import { deleteItem } from './deleteItem.js'
+import { todos, deleteTodo } from './models.js'
+
 import './events.js'
 
 export function render() {
@@ -11,9 +11,3 @@ export function render() {
 }
 
 render()
-
-const delItem = document.querySelector('#deleteItem')
-
-delItem.addEventListener('click', function () {
-  delItem.parentElement.hidden = true
-})

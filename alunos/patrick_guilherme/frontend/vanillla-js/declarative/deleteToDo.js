@@ -1,3 +1,3 @@
-export function deleteItem(item) {
+function deleteItem(item) {
   item.parentElement.hidden = true
 }

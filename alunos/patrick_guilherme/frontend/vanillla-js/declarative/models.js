@@ -1,25 +1,30 @@
 export const todos = [
-  buildTodo("Pão Francês"),
-  buildTodo("Leite Integral"),
-  buildTodo("Margarina Qualy 500g", true),
-];
+  buildTodo('Pão Francês'),
+  buildTodo('Leite Integral'),
+  buildTodo('Margarina Qualy 500g', true)
+]
 
-globalThis.todos = todos;
+globalThis.todos = todos
 
 function buildTodo(title, completed = false) {
   return {
     id: crypto.randomUUID(),
     title,
-    completed,
-  };
+    completed
+  }
 }
 
 export function addTodo(title) {
-  const todo = buildTodo(title);
-  todos.push(todo);
+  const todo = buildTodo(title)
+  todos.push(todo)
+}
+
+export function deleteTodo(id) {
+  const todo = todos.find(todo => todo.id === id)
+  todo.filter(todo => todo.id !== todo.id)
 }
 
 export function toggleTodo(id) {
-  const todo = todos.find((todo) => todo.id === id);
-  todo.completed = !todo.completed;
+  const todo = todos.find(todo => todo.id === id)
+  todo.completed = !todo.completed
 }

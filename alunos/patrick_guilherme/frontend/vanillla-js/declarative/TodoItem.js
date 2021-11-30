@@ -5,7 +5,7 @@ export function TodoItem({ todo }) {
       ${todo.completed ? '⭕️' : '✅'}
     </button>
     ${todo.completed ? `<s>${todo.title}</s>` : todo.title}
-    <button id="deleteItem" onClick="">
+    <button onClick="deleteTodo('${todo.id}')">
     ❌
     </button>
   </li>

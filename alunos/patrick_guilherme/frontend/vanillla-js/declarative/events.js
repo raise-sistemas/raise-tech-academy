@@ -12,3 +12,7 @@ globalThis.toggleTodo = function (id) {
   toggleTodo(id);
   render();
 };
+
+// globalThis.deleteTodo = function (id) {
+
+// }
