@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LISTA DE COMPRAS</title>
+  </head>
+  <body>
+    <h1>LISTA DE COMPRAS</h1>
+
+    <h2>Produtos para Comprar (<span id="todoCounter">2</span>)</h2>
+    <ol id="todos">
+      <li id="lastItem">
+        <input id="addInput" type="text" />
+      </li>
+    </ol>
+
+    <hr />
+
+    <h2>Produtos Comprados (2)</h2>
+    <ol id="todosChecks">
+      <li id="lastItemCheck">
+        <button>⭕️</button>
+        <s>Leite Integral</s>
+      </li>
+      <li>
+        <button>⭕️</button>
+        <s>Azeitonas</s>
+      </li>
+    </ol>
+
+    <script>
+      const todos = [buildTodo("Pão Francês"), buildTodo("Manteiga")];
+
+      function updateCounter() {
+        document.getElementById("todoCounter").innerText = todos.filter(
+          (todo) => !todo.completed
+        ).length;
+      }
+
+      function appendTodo(title) {
+        const newTodo = document.createElement("li");
+        newTodo.innerHTML = `<button id="checkButton">✅</button> ${title}`;
+        document
+          .getElementById("todos")
+          .insertBefore(newTodo, document.getElementById("lastItem"));
+      }
+
+      function checkTodo(title) {
+        const newTodo = document.createElement("li");
+        newTodo.innerHTML = `<button id="uncheckButton">⭕️</button> <s>${title}<s>`;
+        document
+          .getElementById("todosChecks")
+          .insertBefore(newTodo, document.getElementById("lastItemCheck"));
+      }
+
+      function buildTodo(title) {
+        return {
+          id: crypto.randomUUID(),
+          title,
+          completed: false,
+        };
+      }
+
+      function addTodo(title) {
+        const todo = buildTodo(title);
+        todos.push(todo);
+        appendTodo(todo.title);
+        updateCounter();
+      }
+
+      function removeTodo(position) {
+        todos.splice(todos.indexOf(position));
+        updateCounter();
+      }
+
+      const addInput = document.getElementById("addInput");
+      addInput.addEventListener("keypress", (e) => {
+        if (e.code === "Enter") {
+          addTodo(e.target.value);
+          e.target.value = "";
+        }
+      });
+
+      todos.forEach((todo) => appendTodo(todo.title));
+
+      var checkButton = document.getElementById("checkButton");
+      checkButton.onclick = function() {
+        removeTodo(0);
+        checkTodo(todos[0].title); // teste
+      };
+
+      var uncheckButton = document.getElementById("uncheckButton");
+      uncheckButton.onclick = function() {
+        appendTodo(todos[0].title); // teste
+      };
+      
+    </script>
+  </body>
+</html>
