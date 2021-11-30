@@ -12,3 +12,11 @@ globalThis.toggleTodo = function (id) {
   toggleTodo(id);
   render();
 };
+
+globalThis.deleteTodo = function (id) {
+  let confirmDel = confirm("Deseja realmente excluir esse produto?")
+  if (confirmDel){
+    deleteTodo(id);
+  }
+  render();
+}

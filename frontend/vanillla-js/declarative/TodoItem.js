@@ -4,7 +4,7 @@ export function TodoItem({ todo }) {
     <button onClick="toggleTodo('${todo.id}')">
       ${todo.completed ? "⭕️" : "✅"}
     </button>
-    ${todo.completed ? `<s>${todo.title}</s>` : todo.title}
+    ${todo.completed ? `<s>${todo.title}</s>` : todo.title} 
   </li>
   `;
 }

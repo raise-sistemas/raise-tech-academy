@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LISTA DE COMPRAS</title>
+  </head>
+  <body>
+    <h1>LISTA DE COMPRAS</h1>
+
+    <h2>Produtos para Comprar (<span id="todoCounter">2</span>)</h2>
+    <ol id="todos">
+      <li id="lastItem">
+        <input id="addInput" type="text" />
+      </li>
+    </ol>
+
+    <hr />
+
+    <h2>Produtos Comprados (2)</h2>
+    <ol>
+      <li>
+        <button>⭕️</button>
+        <s>Leite Integral</s>
+      </li>
+      <li>
+        <button>⭕️</button>
+        <s>Azeitonas</s>
+      </li>
+    </ol>
+
+    <script>
+      const todos = [buildTodo("Pão Francês"), buildTodo("Manteiga")];
+
+      function updateCounter() {
+        document.getElementById("todoCounter").innerText = todos.filter(
+          (todo) => !todo.completed
+        ).length;
+      }
+
+      function appendTodo(title) {
+        const newTodo = document.createElement("li");
+        newTodo.innerHTML = `<button>✅</button> ${title} <button onClick="delTodo(event)">❌</button>`;
+        document
+          .getElementById("todos")
+          .insertBefore(newTodo, document.getElementById("lastItem"));
+      }
+
+      function buildTodo(title, completed = false) {
+        return {
+          id: crypto.randomUUID(),
+          title,
+          completed,
+        };
+      }
+
+      function addTodo(title) {
+        const todo = buildTodo(title);
+        todos.push(todo);
+        appendTodo(todo.title);
+        updateCounter();
+      }
+
+      function delTodo(id){
+        const todoIndex = todos.find((todo) => todo.id === id);
+        todos.splice(todoIndex, 1);
+        updateCounter();
+      }
+
+      function todoItem({ todo }) {
+        return `
+        <li>
+          <button onClick="toggleTodo('${todo.id}')">
+            ${todo.completed ? "⭕️" : "✅"}
+          </button>
+          ${todo.completed ? `<s>${todo.title}</s>` : todo.title}
+        </li>
+        `;
+      }
+
+      function toggleTodo(id) {
+        const todo = todos.find((todo) => todo.id === id);
+        todo.completed = !todo.completed;
+      }
+
+      function listTodos({ todos }) {
+        return todos.map((todo) => todoItem({ todo })).join("\n");
+      }
+
+      const addInput = document.getElementById("addInput");
+      addInput.addEventListener("keypress", (e) => {
+        if (e.code === "Enter") {
+          addTodo(e.target.value);
+          e.target.value = "";
+        }
+      });
+
+      todos.forEach((todo) => appendTodo(todo.title));
+    </script>
+  </body>
+</html>
