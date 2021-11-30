@@ -1,5 +1,5 @@
 export function TodoItem({ todo }) {
-  const icon = todo.completed ? "⭕️" : "✅";
+  const icon = todo.completed ? "❗️" : "✔️";
   const title = todo.completed ? <s>{todo.title}</s> : todo.title;
 
   return (
