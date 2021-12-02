@@ -1,0 +1,9 @@
+- Função que cria as divs HTML
+- Função que renderiza, (chama a que cria)
+Essa vai pegar lançar um querySelector no HTML pra usar o innerHTML.
+- Vai linkar com um arquivo HTML só
+
+Em suma, vão ser duas funções principais. Uma que cria as tags HTML e outra que põe essas tags
+no HTML, com innerHTML mesmo.
+Se eu quiser fazer outras paradas no meu site, eu tenho que criar funções, e chamá-las no arquivo
+que cria as tags HTML.

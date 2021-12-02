@@ -16,7 +16,6 @@ export function App({ todos }) {
         <input type="text" onKeyPress="newTodoOnKeyPress(event)" />
       </li>
     </ol>
-
     <hr />
 
     <h2>Produtos Comprados (${qtyCompletedTodos})</h2>

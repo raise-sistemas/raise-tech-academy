@@ -6,8 +6,9 @@ import './events.js'
 export function render() {
   const app = document.getElementById('app')
   // View = F(state)
-  const state = { todos }
-  app.innerHTML = App(state)
+  // const state = { todos }
+  app.innerHTML = App({todos})
 }
 
 render()
+
