@@ -8,35 +8,29 @@ import { winnerCheck } from "./winnerCheck.js";
 import { setScore } from "./score/setScore.js";
 import { replayGame } from "./replayGame.js";
 import { endGame } from "./endGame.js";
-import {isFutureDraw} from "./isFutureDraw.js";
+import { isFutureDraw } from "./isFutureDraw.js";
 
+export function roundActions(BOARD, currentPlayer) {
+  if (winnerCheck(BOARD, currentPlayer)) {
+    drawScreen(BOARD, playerOneScore, playerTwoScore);
+    congratulations(currentPlayer);
+    setScore(currentPlayer);
 
-export function roundActions(BOARD, currentPlayer){
+    if (!replayGame(BOARD, continueGame())) return false, currentPlayer;
+  } else {
+    currentPlayer = currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1;
+  }
+  if (isBoardFull(BOARD, EMPTY)) {
+    drawScreen(BOARD, playerOneScore, playerTwoScore);
+    endGame();
 
+    if (!replayGame(BOARD, continueGame())) return false, currentPlayer;
+  }
+  if (isFutureDraw(BOARD, currentPlayer)) {
+    drawScreen(BOARD, playerOneScore, playerTwoScore);
+    console.log("Fim de jogo, deu velha, não há mais como vencer!");
+    if (!replayGame(BOARD, continueGame())) return false, currentPlayer;
+  }
 
-    if (winnerCheck(BOARD, currentPlayer)) {
-        drawScreen(BOARD, playerOneScore, playerTwoScore);
-        congratulations(currentPlayer);
-        setScore(currentPlayer);
-  
-        if (!replayGame(BOARD, continueGame()))return false, currentPlayer;
-      } else {
-        currentPlayer = currentPlayer === PLAYER1 ? PLAYER2 : PLAYER1;
-      }
-      if (isBoardFull(BOARD, EMPTY)) {
-        drawScreen(BOARD, playerOneScore, playerTwoScore);
-        endGame();
-  
-        if (!replayGame(BOARD, continueGame()))return false, currentPlayer;
-      }
-      if(isFutureDraw(BOARD, currentPlayer)){
-        drawScreen(BOARD, playerOneScore, playerTwoScore);
-        console.log("Fim de jogo, deu velha, não há mais como vencer!");
-        if (!replayGame(BOARD, continueGame())) return false, currentPlayer;
-      };
-
-
-      return true, currentPlayer
-
-
+  return true, currentPlayer;
 }
