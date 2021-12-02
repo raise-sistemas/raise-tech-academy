@@ -1,15 +1,17 @@
-const completedOlEl = document.querySelector('#completedTodos');
 const todos = [buildTodo("Pão Francês"), buildTodo("Manteiga")];
-let countBtnId = 1;
+
+function findTodo(title) {
+  return todos.find(todo => todo.title === title);
+}
 
 function updateCounter() {
   // 'Todos' não completados
-  document.getElementById("todoCounter").innerText = todos.filter(
+  document.querySelector("#todoCounter").innerText = todos.filter(
     (todo) => !todo.completed
   ).length;
   
   // 'Todos' completados
-  document.getElementById("todoCounter-completed").innerText = todos.filter(
+  document.querySelector("#todoCounter-completed").innerText = todos.filter(
     (todo) => todo.completed
   ).length;
 }
@@ -25,23 +27,40 @@ function buildTodo(title) {
 function appendTodo(title) {
   const newTodo = document.createElement("li");
 
-  newTodo.innerHTML = `<button id="btn-todo-${countBtnId}">✅</button> ${title}`;
+  newTodo.innerHTML = `<button>✅</button> <span>${title}</span>`;
   document
-    .getElementById("todos")
-    .insertBefore(newTodo, document.getElementById("lastItem"));
+    .querySelector("#todos")
+    .insertBefore(newTodo, document.querySelector("#lastItem"));
   
   // adiciona evento de 'click' no botão da 'todo'
-  document
-    .querySelector(`#btn-todo-${countBtnId}`)
+  newTodo.querySelector('button')
     .addEventListener('click', event => removeTodo(event.target.parentElement));
-
-  countBtnId++;  
+  
+  // adiciona evento de 'click' na 'todo' (span)
+  newTodo.querySelector('span')
+    .addEventListener('click', event => updateTodo(event.target));
 }
 
 function appendCompletedTodos(title) {
   const newCompletedTodo = document.createElement('li');
-  newCompletedTodo.innerHTML = `<button id="btn-todo-${countBtnId}">⭕️</button> <s>${title}</s>`;
-  completedOlEl.appendChild(newCompletedTodo);
+  newCompletedTodo.innerHTML = `<button>⭕️</button> <s>${title}</s>`;
+
+  document.querySelector('#completedTodos')
+    .appendChild(newCompletedTodo);
+
+  // adiciona evento de 'click' no botão da 'todo'
+  newCompletedTodo.querySelector('button')
+  .addEventListener('click', event => toggleTodo(event.target.parentElement));
+}
+
+//Troca 'todo' de 'completada' para 'não completada'
+function toggleTodo(element){
+  const title = element.querySelector('s').innerText;
+  const todo = findTodo(title);
+  todo.completed = false;
+  appendTodo(title);
+  element.remove();
+  updateCounter();
 }
 
 function addTodo(title) {
@@ -52,34 +71,59 @@ function addTodo(title) {
 }
 
 function removeTodo(element){
-  const title = element.innerText.split('✅ ')[1]; //pega título
-  const todo = todos.filter(todo => todo.title === title)[0]; //retorna objeto
-  
+  const title = element.querySelector('span').innerText; //pega título
+  const todo = findTodo(title);
+
   todo.completed = true;
   appendCompletedTodos(title);
   element.remove(); //remove todo da lista de 'Produtos para comprar'
   updateCounter();
 }
 
-function initEvents() {
-  const addInput = document.getElementById("addInput");
+function updateTodo(element){
+  const todo = findTodo(element.innerText);
 
-  addInput.addEventListener("keypress", (e) => {
-    if (e.code === "Enter" || e.code === "NumpadEnter") {
-      
-      if(!e.target.value){
+  const inputEdit = document.createElement('input');
+  inputEdit.value = element.innerText;
+  element.innerHTML = '';
+  element.appendChild(inputEdit);
+  
+  inputEdit.focus();
+
+  // adiciona evento 'keypress' no input de edição
+  inputEdit.addEventListener('keypress', event => {
+    if (event.code === "Enter" || event.code === "NumpadEnter") {
+
+      if(!event.target.value){
         alert('Campo Vazio!');
         return;
       }
 
-      addTodo(e.target.value);
-      e.target.value = "";
+      todo.title = event.target.value;
+      element.innerHTML = todo.title;
     }
   });
 }
 
+function initEventInput() {
+  const addInput = document.querySelector("#addInput");
+
+  addInput.addEventListener("keypress", event => {
+    if (event.code === "Enter" || event.code === "NumpadEnter") {
+      
+      if(!event.target.value){
+        alert('Campo Vazio!');
+        return;
+      }
+
+      addTodo(event.target.value);
+      event.target.value = "";
+    }
+  });
+} 
+
 function main() {
-  initEvents();  
+  initEventInput();  
   todos.forEach((todo) => appendTodo(todo.title));
   updateCounter();
 }
