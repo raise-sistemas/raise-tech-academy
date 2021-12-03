@@ -5,14 +5,14 @@ import { wrongGuesses } from "./components/wrongGuesses.js"
 import { gameStatus } from "./components/gameStatus.js"
 
 export function endView(gameState) {
-  const end = 
-  `
-  ${player(gameState.chances)}
-  ${endGuesses(gameState.correct, gameState.secretWord)}
-  ${bar(gameState.secretWord.length)}
-  ${wrongGuesses(gameState.wrong)}
-  ${gameStatus(gameState.status, gameState.secretWord)}
+  const { chances,  status, secretWord, wrong, correct } = gameState
+
+  return `
+  ${player(chances)}
+  ${endGuesses(correct, secretWord)}
+  ${bar(secretWord.length)}
+  ${wrongGuesses(wrong)}
+  ${gameStatus(status, secretWord)}
   `
 
-  return end;
 }

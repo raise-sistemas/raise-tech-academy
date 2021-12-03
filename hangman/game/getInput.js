@@ -1,5 +1,6 @@
 function readInputChar(prompt) {
   const char = (prompt("Digite a Próxima Letra:") || "").toUpperCase().charAt(0);
+  
   if(!/[A-Z\u00C0-\u00FF-]/.test(char)) {
     console.log("Entrada inválida");
 

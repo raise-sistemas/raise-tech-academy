@@ -2,22 +2,17 @@ import { player } from "./components/player.js"
 import { correctGuesses } from "./components/correctGuesses.js"
 import { bar } from "./components/bar.js"
 import { wrongGuesses } from "./components/wrongGuesses.js"
-import { tips } from "./components/tips.js"
+import { tips as displayTips } from "./components/tips.js"
 
 export function mainView(gameState) {
-  let main = 
-  `
-  ${player(gameState.chances)}
-  ${correctGuesses(gameState.correct)}
-  ${bar(gameState.secretWord.length)}
-  ${wrongGuesses(gameState.wrong)}
+  const { chances,  secretWord, wrong, correct, tips } = gameState
+  
+  return `
+  ${player(chances)}
+  ${correctGuesses(correct)}
+  ${bar(secretWord.length)}
+  ${wrongGuesses(wrong)}
 
+  ${displayTips(tips.class, tips.synonyms, chances)}
   `
-  if(gameState.chances < 2) {
-    main += tips(gameState.tips.class, gameState.tips.synonyms)
-  } else if(gameState.chances < 3) {
-    main += tips(gameState.tips.class)
-  }
-
-  return main;
 }
