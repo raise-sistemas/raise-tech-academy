@@ -1,16 +1,9 @@
-import { useState, useEffect } from 'react';
 import { useRouting } from './hooks/useRouting';
 import { Routes } from './Routes';
 
 export function Router() {
-  const [path, setPath] = useState(window.location.pathname);
-
-  useEffect(() => {
-    window.addEventListener('popstate', () => {
-      setPath(window.location.pathname);
-    });
-  });
-
+  const path = useRouting();
+  
   return (
     <>
       <h1>Navbar</h1>
