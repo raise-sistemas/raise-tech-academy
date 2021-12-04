@@ -2,7 +2,8 @@ import { useRouting } from "./hooks/useRouting";
 import { Routes } from "./Routes";
 
 export function Router() {
-  const [path] = useRouting();
+  //const [path] = useRouting(); <-- como passado na aula.
+  const path = useRouting();
 
   return (
     <>
