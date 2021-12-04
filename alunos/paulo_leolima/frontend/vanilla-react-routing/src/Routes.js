@@ -1,7 +1,8 @@
-import { Dashboard, Profile, Settings } from './pages';
+import { Dashboard, Login, Profile, Settings } from "./pages";
 
 export const Routes = {
-  '/': <Dashboard />,
-  '/profile': <Profile />,
-  '/settings': <Settings />,
+  "/": <Dashboard />,
+  "/login": <Login />,
+  "/profile": <Profile />,
+  "/settings": <Settings />,
 };
