@@ -1,8 +1,9 @@
-import { Dashboard, Login, Profile, Settings } from "./pages";
+import { Home, Login, Profile, Settings, Dashboard } from "./pages";
 
 export const Routes = {
-  "/": <Dashboard />,
+  "/": <Home />,
   "/login": <Login />,
   "/profile": <Profile />,
   "/settings": <Settings />,
+  "/Dashboard": <Dashboard />,
 };

@@ -7,7 +7,7 @@ export function Router() {
 
   return (
     <>
-      <h1>Navbar</h1>
+      <h1>Raise Tech Academy</h1>
       <div>
         {Routes[path] ? Routes[path] : <div>Página não encontrada.</div>}
       </div>

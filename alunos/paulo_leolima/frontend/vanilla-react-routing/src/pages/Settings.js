@@ -4,7 +4,7 @@ export function Settings() {
   return (
     <>
       <h1>Settings</h1>
-      <button onClick={() => onNavigate("/")}>Voltar</button>
+      <button onClick={() => onNavigate("/dashboard")}>Voltar</button>
     </>
   );
 }
