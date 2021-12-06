@@ -1,0 +1,4 @@
+01 - Encapsular a lógica do roteamento em um custom hook
+02 - Adicionar uma funcionalidade de login
+03 - implementar a proteção das rotas "privadas"
+04 - 
