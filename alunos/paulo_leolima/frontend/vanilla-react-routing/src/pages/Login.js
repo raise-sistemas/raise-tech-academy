@@ -1,8 +1,9 @@
 import { onNavigate } from "../utils/onNavigate";
+import { userAuth } from "../userAuth";
 
-function userAuth(usuario, senha) {
-  return usuario === "pjniche@gmail.com" && senha === "123" ? true : false;
-}
+// Usuário teste.
+sessionStorage.setItem("email", "pjniche@gmail.com");
+sessionStorage.setItem("senha", "123");
 
 export function Login() {
   return (
@@ -10,7 +11,7 @@ export function Login() {
       <h1>Login</h1>
       <form
         onSubmit={() =>
-          userAuth(/*getElementById(email), getElementById(senha)*/)
+          userAuth(/*getElementById("email"), getElementById("senha")*/)
             ? onNavigate("/dashboard")
             : onNavigate("/login")
         }
