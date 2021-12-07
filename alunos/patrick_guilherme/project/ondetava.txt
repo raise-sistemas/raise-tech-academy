@@ -1,0 +1,5 @@
+1:12:00
+
+O que fazer:
+
+01 - A página profile tem que estar protegida, pedir login ao acessar essa rota.
