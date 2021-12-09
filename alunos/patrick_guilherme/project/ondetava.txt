@@ -11,5 +11,6 @@ Fails:
 
 Passos:
 
+- Criar a tela de cadastro
 - Criar um array de objetos e salvar ele no localstorage
 - Cada objeto desse array, vai ser um usuário, com nome, login e senha.
