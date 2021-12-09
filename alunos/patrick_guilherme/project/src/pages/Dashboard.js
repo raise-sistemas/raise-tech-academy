@@ -6,6 +6,7 @@ export function Dashboard() {
       <h1>Página Home</h1>
       <button onClick={() => onNavigate('/profile')}>Perfil</button>
       <button onClick={() => onNavigate('/settings')}>Configurações</button>
+      <button onClick={() => console.log(localStorage.darkyMode)}>teste</button>
     </>
   )
 }

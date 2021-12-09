@@ -3,3 +3,13 @@
 O que fazer:
 
 01 - A página profile tem que estar protegida, pedir login ao acessar essa rota.
+02 - gerar código e mandar pra o e-mail
+
+Fails:
+
+02 - Gerar 
+
+Passos:
+
+- Criar um array de objetos e salvar ele no localstorage
+- Cada objeto desse array, vai ser um usuário, com nome, login e senha.

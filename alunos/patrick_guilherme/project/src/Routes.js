@@ -1,7 +1,8 @@
-import { Dashboard, Profile, Settings } from './pages/index.js'
+import { Dashboard, Profile, Settings, Login } from './pages/index.js'
 
 export const Routes = {
   '/': <Dashboard />,
   '/profile': <Profile />,
-  '/settings': <Settings />
+  '/settings': <Settings />,
+  '/login': <Login />
 }
