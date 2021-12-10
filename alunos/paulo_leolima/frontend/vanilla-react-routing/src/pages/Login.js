@@ -1,30 +1,39 @@
 import { onNavigate } from "../utils/onNavigate";
 import { userAuth } from "../userAuth";
-
-// Usuário teste.
-sessionStorage.setItem("email", "pjniche@gmail.com");
-sessionStorage.setItem("senha", "123");
+import { useState } from "react";
 
 export function Login() {
+  const [usuario, setUsuario] = useState("");
+  const [senha, setSenha] = useState("");
+
   return (
     <>
       <h1>Login</h1>
       <form
         onSubmit={() =>
-          userAuth(/*getElementById("email"), getElementById("senha")*/)
+          userAuth(usuario, senha)
             ? onNavigate("/dashboard")
             : onNavigate("/login")
         }
       >
         <label>
-          E-mail:
-          <input type="email" id="email" />
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={usuario}
+            onChange={() => setUsuario(usuario)}
+          />
         </label>
         <br />
         <label>
-          Senha:
-          <input type="password" id="senha" />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={senha}
+            onChange={() => setSenha(senha)}
+          />
         </label>
+        <br />
         <input type="submit" value="Entrar" />
       </form>
       <p />
