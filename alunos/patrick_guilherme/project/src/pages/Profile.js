@@ -5,7 +5,7 @@ export function Profile() {
 
   return (
     <>
-    <h1>Olá, {getName('pamedsi')}</h1>
+    <h1>Olá, {getName()}</h1>
       <button onClick={() => onNavigate('/')}>Página inicial</button>
       <button onClick={() => onNavigate('/settings')}>Configurações</button>
     </>

@@ -1,12 +1,13 @@
 import { onNavigate } from '../utils/onNavigate.js'
 import { loginChecker } from '../utils/loginChecker.js'
-
+import { startSession } from '../utils/startSession.js'
 
 function login() {
   let email = document.querySelector('.email').value
   let password = document.querySelector('.password').value
 
   if (loginChecker(email, password)) {
+    startSession(email)
     onNavigate('/profile')
   }
   else {
@@ -14,7 +15,6 @@ function login() {
     password = ''
     alert('Usuário ou senha incorretos')
   }
-
 }
 
 export function Login() {
