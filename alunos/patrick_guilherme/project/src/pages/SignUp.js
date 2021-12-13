@@ -18,9 +18,8 @@ function signup() {
 
     const json = JSON.stringify(user)
     localStorage.setItem(`User ${localStorage.length + 1}`, json)
-
-    
-
+    alert('Usuário cadastrado com sucesso! ✅')
+    onNavigate('/login')
   } else {
     alert('Insira todos os dados!')
   }

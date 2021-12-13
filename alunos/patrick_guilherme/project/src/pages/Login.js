@@ -1,15 +1,20 @@
 import { onNavigate } from '../utils/onNavigate.js'
+import { emailChecker } from '../utils/emailChecker.js'
+import { passwordChecker } from '../utils/passwordChecker.js'
 
 function login() {
-  const email = document.querySelector('.email').value
-  const users = JSON.parse(localStorage.Users)
-  const emailFinder = users.find(item => item.email === email)
+  let email = document.querySelector('.email').value
+  let password = document.querySelector('.password').value
 
-  if (emailFinder) {
-    return onNavigate('/profile')
-  } else {
-    return {}
+  if (emailChecker(email) && passwordChecker(password)) {
+    onNavigate('/profile')
   }
+  else {
+    email = ''
+    password = ''
+    alert('Usuário ou senha incorretos')
+  }
+
 }
 
 export function Login() {
