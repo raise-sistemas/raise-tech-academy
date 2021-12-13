@@ -9,7 +9,8 @@ export function getName(email) {
         name = user.name
         break
       }
-      return name
     } catch {}
   }
+
+  return name
 }
