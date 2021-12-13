@@ -1,13 +1,15 @@
 export function getName(email) {
   const users = Object.values(localStorage)
-  let name =''
+  let name = ''
 
-  for (let i = 0; i < users.length; i++) {
-
-    if (users.email[i] === email){
-      name = users[i].name
-      break
-      
+  for (let i = 0; i < users.length - 1; i++) {
+    try {
+      let user = JSON.parse(users[i])
+      if (user.email === email) {
+        name = user.name
+        break
+      }
+      return name
+    } catch {}
   }
-  return name
-}}
+}

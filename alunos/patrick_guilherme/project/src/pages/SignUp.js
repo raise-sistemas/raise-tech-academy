@@ -1,6 +1,5 @@
 import { onNavigate } from '../utils/onNavigate.js'
 import { generateKey } from '../utils/generateKey'
-import { Profile } from './Profile.js'
 
 function signup() {
   const email = document.querySelector('.email')
