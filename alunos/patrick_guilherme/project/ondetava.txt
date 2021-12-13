@@ -1,9 +1,10 @@
-1:12:00
+1:13:00
 
 O que fazer:
 
-01 - A página profile tem que estar protegida, pedir login ao acessar essa rota.
+01 - A página profile tem que estar protegida, pedir login ao acessar essa rota. ok
 02 - gerar código e mandar pra o e-mail
+03 - criar meus próprios hooks
 
 Fails:
 
@@ -13,6 +14,4 @@ Passos:
 
 - Criar a tela de cadastro ok
 - Pegar o input de senha e email da página de login ok
-- Verificar se o email digitado e a senha estão no localstorage
-- Criar um array de objetos e salvar ele no localstorage
-- Cada objeto desse array, vai ser um usuário, com nome, login e senha.
+- Verificar se o email digitado e a senha estão no localstorage ok
