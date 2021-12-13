@@ -1,0 +1,1 @@
+export default new RegExp('CNPJ:.*?<div class="text">(.*)');
