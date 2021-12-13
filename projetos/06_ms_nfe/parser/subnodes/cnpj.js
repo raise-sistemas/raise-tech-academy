@@ -3,7 +3,7 @@ import { parseChunk } from '../parseChunk.js'
 
 
 export const cnpj = (chunk) => {
-  const result = parseChunk(chunk, pattern);
+  const innerChunk = parseChunk(chunk, pattern);
 
-  return result.replace(/\s/g, "");
+  return innerChunk.replace(/\s/g, "");
 }
