@@ -1,3 +1,3 @@
-export function mxValidator(email) {
-  return await Deno.resolveDns(email, "A");
+export function mxValidator(domain) {
+  return await Deno.resolveDns(domain, "MX");
 }
