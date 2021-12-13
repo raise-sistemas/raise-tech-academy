@@ -1,4 +1,4 @@
-export function passwordChecker(password) {
+export function loginChecker(email, password) {
   const users = []
   Object.values(localStorage).forEach(element => {
     try {
@@ -8,13 +8,11 @@ export function passwordChecker(password) {
   })
 
   let finder = ''
-  let index = ''
 
   for (let i = 0; i < users.length; i++) {
-    const element = users[index];
-    if (element.password === password) {
+    const element = users[i]
+    if (element.email === email && element.password === password) {
       finder = true
-      index = i
       break
     }
   }

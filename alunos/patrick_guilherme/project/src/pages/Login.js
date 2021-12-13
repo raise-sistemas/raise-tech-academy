@@ -1,12 +1,12 @@
 import { onNavigate } from '../utils/onNavigate.js'
-import { emailChecker } from '../utils/emailChecker.js'
-import { passwordChecker } from '../utils/passwordChecker.js'
+import { loginChecker } from '../utils/loginChecker.js'
+
 
 function login() {
   let email = document.querySelector('.email').value
   let password = document.querySelector('.password').value
 
-  if (emailChecker(email) && passwordChecker(password)) {
+  if (loginChecker(email, password)) {
     onNavigate('/profile')
   }
   else {
