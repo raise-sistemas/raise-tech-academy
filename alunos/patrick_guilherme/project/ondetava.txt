@@ -11,6 +11,8 @@ Fails:
 
 Passos:
 
-- Criar a tela de cadastro
+- Criar a tela de cadastro ok
+- Pegar o input de senha e email da página de login ok
+- Verificar se o email digitado e a senha estão no localstorage
 - Criar um array de objetos e salvar ele no localstorage
 - Cada objeto desse array, vai ser um usuário, com nome, login e senha.

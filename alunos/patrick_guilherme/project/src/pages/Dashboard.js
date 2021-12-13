@@ -7,7 +7,7 @@ export function Dashboard() {
       <h1>Página Home</h1>
       <button onClick={ProfileLogin}>Perfil</button>
       <button onClick={() => onNavigate('/settings')}>Configurações</button>
-      <button onClick={() => console.log(typeof localStorage.Users)}>teste</button>
+      {/* <button onClick={() => console.log(typeof localStorage.Users)}>teste</button> */}
     </>
   )
 }
