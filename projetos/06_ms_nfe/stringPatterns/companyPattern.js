@@ -1,0 +1,1 @@
+export default new RegExp('<div class="txtCenter">(.*?)<\/div><\/div>');
