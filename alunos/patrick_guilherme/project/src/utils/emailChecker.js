@@ -1,12 +1,27 @@
-export function emailChecker (email) {
+export function emailChecker(email) {
+  const users = []
   Object.values(localStorage).forEach(element => {
-    const user = JSON.parse(element)
+    try {
+      const user = JSON.parse(element)
+      users.push(user)
+    } catch {}
+  })
 
-    if (user.email === email) {
-      return true
+  let finder = ''
+  let index = ''
+
+  for (let i = 0; i < users.length; i++) {
+    const element = users[index];
+    if (element.email === email) {
+      finder = true
+      index = i
+      break
     }
-    else {
-      return false
-    }
-  });
+  }
+
+  if (finder) {
+    return true
+  } else {
+    return false
+  }
 }
