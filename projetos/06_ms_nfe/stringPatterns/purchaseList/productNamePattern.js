@@ -1,0 +1,1 @@
+export default new RegExp('<span class="txtTit2">(.*?)<\/span>');
