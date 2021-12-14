@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.117.0/testing/asserts.ts"
+import { assertEquals } from "../deps.js"
 import { minify } from "../parser/minify.js"
 
 Deno.test("remove whitespaces between tags", () => {
