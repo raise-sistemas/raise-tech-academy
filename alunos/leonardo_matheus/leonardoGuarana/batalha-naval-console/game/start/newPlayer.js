@@ -6,11 +6,13 @@ export function newPlayer() {
     grid: initGrid('🟦'),
     enemyGrid: initGrid('⬛️'),
     status: "playing",
-    aircraftCarriers : new Array(5),  //5 
-    battleships : new Array(4),        //4  
-    Cruisers : new Array(3),          //3  
-    Destroyers : new Array(2),        //2  
-    Submarines : ''        //1  
+    ships:{
+      aircraftCarriers : [5],  //5 
+      battleships : [4],       //4  
+      Cruisers : [3],          //3  
+      Destroyers : [2],        //2  
+      Submarines : [1]                  //1  
+    }
   }
   return player
 }
