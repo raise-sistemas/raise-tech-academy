@@ -1,5 +1,5 @@
-import { validateEmail } from "../src/validateEmail.js";
+import { isDomainMxValid } from "./isDomainMxValid.js";
 
-export function cliMenu() {
-  return console.log(validateEmail(prompt("Digite o E-mail:")));
+export async function cliMenu() {
+  return console.log(await isDomainMxValid(prompt("Digite o Domínio:")));
 }
