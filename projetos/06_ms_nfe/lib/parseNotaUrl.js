@@ -6,6 +6,7 @@ import { extractAdress } from "./extractors/extractAdress.js";
 import { extractor } from './extractors/extractor.js'
 import { extractProduct } from './extractors/extractProduct.js'
 import { extractItemsQty } from './extractors/extractItemsQty.js'
+import { extractTotal } from './extractors/extractTotal.js'
 
 function productPattern(index) {
   return new RegExp(String.raw`Item.*?\s${index}">(.*?)<\/tr>`);
@@ -41,7 +42,8 @@ export async function parseNotaUrl(url) {
     },
     products: await createProductList(productsChunk),
     purchaseInfo: {
-      itemsQty: extractItemsQty(purchaseChunk)
+      itemsQty: extractItemsQty(purchaseChunk),
+      total: extractTotal(purchaseChunk)
     }
   }
 }
