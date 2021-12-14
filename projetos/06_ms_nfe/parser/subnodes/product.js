@@ -1,22 +1,17 @@
-import amount from '../../stringPatterns/purchaseList/amountPattern.js'
-import code from '../../stringPatterns/purchaseList/codePattern.js'
-import unit from '../../stringPatterns/purchaseList/measurementUnitPattern.js'
-import name from '../../stringPatterns/purchaseList/productNamePattern.js'
-import totalValue from '../../stringPatterns/purchaseList/valuePattern.js';
-import valuePerUnit from '../../stringPatterns/purchaseList/valuePerUnitPattern.js'
+import * as pattern from '../../stringPatterns/productsPattern.js'
 import { parseChunk } from '../parseChunk.js'
 
 
 export const product = (chunk) => ({
-  productName: parseChunk(chunk, name),
+  productName: parseChunk(chunk, pattern.productNamePattern),
 
-  code: parseChunk(chunk, code),
+  code: parseChunk(chunk, pattern.codePattern),
 
-  totalValue: parseChunk(chunk, totalValue),
+  totalAmount: parseFloat(parseChunk(chunk, pattern.totalAmountPattern).replace(",", ".")),
 
-  amount: parseChunk(chunk, amount).replace(/\s/g, ""),
+  qty: parseFloat(parseChunk(chunk, pattern.qtyPattern).replace(",", ".")),
 
-  measurementUnit: parseChunk(chunk, unit).replace(/\s/g, ""),
+  unity: parseChunk(chunk, pattern.unityPattern),
 
-  valuePerUnit: parseChunk(chunk, valuePerUnit).replace(/\s/g, ""),
+  value: parseFloat(parseChunk(chunk, pattern.valuePattern).replace(",", ".")),
 })

@@ -1,11 +1,11 @@
-import companyPattern from '../stringPatterns/companyPattern.js'
-import purchaseInfoPattern from '../stringPatterns/purchaseInfoPattern.js'
-import purchaseListPattern from '../stringPatterns/purchaseListPattern.js' 
+import { storePattern } from '../stringPatterns/storePattern.js'
+import { purchaseInfo } from '../stringPatterns/purchaseInfoPattern.js'
+import { productsPattern } from '../stringPatterns/productsPattern.js' 
 
-export const chunkRaw = (str) => {
+export const chunkRaw = (html) => {
   return {
-    company: companyPattern.exec(str)[1],
-    purchaseInfo: purchaseInfoPattern.exec(str)[1],
-    purchaseList: purchaseListPattern.exec(str)[1],
+    company: html.match(storePattern)[1],
+    purchaseInfo: html.match(purchaseInfo)[1],
+    purchaseList: html.match(productsPattern)[1],
   }
 };

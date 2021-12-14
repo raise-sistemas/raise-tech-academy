@@ -1,6 +1,4 @@
-import pattern from '../../stringPatterns/company/companyNamePattern.js'
+import {storeNamePattern } from '../../stringPatterns/storePattern.js'
 import { parseChunk } from '../parseChunk.js'
 
-export const companyName = (chunk) => {
-  return parseChunk(chunk, pattern);
-}
+export const companyName = (chunk) => parseChunk(chunk, storeNamePattern);
