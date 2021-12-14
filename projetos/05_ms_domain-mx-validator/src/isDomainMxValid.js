@@ -1,10 +1,14 @@
 export async function isDomainMxValid(domain) {
   try {
-    //Promise.any(await Deno.resolveDns(domain, "MX"));
-    await Deno.resolveDns(domain, "MX");
+    const mxDomains = await Deno.resolveDns(domain, "MX");
+    console.log(mxDomains);
+    const mxDom = await Promise.any(mxDomains);
+    console.log(mxDom);
+    //const mx = await Deno.resolveDns(mxDom.exchange, "MX")
+    //console.log(mx);
     return true;
   } catch (e) {
-    //console.log(e);
+    console.log(e);
     return false;
   }
 }
