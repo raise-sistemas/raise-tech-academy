@@ -5,6 +5,7 @@ import { splitHtml } from "./splitHtml.js"
 import { extractAdress } from "./extractors/extractAdress.js";
 import { extractor } from './extractors/extractor.js'
 import { extractProduct } from './extractors/extractProduct.js'
+import { extractItemsQty } from './extractors/extractItemsQty.js'
 
 function productPattern(index) {
   return new RegExp(String.raw`Item.*?\s${index}">(.*?)<\/tr>`);
@@ -24,8 +25,13 @@ async function createProductList(chunk) {
 
 
 export async function parseNotaUrl(url) {
-  const [ storeChunk, productsChunk, purchaseChunk ] = splitHtml(await fetchHtml(url));
+  const [ 
+    storeChunk, 
+    productsChunk, 
+    purchaseChunk 
+  ] = splitHtml(await fetchHtml(url));
 
+  console.log(purchaseChunk)
   return {
     url,
     store: {
@@ -33,6 +39,9 @@ export async function parseNotaUrl(url) {
       cnpj: extractCnpj(storeChunk),
       adress: extractAdress(storeChunk)
     },
-    products: await createProductList(productsChunk)
+    products: await createProductList(productsChunk),
+    purchaseInfo: {
+      itemsQty: extractItemsQty(purchaseChunk)
+    }
   }
 }
