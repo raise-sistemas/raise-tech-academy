@@ -1,1 +1,0 @@
-export const purchaseInfo = new RegExp('<div id="totalNota".*?>(.*?)<\/div><\/div>');

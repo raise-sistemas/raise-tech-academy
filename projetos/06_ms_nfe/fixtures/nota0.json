@@ -2,6 +2,32 @@
   "url": "__URL__",
   "store": {
     "name": "IRMAOS MUFFATO S A",
-    "cnpj": "76.430.438/0065-36"
-  }
+    "cnpj": "76.430.438/0065-36",
+    "adress": {
+      "street": "Av Colombo",
+      "adressNumber": 2720,
+      "reference": "",
+      "neighbourhood": "Vl Morangueira",
+      "city": "Maringa",
+      "state": "PR"
+    }
+  },
+  "products": [
+    {
+      "productName": "SABAO PO TIXAN  5KG",
+      "code": "62235",
+      "totalAmount": 36.99,
+      "qty": 1,
+      "unity": "Un",
+      "value": 36.99
+    },
+    {
+      "productName": "FETTUCINE SEARA 350G",
+      "code": "168373",
+      "totalAmount": 7.59,
+      "qty": 1,
+      "unity": "Un",
+      "value": 7.59
+    }
+  ]
 }
