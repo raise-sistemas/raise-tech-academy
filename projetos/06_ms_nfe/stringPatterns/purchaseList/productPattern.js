@@ -1,0 +1,1 @@
+export default (index) => new RegExp(String.raw`Item.*?\s${index}">(.*?)<\/tr>`);
