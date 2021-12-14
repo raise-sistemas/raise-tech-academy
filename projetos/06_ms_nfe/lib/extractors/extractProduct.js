@@ -1,8 +1,5 @@
 import { extractor } from './extractor.js'
-
-function fmtDecimal(numStr) {
-  return parseFloat(numStr.replace(",", "."));
-}
+import { fmtDecimal } from '../fmtDecimal.js'
 
 export function extractProduct(chunk) {
   const name = /<span class="txtTit2">(.*?)<\/span>/;
