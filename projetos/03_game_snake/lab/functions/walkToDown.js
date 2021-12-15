@@ -1,13 +1,14 @@
 import { gridFromLeft } from '../assets/defaultGrid.js'
 
-export function walkToDown() {
+export function walkToDown(grid) {
   let interval = 150
-  let grid = gridFromLeft
+  grid = gridFromLeft
   let index = 29
 
   setInterval(() => {
-    console.clear()
-    console.log(grid)
+    // console.clear()
+    // console.log(grid)
+    // Esses dois vão vir no mod
     grid = grid.split('')
 
     if (grid[index] + grid[index + 1] == '🐰') {
