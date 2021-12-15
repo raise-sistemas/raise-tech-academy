@@ -1,26 +1,20 @@
 import { fetchHtml } from "./fetchHtml.js";
 import { extractStoreName } from "./extractors/extractStoreName.js";
-import { extractCnpj } from "./extractors/extractCnpj.js"
-import { splitHtml } from "./splitHtml.js"
+import { extractCnpj } from "./extractors/extractCnpj.js";
+import { splitHtml } from "./splitHtml.js";
 import { extractAdress } from "./extractors/extractAdress.js";
-import { extractor } from './extractors/extractor.js'
-import { extractProduct } from './extractors/extractProduct.js'
-import { extractItemsQty } from './extractors/extractItemsQty.js'
-import { extractTotal } from './extractors/extractTotal.js'
+import { extractProduct } from './extractors/extractProduct.js';
+import { extractItemsQty } from './extractors/extractItemsQty.js';
+import { extractTotal } from './extractors/extractTotal.js';
 
-function productPattern(index) {
-  return new RegExp(String.raw`Item.*?\s${index}">(.*?)<\/tr>`);
-} 
 
 async function createProductList(chunk) {
-  const list = [];
+  const pattern = /Item.*?">(.*?)<\/tr>/g;
 
-  for(let index = 1; productPattern(index).exec(chunk); index++) {
-    const product = extractor(chunk, productPattern(index));
+  const list = [...chunk.matchAll(pattern)]
+    .map(product => extractProduct(product[1]));
 
-    list.push(extractProduct(product));
-  }
-  
+
   return Promise.all(list);
 }
 
