@@ -1,6 +1,6 @@
 import { letterToNumber } from "./letterToNumber.js"
 export function changeEmoji(grid,emoji,coordinate){
   const [letter,number] = coordinate.split(" ")
-  grid [letterToNumber(letter)] [number] = emoji;
+  grid [number] [letterToNumber(letter)] = emoji;
   return grid
 }

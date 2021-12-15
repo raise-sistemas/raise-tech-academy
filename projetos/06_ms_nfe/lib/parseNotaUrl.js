@@ -1,24 +1,15 @@
+import * as extract from './extractors/mod.js';
 import { fetchHtml } from "./fetchHtml.js";
-import { extractStoreName } from "./extractors/extractStoreName.js";
-import { extractCnpj } from "./extractors/extractCnpj.js";
 import { splitHtml } from "./splitHtml.js";
-import { extractAdress } from "./extractors/extractAdress.js";
-import { extractProduct } from './extractors/extractProduct.js';
-import { extractItemsQty } from './extractors/extractItemsQty.js';
-import { extractTotal } from './extractors/extractTotal.js';
-import { extractDiscount } from './extractors/extractDiscount.js'
-import { extractFinalAmount } from "./extractors/extractFinalAmount.js";
-import { extractTaxes } from './extractors/extractTaxes.js';
-import { extractPayment } from "./extractors/extractPayment.js";
 
 
-async function createProductList(chunk) {
+function createProductList(chunk) {
   const pattern = /Item.*?">(.*?)<\/tr>/g;
 
   const list = [...chunk.matchAll(pattern)]
-    .map(product => extractProduct(product[1]));
+    .map(product => extract.extractProduct(product[1]));
 
-  return Promise.all(list);
+  return list;
 }
 
 
@@ -32,18 +23,18 @@ export async function parseNotaUrl(url) {
   return {
     url,
     store: {
-      name: extractStoreName(storeChunk),
-      cnpj: extractCnpj(storeChunk),
-      adress: extractAdress(storeChunk)
+      name: extract.extractStoreName(storeChunk),
+      cnpj: extract.extractCnpj(storeChunk),
+      adress: extract.extractAdress(storeChunk)
     },
-    products: await createProductList(productsChunk),
+    products: createProductList(productsChunk),
     purchaseInfo: {
-      itemsQty: extractItemsQty(purchaseChunk),
-      total: extractTotal(purchaseChunk),
-      discount: extractDiscount(purchaseChunk),
-      finalAmount: extractFinalAmount(purchaseChunk),
-      payment: extractPayment(purchaseChunk),
-      taxes: extractTaxes(purchaseChunk)
+      itemsQty: extract.extractItemsQty(purchaseChunk),
+      total: extract.extractTotal(purchaseChunk) || extract.extractFinalAmount(purchaseChunk),
+      discount: extract.extractDiscount(purchaseChunk),
+      finalAmount: extract.extractFinalAmount(purchaseChunk),
+      payment: extract.extractPayment(purchaseChunk),
+      taxes: extract.extractTaxes(purchaseChunk)
     }
   }
 }

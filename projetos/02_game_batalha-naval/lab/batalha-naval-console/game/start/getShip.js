@@ -1,4 +1,5 @@
-import { readInputStern, readInputDirection, completeShip, isOverShip } from "./piecesOfGetShip/index.js"
+import { completeShip, isOverShip } from "./getShipLib/index.js"
+import { readInputDirection, readInputStern } from "../readInput.js"
 
 export function getShip(ships,shipSize,prompt){
   

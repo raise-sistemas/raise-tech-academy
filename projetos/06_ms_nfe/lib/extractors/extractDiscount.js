@@ -4,5 +4,5 @@ import { fmtDecimal } from '../fmtDecimal.js'
 export function extractDiscount(chunk) {
   const match = extractor(chunk, /Descontos.*?totalNumb">(.*?)</);
 
-  return fmtDecimal(match) || "";
+  return fmtDecimal(match) || 0;
 }

@@ -1,10 +1,11 @@
 import { gridFromRight } from '../assets/defaultGrid.js'
+import { newCarrot } from './newCarrot.js'
 
-export function walkToleft() {
+export function walkToleft(grid) {
   let interval = 150
-  let grid = gridFromRight
+  grid = gridFromRight
   let index = 40
-
+  newCarrot(grid)
   setInterval(() => {
     console.clear()
     console.log(grid)
