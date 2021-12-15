@@ -35,6 +35,12 @@
     "total": 344.57,
     "discount": 12.8,
     "finalAmount": 331.77,
+    "payment": [
+      {
+        "method": "Cartão de Débito 2",
+        "amount": 331.77
+      }
+    ],
     "taxes": 100.72
   }
 }
