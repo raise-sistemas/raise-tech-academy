@@ -4,7 +4,7 @@ export * from './extractDiscount.js';
 export * from './extractFinalAmount.js';
 export * from './extractItemsQty.js';
 export * from './extractPayment.js';
-export * from './extractProduct.js';
 export * from './extractStoreName.js';
 export * from './extractTaxes.js';
 export * from './extractTotal.js';
+export * from './extractProducts.js'

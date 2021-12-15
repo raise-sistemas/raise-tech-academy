@@ -3,16 +3,6 @@ import { fetchHtml } from "./fetchHtml.js";
 import { minify } from './minify.js'
 
 
-function createProductList(chunk) {
-  const pattern = /<tr\sid="Item.*?">(.*?)<\/tr>/g;
-
-  const list = [...chunk.matchAll(pattern)]
-    .map(product => extract.extractProduct(product[1]));
-
-  return list;
-}
-
-
 export async function parseNotaUrl(url) {
   const html = await fetchHtml(url)
   const min = minify(html)
@@ -24,7 +14,7 @@ export async function parseNotaUrl(url) {
       cnpj: extract.extractCnpj(min),
       adress: extract.extractAdress(min)
     },
-    products: createProductList(min),
+    products: extract.extractProducts(min),
     purchaseInfo: {
       itemsQty: extract.extractItemsQty(min),
       total: extract.extractTotal(min) || extract.extractFinalAmount(min),
