@@ -33,6 +33,7 @@
   "purchaseInfo": {
     "itemsQty": 78,
     "total": 344.57,
-    "discount": 12.8
+    "discount": 12.8,
+    "finalAmount": 331.77
   }
 }
