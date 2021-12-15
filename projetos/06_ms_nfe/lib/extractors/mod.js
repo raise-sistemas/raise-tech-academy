@@ -10,3 +10,4 @@ export * from './extractTotal.js';
 export * from './extractProducts.js';
 export * from './extractDescription.js';
 export * from './extractNumber.js';
+export * from './extractSeries.js';
