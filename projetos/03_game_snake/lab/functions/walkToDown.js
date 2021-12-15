@@ -1,14 +1,15 @@
 import { gridFromLeft } from '../assets/defaultGrid.js'
+import { bunnyFinder } from './bunnyFinder.js'
 
 export function walkToDown(grid) {
   let interval = 150
   grid = gridFromLeft
-  let index = 29
+  let index = bunnyFinder(grid)[0]
 
   setInterval(() => {
-    // console.clear()
-    // console.log(grid)
-    // Esses dois vão vir no mod
+    console.clear()
+    console.log(grid)
+
     grid = grid.split('')
 
     if (grid[index] + grid[index + 1] == '🐰') {
@@ -17,7 +18,7 @@ export function walkToDown(grid) {
       grid[index + 15] = '🐰'
       grid = grid.join('')
     }
-
+    console.log(index)
     if (index == 134) {
       grid = gridFromLeft
       index = 29

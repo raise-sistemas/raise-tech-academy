@@ -10,3 +10,4 @@
 8. Manter uma variável chamada direction que pode ser UP, DOWN, LEFT, RIGHT, o coelho se move baseado nela.
 9. Não pode mudar 180 graus de direção.
 10. Criar uma ai(inteligência) para jogar o jogo sozinho.
+
