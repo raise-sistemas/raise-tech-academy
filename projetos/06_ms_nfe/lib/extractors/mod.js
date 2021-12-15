@@ -11,4 +11,5 @@ export * from './extractProducts.js';
 export * from './extractDescription.js';
 export * from './extractNumber.js';
 export * from './extractSeries.js';
-export * from './extractIssuedIn.js'
+export * from './extractIssuedIn.js';
+export * from './extractProtocol.js';

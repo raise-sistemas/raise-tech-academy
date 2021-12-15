@@ -27,7 +27,8 @@ export async function parseNotaUrl(url) {
       description: extract.extractDescription(min),
       number: extract.extractNumber(min),
       series: extract.extractSeries(min),
-      issuedIn: extract.extractIssuedIn(min)
+      issuedIn: extract.extractIssuedIn(min),
+      protocol: extract.extractProtocol(min)
     }
   }
 }
