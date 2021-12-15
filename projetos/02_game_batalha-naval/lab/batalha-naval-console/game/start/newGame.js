@@ -2,7 +2,7 @@ import { newPlayer } from "./newPlayer.js"
 
 export function newGame(){
   return {
-    gameStatus : true,
+    status : true,
     players : [newPlayer(),newPlayer()]
   } 
 }
