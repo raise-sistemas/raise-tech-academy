@@ -13,3 +13,4 @@ export * from './extractNumber.js';
 export * from './extractSeries.js';
 export * from './extractIssuedIn.js';
 export * from './extractProtocol.js';
+export * from './extractKey.js';
