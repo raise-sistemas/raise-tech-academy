@@ -8,6 +8,7 @@ import { extractItemsQty } from './extractors/extractItemsQty.js';
 import { extractTotal } from './extractors/extractTotal.js';
 import { extractDiscount } from './extractors/extractDiscount.js'
 import { extractFinalAmount } from "./extractors/extractFinalAmount.js";
+import { extractTaxes } from './extractors/extractTaxes.js';
 
 
 async function createProductList(chunk) {
@@ -15,7 +16,6 @@ async function createProductList(chunk) {
 
   const list = [...chunk.matchAll(pattern)]
     .map(product => extractProduct(product[1]));
-
 
   return Promise.all(list);
 }
@@ -28,7 +28,6 @@ export async function parseNotaUrl(url) {
     purchaseChunk 
   ] = splitHtml(await fetchHtml(url));
 
-  console.log(purchaseChunk)
   return {
     url,
     store: {
@@ -41,7 +40,8 @@ export async function parseNotaUrl(url) {
       itemsQty: extractItemsQty(purchaseChunk),
       total: extractTotal(purchaseChunk),
       discount: extractDiscount(purchaseChunk),
-      finalAmount: extractFinalAmount(purchaseChunk)
+      finalAmount: extractFinalAmount(purchaseChunk),
+      taxes: extractTaxes(purchaseChunk)
     }
   }
 }
