@@ -32,7 +32,8 @@ export async function parseNotaUrl(url) {
     },
     key: extract.extractKey(min),
     customer: {
-      cpf: extract.extractCpf(min)
+      cpf: extract.extractCpf(min),
+      name: extract.extractName(min)
     }
   }
 }

@@ -15,3 +15,4 @@ export * from './extractIssuedIn.js';
 export * from './extractProtocol.js';
 export * from './extractKey.js';
 export * from './extractCpf.js';
+export * from './extractName.js';
