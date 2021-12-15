@@ -4,9 +4,9 @@ import { view } from "../../display/view.js"
 
 export function setShips(player){
   for(const ship in player.ships){
-    player.ships[ship] = getShip(player.ships[ship],prompt)
+    player.ships[ship].coordinates = getShip(player.ships,player.ships[ship].size,prompt)
 
-    for (const coordinate of player.ships[ship]){
+    for (const coordinate of player.ships[ship].coordinates){
       changeEmoji(player.grid,"🟨",coordinate)
     }
 
