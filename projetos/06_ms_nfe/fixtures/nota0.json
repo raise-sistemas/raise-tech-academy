@@ -46,6 +46,10 @@
   "summary": {
     "description": "EMISSÃO NORMAL",
     "number": 213038,
-    "series": 9
+    "series": 9,
+    "issuedIn": {
+      "date": "23/11/2021",
+      "time": "21:21:01"
+    }
   }
 }
