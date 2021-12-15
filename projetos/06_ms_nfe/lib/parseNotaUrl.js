@@ -6,6 +6,7 @@ import { extractAdress } from "./extractors/extractAdress.js";
 import { extractProduct } from './extractors/extractProduct.js';
 import { extractItemsQty } from './extractors/extractItemsQty.js';
 import { extractTotal } from './extractors/extractTotal.js';
+import { extractDiscount } from './extractors/extractDiscount.js'
 
 
 async function createProductList(chunk) {
@@ -37,7 +38,8 @@ export async function parseNotaUrl(url) {
     products: await createProductList(productsChunk),
     purchaseInfo: {
       itemsQty: extractItemsQty(purchaseChunk),
-      total: extractTotal(purchaseChunk)
+      total: extractTotal(purchaseChunk),
+      discount: extractDiscount(purchaseChunk)
     }
   }
 }
