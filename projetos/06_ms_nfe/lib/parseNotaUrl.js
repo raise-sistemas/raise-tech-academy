@@ -24,7 +24,8 @@ export async function parseNotaUrl(url) {
       taxes: extract.extractTaxes(min)
     },
     summary: {
-      description: extract.extractDescription(min)
+      description: extract.extractDescription(min),
+      number: extract.extractNumber(min)
     }
   }
 }
