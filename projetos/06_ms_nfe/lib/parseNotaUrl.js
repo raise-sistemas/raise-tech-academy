@@ -1,40 +1,36 @@
 import * as extract from './extractors/mod.js';
 import { fetchHtml } from "./fetchHtml.js";
-import { splitHtml } from "./splitHtml.js";
-
-
-function createProductList(chunk) {
-  const pattern = /Item.*?">(.*?)<\/tr>/g;
-
-  const list = [...chunk.matchAll(pattern)]
-    .map(product => extract.extractProduct(product[1]));
-
-  return list;
-}
+import { minify } from './minify.js'
 
 
 export async function parseNotaUrl(url) {
-  const [ 
-    storeChunk, 
-    productsChunk, 
-    purchaseChunk 
-  ] = splitHtml(await fetchHtml(url));
+  const html = await fetchHtml(url)
+  const min = minify(html)
 
   return {
     url,
     store: {
-      name: extract.extractStoreName(storeChunk),
-      cnpj: extract.extractCnpj(storeChunk),
-      adress: extract.extractAdress(storeChunk)
+      name: extract.extractStoreName(min),
+      cnpj: extract.extractCnpj(min),
+      adress: extract.extractAdress(min)
     },
-    products: createProductList(productsChunk),
+    products: extract.extractProducts(min),
     purchaseInfo: {
-      itemsQty: extract.extractItemsQty(purchaseChunk),
-      total: extract.extractTotal(purchaseChunk) || extract.extractFinalAmount(purchaseChunk),
-      discount: extract.extractDiscount(purchaseChunk),
-      finalAmount: extract.extractFinalAmount(purchaseChunk),
-      payment: extract.extractPayment(purchaseChunk),
-      taxes: extract.extractTaxes(purchaseChunk)
+      itemsQty: extract.extractItemsQty(min),
+      total: extract.extractTotal(min) || extract.extractFinalAmount(min),
+      discount: extract.extractDiscount(min),
+      finalAmount: extract.extractFinalAmount(min),
+      payment: extract.extractPayment(min),
+      taxes: extract.extractTaxes(min)
+    },
+    summary: {
+      description: extract.extractDescription(min),
+      number: extract.extractNumber(min),
+      series: extract.extractSeries(min),
+      issuedIn: extract.extractIssuedIn(min),
+      protocol: extract.extractProtocol(min)
     }
   }
 }
+
+

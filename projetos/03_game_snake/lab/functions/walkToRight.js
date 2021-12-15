@@ -1,14 +1,18 @@
 import { gridFromLeft } from '../assets/defaultGrid.js'
+import { newCarrot } from './newCarrot.js'
 
-export function walkToRight() {
+export function walkToRight(grid) {
   let interval = 150
-  let grid = gridFromLeft
+  grid = gridFromLeft
   let index = 29
+
 
   setInterval(() => {
     console.clear()
     console.log(grid)
     grid = grid.split('')
+
+
 
     if (grid[index] + grid[index + 1] == '🐰') {
       grid[index] = '⬛'
