@@ -1,5 +1,5 @@
-import { letterToNumber } from "../../../utils/letterToNumber.js"
-import { isRepeatedCoordinate } from "./isRepeatedCoordinate.js"
+import { letterToNumber } from "../utils/letterToNumber.js"
+import { isRepeatedCoordinate } from "./start/getShipLib/isRepeatedCoordinate.js"
 
 function limitDirection(stern,shipSize,direction){
   let [letter, number]=stern.split(" ")
@@ -7,7 +7,7 @@ function limitDirection(stern,shipSize,direction){
   number = Number(number)
   letter = letterToNumber(letter)
   
-  if ((letter - displacement < 0 && direction === 'n')||(letter + displacement > 10 && direction === 's')||(number + displacement > 10 && direction === 'l')||(number - displacement < 0 && direction === 'o')){
+  if ((letter - displacement < 1 && direction === 'o')||(letter + displacement > 10 && direction === 'l')||(number + displacement > 10 && direction === 's')||(number - displacement < 1 && direction === 'n')){
     return true
   }
   return false
@@ -34,4 +34,15 @@ export function readInputDirection(ship, shipSize, prompt) {
   } 
   return direction;
 
+}
+export function readInputShot(prompt) {
+  const coordinate = (prompt("Digite a coordenada desejada para o tiro (Ex: a 1): ") || "");
+  
+  if(!/[a-jA-J] ([1-9]|10)(?!.)/.test(coordinate)) {
+    console.log("Entrada inválida");
+
+    return readInputShot(prompt);
+  }
+  
+  return coordinate;
 }
