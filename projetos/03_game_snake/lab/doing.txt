@@ -1,7 +1,9 @@
-Preciso fazer um "reset" que vai fazer o coelho voltar pra o topo da fase, quando ele passar no final.
-O index, no walktoDown, tá recebendo o 29, mas o coelho, não tá voltando pra o topo.
 
-Tem que pegar um emptygrid, colocar o coelho no início, e voltar pro loop
+
+
+
+
+
 ╔════════════════════════╗
 ║🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 🥕⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
