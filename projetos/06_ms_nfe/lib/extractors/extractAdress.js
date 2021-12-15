@@ -5,7 +5,7 @@ function splitAdress(rawAdress) {
 }
 
 export function extractAdress(chunk) {
-  const raw = extractor(chunk, /CNPJ:.*?<div class="text">(.*)/);
+  const raw = extractor(chunk, /CNPJ:.*?<div class="text">(.*?)</);
 
   const [ street, adressNumber, reference, neighbourhood, city, state ] = splitAdress(raw)
 
