@@ -4,20 +4,20 @@ import { numberToLetter } from "../../../utils/numberToLetter.js"
 function changeCoordinate (letter, number, direction){
   switch (direction) {
     case 'n':
-      letter = letterToNumber(letter)
-      letter--
-      letter = numberToLetter(letter)
+      number--
       break
     case 's':
+      number++
+      break
+    case 'l':
       letter = letterToNumber(letter)
       letter++
       letter = numberToLetter(letter)
       break
-    case 'l':
-      number++
-      break
     default:
-      number--
+      letter = letterToNumber(letter)
+      letter--
+      letter = numberToLetter(letter)
       break
     }
     const coordinate = letter + " " + number
