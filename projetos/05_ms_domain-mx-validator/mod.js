@@ -1,3 +1,3 @@
-import { cliMenu } from "./src/cliMenu.js";
+import { isDomainMxValid } from "./src/isDomainMxValid.js";
 
-cliMenu();
+await isDomainMxValid(prompt());
