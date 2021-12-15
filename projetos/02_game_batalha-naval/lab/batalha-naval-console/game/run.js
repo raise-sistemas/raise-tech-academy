@@ -1,6 +1,11 @@
-import { view } from "../display/view.js"
-import { setShips } from "./start/setShips.js"
-export function run(players){
-  view(players.playerOne)
-  setShips(players.playerOne)
+import { changePlayerView, view} from "../display/index.js"
+
+
+
+export function run(game){
+  while (game.status)
+  for (const player of game.players){
+    changePlayerView(player)
+    view(player)
+  }  
 }
