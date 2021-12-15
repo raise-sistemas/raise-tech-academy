@@ -1,8 +1,8 @@
 import { extractor } from './extractor.js';
 import { fmtDecimal } from '../fmtDecimal.js'
 
-export function extractFinalAmount(chunk) {
-  const match = extractor(chunk, /Valor\sa\spagar.*?txtMax">(.*?)</);
+export function extractFinalAmount(html) {
+  const raw = extractor(html, /Valor\sa\spagar.*?txtMax">(.*?)</);
 
-  return fmtDecimal(match);
+  return fmtDecimal(raw);
 }

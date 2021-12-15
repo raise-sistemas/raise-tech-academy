@@ -1,9 +1,9 @@
 import { extractor } from "./extractor.js"
 
 export function extractIssuedIn(html) {
-  const match = extractor(html, /Emissão:.*?>(.*?)\s-/);
+  const raw = extractor(html, /Emissão:.*?>(.*?)\s-/);
   
-  const splited = match.split(" ");
+  const splited = raw.split(" ");
 
   return {
     date: splited[0],

@@ -1,7 +1,7 @@
 import { extractor } from "./extractor.js"
 
 export function extractSeries(html) {
-  const match = extractor(html, /Série:.*?>(.*?)</);
+  const raw = extractor(html, /Série:.*?>(.*?)</);
 
-  return parseInt(match);
+  return parseInt(raw);
 }

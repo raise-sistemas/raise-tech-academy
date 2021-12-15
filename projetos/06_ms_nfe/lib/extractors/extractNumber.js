@@ -1,7 +1,7 @@
 import { extractor } from './extractor.js';
 
 export function extractNumber(html) {
-  const match = extractor(html, /Número:.*?>(.*?)</);
+  const raw = extractor(html, /Número:.*?>(.*?)</);
 
-  return parseInt(match);
+  return parseInt(raw);
 }

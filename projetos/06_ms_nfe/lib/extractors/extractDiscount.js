@@ -1,8 +1,8 @@
 import { extractor } from './extractor.js';
 import { fmtDecimal } from '../fmtDecimal.js'
 
-export function extractDiscount(chunk) {
-  const match = extractor(chunk, /Descontos.*?totalNumb">(.*?)</);
+export function extractDiscount(html) {
+  const raw = extractor(html, /Descontos.*?totalNumb">(.*?)</);
 
-  return fmtDecimal(match) || 0;
+  return fmtDecimal(raw) || 0;
 }

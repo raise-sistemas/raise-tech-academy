@@ -1,11 +1,11 @@
 import { fmtDecimal } from '../fmtDecimal.js';
 
-export function extractPayment(chunk) {
+export function extractPayment(html) {
   const methodPattern = /class="tx">(.*?)</g;
   const amountPattern = /class="tx">.*?"totalNumb">(.*?)</g;
 
-  const methods = [...chunk.matchAll(methodPattern)]
-  const amounts = [...chunk.matchAll(amountPattern)]
+  const methods = [...html.matchAll(methodPattern)]
+  const amounts = [...html.matchAll(amountPattern)]
 
   const payment = methods.map((method, index) => ({
     method: method[1],
