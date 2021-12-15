@@ -7,4 +7,5 @@ export * from './extractPayment.js';
 export * from './extractStoreName.js';
 export * from './extractTaxes.js';
 export * from './extractTotal.js';
-export * from './extractProducts.js'
+export * from './extractProducts.js';
+export * from './extractDescription.js';
