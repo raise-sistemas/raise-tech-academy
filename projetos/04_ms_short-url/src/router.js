@@ -20,6 +20,7 @@ export class Router extends BaseRouter {
       pattern: new URLPattern({ pathname }),
       handler,
     });
+
     return this;
   }
 
@@ -33,6 +34,7 @@ export class Router extends BaseRouter {
         };
       }
     }
+    
     return false;
   }
 }

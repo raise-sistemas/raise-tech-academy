@@ -1,0 +1,97 @@
+body {background-color: #103C7B;
+  font-family: verdana;
+  text-align: center;
+  font-size: 24px;
+}
+
+h1 {color: #ffffff;
+  text-align: center;
+  padding-top: 100px
+}
+
+.myButton {
+box-shadow: 0px 1px 0px 0px #1c1b18;
+background-color:#ffffff;
+  text-align: center;
+  display: block;
+  width: 100px;
+border-radius:10px;
+color:#000000;
+font-size:14px;
+font-weight:bold;
+padding:20px 35px;
+text-decoration:none;
+text-shadow:0px 1px 0px #ffffff;
+  margin-right: 50px;
+  text-transform: uppercase;
+}
+.myButton:hover {
+background:linear-gradient(to bottom, #0097fc 5%, #ffffff 100%);
+background-color:#ccc2a6;
+}
+
+
+
+.myButton2 {
+  box-shadow: 0px 1px 0px 0px #1c1b18;
+background-color:#ffffff;
+  text-align: center;
+  display: block;
+  width: 100px;
+border-radius:10px;
+color:#000000;
+font-size:14px;
+font-weight:bold;
+padding:20px 35px;
+text-decoration:none;
+text-shadow:0px 1px 0px #ffffff;
+  text-transform: uppercase;
+}
+.myButton2:hover {
+background:linear-gradient(to bottom, #0097fc 5%, #ffffff 100%);
+background-color:#ccc2a6;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.nome-inicial{
+  height: 30px;
+  text-align: center;
+  font-size: 26px;
+  display: inline-flex;
+  justify-content: center;
+  margin-right: 220px;
+  margin-top: 30px;
+}
+
+.nome-sorteio {
+  display: block;
+  margin-right: 20px;
+}
+
+.nome-inicial a {
+  text-decoration:none;
+}
+
+.botao-cadastrar {
+  margin-left: 20px;
+}
+
+.botao-finalizar {
+  height: 30px;
+  text-align: center;
+  font-size: 25px;
+  display: block;
+  margin-left: 620px;
+  margin-top: 60px;
+}
+
+
+.botao-finalizar a {
+  text-decoration: none;
+}

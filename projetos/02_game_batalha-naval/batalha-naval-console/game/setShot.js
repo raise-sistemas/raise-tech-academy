@@ -1,14 +1,19 @@
-
 import { changeEmoji } from "../utils/changeEmoji.js"
-import { isRepeatedCoordinate } from "./start/getShipLib/isRepeatedCoordinate.js"
-import { getEnemyShips } from "./getEnemyShips.js"
 
-export function setShot(lastShot,player,players){
-  const enemyShips = getEnemyShips(players,player)
-  if(lastShot){
-    if(isRepeatedCoordinate(lastShot,enemyShips)){
-    changeEmoji(player.enemyGrid,'💥',lastShot)
+export function setShot(lastEnemyShot,ships,grid) {
+  const shipsClone = structuredClone(ships)
+
+  if(lastEnemyShot){
+
+  for(const ship in shipsClone){
+
+      if(shipsClone[ship].coordinates.find(element => element === lastEnemyShot)){
+        shipsClone[ship].coordinates.splice(shipsClone[ship].coordinates.indexOf(lastEnemyShot),1)
+        changeEmoji(grid,'💥',lastEnemyShot)
+      }
+
     }
-    changeEmoji(player.enemyGrid,'🟦',lastShot)
   }
+
+  return shipsClone
 }

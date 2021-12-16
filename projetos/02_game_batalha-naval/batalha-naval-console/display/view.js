@@ -1,5 +1,7 @@
-import { buildView } from "./components/buildView.js"
+import { buildGrid } from "./components/buildGrid.js"
+
 export function view(player){
   console.clear()
-  console.log(buildView(player.grid,player.enemyGrid))
+  console.log("%c"+buildGrid(player.grid,player.enemyGrid), 
+  "color: white ; font-weight: bold ; " )
 }

@@ -1,12 +1,12 @@
 import { initGrid } from "./initGrid.js"
 import { newBoat } from "./newBoat.js"
+import { setName } from "./setName.js"
 
-
-export function newPlayer() { 
+export function newPlayer(playerNumber) { 
   const player ={
     grid: initGrid('🟦'),
     enemyGrid: initGrid('⬛️'),
-    name : '',
+    name : setName(playerNumber,prompt),
     status: "playing",
     ships:{
       aircraftCarriers :newBoat(`porta-aviões`,5),
