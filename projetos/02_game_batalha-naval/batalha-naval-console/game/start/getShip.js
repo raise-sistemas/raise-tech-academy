@@ -1,10 +1,9 @@
 import { completeShip, isOverShip } from "./getShipLib/index.js"
 import { readInputDirection, readInputStern } from "../readInput.js"
 
-export function getShip(ships,shipSize,prompt){
+export function getShip(ships, shipSize, prompt){
   
-  const stern = readInputStern(ships,prompt)
-
+  const stern = readInputStern(ships, prompt)
   if(shipSize === 1){
     return [stern]
   }
