@@ -1,0 +1,267 @@
+/********************************* CORES *********************************/
+@preto: #000;
+@escuro: #222;
+@grafite: #333;
+@cinzaescuro: #777;
+@cinza: #AAA;
+@cinzaclaro: #EEE;
+@gelo: #F7F7F7;
+@branco: #FFF;
+@azul: #4A80F0;
+@azulescuro: #1C2031;
+@roxo: #441DFC;
+@verde: #13DEA0;
+@vermelho: #FC67A7;
+@ouro: #e9b808;
+
+
+@cores:
+	preto @preto,
+	escuro @escuro,
+	grafite @grafite,
+	cinzaescuro @cinzaescuro,
+	cinza @cinza,
+	cinzaclaro @cinzaclaro,
+	gelo @gelo,
+	branco @branco;
+
+.color-classes(@i: length(@cores)) when (@i > 0) {
+    .color-classes(@i - 1);
+    @color: extract(@cores, @i);
+	@nome: extract(@color, 1);
+	@cor: extract(@color, 2);
+    .c@{nome} { color: @cor; }
+	.b@{nome} { background-color: @cor; }
+}
+.color-classes();
+
+/********************************* GERAL *********************************/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+html,body{font-size: 9px;}
+*{
+	font-family: 'Poppins', Arial, Helvetica, sans-serif;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.alterfont{
+	font-family: Font, Open Sans, Arial, Helvetica, sans-serif;
+}
+.transition{
+	-webkit-transition: all 250ms ease-in-out;
+	-moz-transition: all 250ms ease-in-out;
+	-o-transition: all 250ms ease-in-out;
+	transition: all 250ms ease-in-out;
+}
+.no-transition{
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
+}
+.fast{
+	-webkit-transition-duration: 100ms;
+	-moz-transition-duration: 100ms;
+	-o-transition-duration: 100ms;
+	transition-duration: 100ms;
+}
+.clear{
+	clear: both;
+}
+a, button{ text-decoration: none; color: inherit; border: 0; outline: 0; background: none; cursor: pointer; &:hover{ text-decoration: none; } }
+ul,ol{ list-style-type: none; }
+.tabled{
+	display: table;
+	&>div{display: table-cell; vertical-align: middle;}
+}
+/*********************************** FORMAS ***********************************/
+.il{display: inline;}
+.bl{display: block;}
+.ib{display: inline-block;}
+
+.rd100{border-radius: 100vh;}
+.rd0{border-radius: 0px;}
+.rd5{border-radius: 5px;}
+.rd10{border-radius: 10px;}
+
+.m0{margin: 0;}
+
+.mb05{margin-bottom: 0.5em;}
+.mb1{margin-bottom: 1em;}
+.mb2{margin-bottom: 2em;}
+.mb3{margin-bottom: 3em;}
+
+.p0{padding: 0;}
+.p5{padding: 5px;}
+.p10{padding: 10px;}
+.p20{padding: 20px;}
+
+/*********************************** FONTES TEXTOS ***********************************/
+.w100{font-weight: 100;}
+.w200{font-weight: 200;}
+.w300{font-weight: 300;}
+.w400{font-weight: 400;}
+.w500{font-weight: 500;}
+.w600{font-weight: 600;}
+.w700{font-weight: 700;}
+.w800{font-weight: 800;}
+.w900{font-weight: 900;}
+.i{font-style: italic;}
+.uc{text-transform: uppercase;}
+.tl{text-align: left;}
+.tc{text-align: center;}
+.tr{text-align: right;}
+
+.t10{font-size: 10px;}
+.t11{font-size: 11px;}
+.t12{font-size: 12px;}
+.t13{font-size: 13px;}
+.t14{font-size: 14px;}
+.t15{font-size: 15px;}
+.t16{font-size: 16px;}
+.t18{font-size: 18px;}
+.t20{font-size: 20px;}
+.t22{font-size: 22px;}
+.t24{font-size: 24px;}
+.t26{font-size: 26px;}
+.t28{font-size: 28px;}
+.t32{font-size: 32px;}
+.t36{font-size: 36px;}
+.t37{font-size: 37px;}
+.t42{font-size: 42px;}
+.t48{font-size: 48px;}
+.t56{font-size: 56px;}
+.t72{font-size: 72px;}
+
+.lh120{line-height: 120%;}
+.lh140{line-height: 140%;}
+.lh160{line-height: 160%;}
+.lh180{line-height: 180%;}
+.lh200{line-height: 200%;}
+
+/*********************************** ELEMENTOS ***********************************/
+
+*{
+    color: white;
+}
+
+.bg-escuro{
+    background-color: @azulescuro;
+}
+
+.bg-claro{
+    background-color: @azul;
+}
+
+.bg-roxo{
+    background-color: @roxo;
+}
+
+.bg-vermelho{
+    background-color: @vermelho;
+}
+
+.bg-verde{
+    background-color: @verde;
+}
+
+.bg-ouro{
+    background-color: @ouro;
+}
+
+.f-claro{
+    color: @azul;
+}
+
+.f-escuro{
+    color: @azulescuro;
+}
+
+nav{
+    
+    div{
+        width: 45%;
+        display: inline-block;
+        align-items: center;
+    }
+    ul{
+        list-style: none;
+    }
+    li{
+        display: inline;
+        padding-right: 5px;
+        line-height: 40px;
+        &:last-child{
+            padding-right: 0px;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        li{
+            padding-right: 20px;
+            &:last-child{
+                padding-right: 0px;
+            }
+        }
+    }
+}
+
+.line{
+    width: 50px;
+    height: 2px;
+    background-color: @azul;
+    margin-bottom: 20px;
+}
+
+.card{
+    width: 120px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    padding: 12px 14px 12px 8px;
+    font-size: 22px;
+    display: inline-block;
+    margin-right: 8px;
+    button{
+        font-size: 25px;
+        color: rgb(223, 4, 4);
+    }
+    
+
+    @media screen and (min-width: 540px) {
+        margin-right: 20px;
+    }
+    
+}
+
+
+.add{
+    border-radius: 12px;
+    padding: 20px 8px 20px 30px;
+    
+    label{
+        display: block;
+        padding-bottom: 10px;
+        font-size: 20px;
+    }
+
+    input{
+        width: 95%;
+        height: 50px;
+        margin-bottom: 25px;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 4px 1px 10px 4px rgba(22, 22, 22, 0.52);
+    }
+
+    button{
+        background-color: @vermelho;
+        padding: 16px 40px;
+        border-radius: 12px;
+        font-size: 18px;        
+    }
+}
+
+.container{
+    width: 92%;
+    margin: auto;
+    display: inline-block;
+}
