@@ -13,6 +13,7 @@ export function walkToUp(grid) {
     grid[index] = '⬛'
     grid.splice(index + 1, 1)
     grid = grid.join('')
+    console.log(index)
 
   } else {
     grid = grid.split('')
@@ -20,7 +21,7 @@ export function walkToUp(grid) {
     grid.splice(index + 1, 1)
     grid[index - 15] = '🐰'
     grid = grid.join('')
-
+    console.log(index)
   }
   // setTimeout(() => {
   console.log(grid)
