@@ -3,8 +3,8 @@ import { limitDirection } from "./start/getShipLib/limitDirection.js"
 
 
 export function readInputCoordinate(prompt) {
-  const coordinate = (prompt("Digite a coordenada desejada para o tiro (Ex: a 1): ") || "");
-  const regExp = /([a-jA-J]\s[1-9]|10)/
+  const coordinate = (prompt("Digite a coordenada desejada (Ex: a 1): ") || "");
+  const regExp = /^[a-jA-J] ([1-9]||10)(?!.)/
 
   if(!regExp.test(coordinate)) {
     console.log("Entrada inválida");
@@ -12,7 +12,7 @@ export function readInputCoordinate(prompt) {
     return readInputCoordinate(prompt);
   }
   
-  return coordinate.match(regExp)[1];
+  return coordinate;
 }
 
 export function readInputStern(ships, prompt) {
