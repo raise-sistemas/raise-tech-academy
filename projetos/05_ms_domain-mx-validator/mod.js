@@ -1,3 +1,4 @@
-import { isDomainMxValid } from "./src/isDomainMxValid.js";
+import { handler } from "./handler.js";
+import { serve } from "./deps.js";
 
-await isDomainMxValid(prompt());
+await serve(handler);

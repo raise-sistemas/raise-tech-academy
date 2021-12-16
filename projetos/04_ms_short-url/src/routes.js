@@ -5,5 +5,5 @@ export const routes = new Router();
 
 routes.post("/", shortUrlActions.newUrlAction);
 routes.post("/:slug", shortUrlActions.newUrlSlugAction);
-routes.get("/", shortUrlActions.listUrlShorts);
+routes.get("/", shortUrlActions.listUrlShorts); // temp
 routes.get("/:slug", shortUrlActions.getOriginalUrlAction);

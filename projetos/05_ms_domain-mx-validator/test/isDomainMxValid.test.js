@@ -1,5 +1,5 @@
-import { assertEquals } from "https://deno.land/std@0.114.0/testing/asserts.ts";
 import { isDomainMxValid } from "../src/isDomainMxValid.js";
+import { assertEquals } from "../deps.js"
 
 Deno.test("Entrada de domínio válida", async () => {
   const domain = "google.com";
