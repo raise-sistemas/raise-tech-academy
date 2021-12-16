@@ -1,7 +1,7 @@
-testando a função de andar pra baixo dentro do loop interval
+ A função New Carrot tem que encontrar a última cenoura e apagar
+ Ou, tenho que criar a função comer, que faz com que quando o coelho e a cenoura colidam, o coelho substitua a posição da cenoura, e aí chama a newCarrot
 
-
-
+Porque, quando o coelho e a cenoura colidem, dá um erro de index, a posição que o coelhor tá ocupando é metade das posições que a cenoura ocupa
 
 
 ╔════════════════════════╗

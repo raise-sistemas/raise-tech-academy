@@ -1,8 +1,4 @@
-import { emptyGrid } from '../assets/defaultGrid.js'
-import { newCarrot } from './newCarrot.js'
-
 export function carrotFinder(grid) {
-  grid = newCarrot(grid)
   grid = grid.split('')
   let finder = []
   for (let index = 29; index < 145; index++) {
@@ -14,5 +10,3 @@ export function carrotFinder(grid) {
   }
   return finder
 }
-
-console.log(carrotFinder(emptyGrid))
