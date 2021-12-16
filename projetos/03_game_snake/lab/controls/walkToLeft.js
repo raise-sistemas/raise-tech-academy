@@ -1,13 +1,8 @@
 // import { gridFromRight } from '../assets/defaultGrid.js'
 
 export function walkToLeft(grid) {
-  let interval = 150
-  // grid = gridFromRight
   let index = bunnyFinder(grid)[0]
-
-  setInterval(() => {
     console.clear()
-    console.log(grid)
     grid = grid.split('')
 
     if (grid[index] + grid[index + 1] == '🐰') {
