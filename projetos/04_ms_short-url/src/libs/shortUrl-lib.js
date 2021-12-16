@@ -33,5 +33,5 @@ export function getUrlShorts(){
 export function getOriginalUrl(slug){
   const urlFind = urlShorts.find(url => url.slug === slug);
 
-  return `Location: ${urlFind.original_url}`;
+  return `https://${urlFind.original_url}`;
 }
