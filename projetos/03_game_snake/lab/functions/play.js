@@ -7,7 +7,7 @@
 //   walkToUp
 // } from './index.js'
 
-import { walkToDown } from './walkToDown.js'
+import { walkToDown } from '../controls/walkToDown.js'
 import { gridTest } from '../assets/defaultGrid.js'
 
 export function play(grid) {
