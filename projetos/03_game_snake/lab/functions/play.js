@@ -9,7 +9,7 @@ import { timeout } from '../assets/timeout.js'
 import { newCarrot } from '../utils/newCarrot.js'
 
 export function play(grid) {
-  // console.log(grid)
+  grid = newCarrot(grid)
 
   setInterval(() => {
     grid = walkToUp(grid)
