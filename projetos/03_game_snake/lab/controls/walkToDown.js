@@ -1,6 +1,7 @@
 // import { gridtest } from '../assets/defaultGrid.js'
 import { isUnder } from '../utils/isUnder.js'
 import { bunnyFinder } from '../utils/bunnyFinder.js'
+import { timeout } from '../assets/timeout.js'
 
 export function walkToDown(grid) {
   let index = bunnyFinder(grid)[0]
@@ -19,6 +20,7 @@ export function walkToDown(grid) {
     grid[index + 15] = '🐰'
     grid = grid.join('')
   }
+  // setTimeout(() => {
   console.log(grid)
   return grid
 }

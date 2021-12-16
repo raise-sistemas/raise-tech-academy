@@ -1,33 +1,26 @@
 // import { gridFromLeft } from '../assets/defaultGrid.js'
-
+import { bunnyFinder } from '../utils/bunnyFinder.js'
+import { isOnTheRight } from '../utils/isOnTheRight.js'
 
 export function walkToRight(grid) {
-  let interval = 150
-  grid = gridFromLeft
-  let index = 29
+  let index = bunnyFinder(grid)[0]
+  console.clear()
 
-
-  setInterval(() => {
-    console.clear()
-    console.log(grid)
+  if (isOnTheRight(grid)) {
     grid = grid.split('')
-
-
-
-    if (grid[index] + grid[index + 1] == '🐰') {
-      grid[index] = '⬛'
-      grid.splice(index + 1, 1)
-      grid[index + 1] = '🐰'
-      grid = grid.join('')
-    }
-
-    if (grid[41] + grid[42] == '🐰') {
-      grid = gridFromLeft
-      index = 29
-    } else {
-      index += 1
-    }
-  }, interval)
+    grid[index - 11] = '🐰'
+    grid[index] = '⬛'
+    grid.splice(index + 1, 1)
+    grid = grid.join('')
+  } else {
+    grid = grid.split('')
+    grid[index] = '⬛'
+    grid.splice(index + 1, 1)
+    grid[index + 1] = '🐰'
+    grid = grid.join('')
+  }
+  console.log(grid)
+  return grid
 }
 
 // walkToRight()

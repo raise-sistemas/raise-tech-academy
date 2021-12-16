@@ -1,29 +1,30 @@
+import { bunnyFinder } from '../utils/bunnyFinder.js'
+import { isOver } from '../utils/IsOver.js'
+
 // import { gridFromBottom } from '../assets/defaultGrid.js'
 
-export function walkToUp() {
-  let interval = 150
-  let grid = gridFromBottom
-  let index = 134
+export function walkToUp(grid) {
+  let index = bunnyFinder(grid)[0]
+  console.clear()
 
-  setInterval(() => {
-    console.clear()
-    console.log(grid)
+  if (isOver(grid)) {
     grid = grid.split('')
+    grid[index + 106] = '🐰'
+    grid[index] = '⬛'
+    grid.splice(index + 1, 1)
+    grid = grid.join('')
 
-    if (grid[index] + grid[index + 1] == '🐰') {
-      grid[index] = '⬛'
-      grid.splice(index + 1, 1)
-      grid[index - 15] = '🐰'
-      grid = grid.join('')
-    }
+  } else {
+    grid = grid.split('')
+    grid[index] = '⬛'
+    grid.splice(index + 1, 1)
+    grid[index - 15] = '🐰'
+    grid = grid.join('')
 
-    if (index == 29) {
-      grid = gridFromBottom
-      index = 134
-    } else {
-      index = index - 15
-    }
-  }, interval)
+  }
+  // setTimeout(() => {
+  console.log(grid)
+  return grid
 }
 
 // walkToUp()

@@ -1,4 +1,5 @@
 // import { gridFromRight } from '../assets/defaultGrid.js'
+import { timeout } from '../assets/timeout.js'
 import { bunnyFinder } from '../utils/bunnyFinder.js'
 import { isOnTheLeft } from '../utils/isOnTheLeft.js'
 
@@ -19,7 +20,9 @@ export function walkToLeft(grid) {
     grid.splice(index + 1, 1)
     grid = grid.join('')
   }
-  console.log(grid)
-  return grid
+  // setTimeout(() => {
+    console.log(grid)
+    return grid
+  // }, timeout)
 }
 // walkToleft()

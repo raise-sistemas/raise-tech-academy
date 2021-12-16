@@ -5,3 +5,6 @@ import { isOnTheLeft } from './utils/isOnTheLeft.js'
 
 console.log(isOnTheLeft(gridTest))
 
+setTimeout(() => {
+  console.log('hi')
+}, 1000);
