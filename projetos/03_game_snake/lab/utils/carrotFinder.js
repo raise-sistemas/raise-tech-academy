@@ -7,5 +7,10 @@ export function carrotFinder(grid) {
       break
     }
   }
-  return finder
+
+  if (finder[0]) {
+    return finder
+  } else {
+    return false
+  }
 }
