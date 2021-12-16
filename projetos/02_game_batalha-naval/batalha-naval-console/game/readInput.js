@@ -30,7 +30,7 @@ export function readInputDirection(ship, shipSize, prompt) {
     console.log("Entrada inválida");
     return readInputDirection(ship, shipSize, prompt);
   } 
-  return direction;
+  return direction[0];
 
 }
 
