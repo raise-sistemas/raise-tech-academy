@@ -1,19 +1,19 @@
-// import {
-//   carrotFinder,
-//   newCarrot,
-//   walkToDown,
-//   walkToLeft,
-//   walkToRight,
-//   walkToUp
-// } from './index.js'
-
-import { walkToDown } from '../controls/walkToDown.js'
+import {
+  walkToDown,
+  walkToRight,
+  walkToLeft,
+  walkToUp
+} from '../controls/index.js'
 import { gridTest } from '../assets/defaultGrid.js'
+import { timeout } from '../assets/timeout.js'
+import { newCarrot } from '../utils/newCarrot.js'
 
 export function play(grid) {
+  console.log(grid)
+  grid = newCarrot(grid)
   setInterval(() => {
-    grid = walkToDown(grid)
-  }, 200)
+    grid = walkToUp(grid)
+  }, 500)
 }
 
 play(gridTest)
