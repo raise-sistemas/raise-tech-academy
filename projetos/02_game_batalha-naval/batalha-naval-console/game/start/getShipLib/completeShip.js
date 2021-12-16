@@ -21,7 +21,7 @@ function changeCoordinate (letter, number, direction){
       break
     }
     const coordinate = letter + " " + number
-    return [coordinate,letter,number]
+    return [coordinate, letter, number]
   }
 
 
