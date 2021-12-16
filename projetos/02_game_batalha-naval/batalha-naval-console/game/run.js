@@ -1,30 +1,28 @@
 import { changePlayerView, view} from "../display/index.js"
-import { setShot } from "./setShot.js"
+import { drawShot } from "./drawShot.js"
 import { readInputCoordinate } from "./readInput.js"
-import { setEnemyShot } from "./setEnemyShot.js"
+import { setShot } from "./setShot.js"
 import { getEnemy } from "./getEnemy.js"
 import { isWinner } from "./isWinner.js"
 
 export function run(game){
-  let lastShot;
-
-  while (game.status){
-
-    for (const player of game.players){
-      if(game.status){
-      setEnemyShot(lastShot,player.ships,player.grid)
+  for (const player of game.players){
+      const enemy = getEnemy(game.players,player)
 
       changePlayerView(player)
       view(player)
 
-      lastShot = readInputCoordinate(prompt)
-      setShot(lastShot,player,game.players)
+      const shot = readInputCoordinate(prompt)
+      drawShot(shot,player,enemy.ships)
+      enemy.ships = setShot(shot,enemy.ships,enemy.grid)
+      
 
-      game.status = !isWinner(getEnemy(game.players,player).ships)
+      console.log(enemy.ships)
+      if(isWinner(enemy.ships)){
       game.Winner = game.players.indexOf(player)
+      return game
       }
     }
-  
+  return run(game)  
   }
-  return game
-}
+  
