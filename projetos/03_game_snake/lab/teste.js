@@ -1,10 +1,7 @@
-import { gridFromLeft } from './assets/defaultGrid.js'
-import { newCarrot } from './functions/newCarrot.js';
+import { isUnder } from '../lab/utils/isUnder.js'
+import { gridTest } from './assets/defaultGrid.js'
+import { bunnyFinder } from './utils/bunnyFinder.js'
 
 
-setInterval(() => {
-  console.clear()
-  newCarrot(gridFromLeft)
-}, 250);
-
-
+console.log(isUnder(gridTest))
+console.log(bunnyFinder(gridTest))

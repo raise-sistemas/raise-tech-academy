@@ -1,5 +1,5 @@
-import { gridFromLeft } from '../assets/defaultGrid.js'
-import { newCarrot } from './newCarrot.js'
+// import { gridFromLeft } from '../assets/defaultGrid.js'
+
 
 export function walkToRight(grid) {
   let interval = 150
@@ -30,4 +30,4 @@ export function walkToRight(grid) {
   }, interval)
 }
 
-walkToRight()
+// walkToRight()

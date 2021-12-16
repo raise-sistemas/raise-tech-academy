@@ -1,4 +1,4 @@
-import { gridFromBottom } from '../assets/defaultGrid.js'
+// import { gridFromBottom } from '../assets/defaultGrid.js'
 
 export function walkToUp() {
   let interval = 150
@@ -26,4 +26,4 @@ export function walkToUp() {
   }, interval)
 }
 
-walkToUp()
+// walkToUp()

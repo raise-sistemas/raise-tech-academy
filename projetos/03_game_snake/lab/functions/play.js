@@ -1,6 +1,19 @@
-import {carrotFinder, newCarrot, walkToDown, walkToLeft, walkToRight, walkToUp} from '../lab/functions/index.js'
-import {defaultGrid} from '../assets/defaultGrid.js'
+// import {
+//   carrotFinder,
+//   newCarrot,
+//   walkToDown,
+//   walkToLeft,
+//   walkToRight,
+//   walkToUp
+// } from './index.js'
 
-function play() {
-  
+import { walkToDown } from './walkToDown.js'
+import { gridTest } from '../assets/defaultGrid.js'
+
+export function play(grid) {
+  setInterval(() => {
+    grid = walkToDown(grid)
+  }, 200)
 }
+
+play(gridTest)

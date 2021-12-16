@@ -1,11 +1,10 @@
-import { gridFromRight } from '../assets/defaultGrid.js'
-import { newCarrot } from './newCarrot.js'
+// import { gridFromRight } from '../assets/defaultGrid.js'
 
-export function walkToleft(grid) {
+export function walkToLeft(grid) {
   let interval = 150
-  grid = gridFromRight
-  let index = 40
-  newCarrot(grid)
+  // grid = gridFromRight
+  let index = bunnyFinder(grid)[0]
+
   setInterval(() => {
     console.clear()
     console.log(grid)
@@ -27,4 +26,4 @@ export function walkToleft(grid) {
   }, interval)
 }
 
-walkToleft()
+// walkToleft()
