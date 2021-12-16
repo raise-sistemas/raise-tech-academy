@@ -7,13 +7,15 @@
 //   walkToUp
 // } from './index.js'
 
-import { walkToDown } from '../controls/walkToDown.js'
+import { walkToDown, walkToLeft } from '../controls/index.js'
 import { gridTest } from '../assets/defaultGrid.js'
 
 export function play(grid) {
+  console.log(grid)
   setInterval(() => {
     grid = walkToDown(grid)
-  }, 200)
+    grid = walkToLeft(grid)
+  }, 1000)
 }
 
 play(gridTest)

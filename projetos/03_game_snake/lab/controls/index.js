@@ -1,5 +1,3 @@
-export * from './newCarrot.js'
-export * from './carrotFinder.js'
 export * from './walkToDown.js'
 export * from './walkToRight.js'
 export * from './walkToLeft.js'

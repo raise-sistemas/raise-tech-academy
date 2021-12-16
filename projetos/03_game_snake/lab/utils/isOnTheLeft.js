@@ -11,3 +11,4 @@ export function isOnTheLeft(grid) {
   }
   return finder
 }
+
