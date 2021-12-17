@@ -6,7 +6,7 @@ import {
 } from '../controls/index.js'
 import { gridTest } from '../assets/defaultGrid.js'
 import { timeout } from '../assets/timeout.js'
-import { newCarrot } from '../utils/newCarrot.js'
+import { newCarrot } from './utils/newCarrot.js'
 
 export function play(grid) {
   grid = newCarrot(grid)
