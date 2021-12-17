@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import NaoTemTags from "./NaoTemTags";
+import { background } from "../utils/backgrounds";
 
 export default function Main(props){ 
     const [tags, setTags] = useState([]);
@@ -19,19 +20,19 @@ export default function Main(props){
         }
     
     }, [])
-
+    let bgIndex = 0;
     return (
 
             <main className='container'>
                 {data ? tags.map((param, index) => (
                 <div
                     key={param+"-"+index}
-                    className='bg-roxo card'
+                    className={background[bgIndex++] + " "+ "card"}
                     onClick={() => {
                     navigator.clipboard.writeText(param.info);
                     }}
                 >
-                    {console.log("TO NO IF")}
+                    {bgIndex >= 4 ? bgIndex = 0 : bgIndex}
                     <button className='w500'>X</button>
                     <span>{param.title}</span>
                 </div>
