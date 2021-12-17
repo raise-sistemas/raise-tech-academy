@@ -22,5 +22,7 @@ export function getOriginalUrlAction(request, { slug }) {
   const url = new URL(request.url);
   slug = slug || url.searchParams.get("slug");
   
-  return `${shortUrlLib.getOriginalUrl(slug)}`;
+  shortUrlLib.updateVisitorsCount(slug);
+
+  return shortUrlLib.getOriginalUrl(slug);
 }
