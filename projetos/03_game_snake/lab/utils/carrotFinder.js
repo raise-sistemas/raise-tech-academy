@@ -3,10 +3,14 @@ export function carrotFinder(grid) {
   let finder = []
   for (let index = 29; index < 145; index++) {
     if (grid[index] + grid[index + 1] == '🥕') {
-      console.log(index)
       finder.push(index, index + 1)
       break
     }
   }
-  return finder
+
+  if (finder[0]) {
+    return finder
+  } else {
+    return false
+  }
 }

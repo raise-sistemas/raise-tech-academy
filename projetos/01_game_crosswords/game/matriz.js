@@ -46,14 +46,12 @@ export function addWordMatriz(matriz, boardSize) {
         let posLine = randomPosition.posLine;
         let posCol = randomPosition.posCol;
 
-        let palavra = getWord();
+        let palavra = getWord(amountWords-1);
         if ((posLine > 0 && posCol > 0 && ((boardSize - (posCol-1) > palavra.word.length) &&
             (boardSize - (posLine-1) > palavra.word.length)) &&
             (isFreePosition(posLine, posCol, palavra.word.length, randomPosition.orientation)))) {
-                
                 let posicaoAtual = randomPosition.orientation == 0 ? posCol : posLine;
                 for (const letra in palavra.word) {
-                    
                     if (randomPosition.orientation == 0) {
                         matriz[posLine][posicaoAtual] = palavra.word[letra];
                         addPosition(posLine, posicaoAtual);
@@ -63,11 +61,7 @@ export function addWordMatriz(matriz, boardSize) {
                     }
                     posicaoAtual++;
                 }
-
                 amountWords--;
-                removeWord(palavra.position);
-                palavra = getWord();
-
         }
         count++;
     }
