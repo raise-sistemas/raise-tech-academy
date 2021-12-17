@@ -1,41 +1,29 @@
 import React, {useEffect, useState} from "react";
+import NaoTemTags from "./NaoTemTags";
 
 export default function Main(props){ 
     const [tags, setTags] = useState([]);
-    const data = props.data;
-    useEffect(()=>{
-        console.log("to dentro do useEffect");
-        console.log(tags);
-        setTags([...data]);
+    
+    let data = localStorage.getItem('tags');
+    if (data) {
+        data = data.split(';');
+        data.forEach((tag, index) => {
+            data[index] = JSON.parse(tag);
+        });
+    }
 
-        return (
-               
-            // <main className='container'>
-            //     {console.log("To dentro da main", tags)}
-            //     {data.map((param, index) => (
-            //     <div
-            //         key={param+"-"+index}
-            //         className='bg-roxo card'
-            //         onClick={() => {
-            //         navigator.clipboard.writeText(tags[0].info);
-            //         }}
-            //     >
-        
-            //         <button className='w500'>X</button>
-            //         <span>{tags[0].title}</span>
-            //     </div>
-            //     ))}
-            // </main>
-            
-            <div>oi</div>
-            
-        )     
-    }, [data])
-        return (
+    useEffect(()=>{
+        if(data){
+
+            setTags([...data])
+        }
+    
+    }, [])
+
+    return (
 
             <main className='container'>
-                {console.log("To dentro da main", tags)}
-                {data.map((param, index) => (
+                {data ? tags.map((param, index) => (
                 <div
                     key={param+"-"+index}
                     className='bg-roxo card'
@@ -43,11 +31,11 @@ export default function Main(props){
                     navigator.clipboard.writeText(param.info);
                     }}
                 >
-        
+                    {console.log("TO NO IF")}
                     <button className='w500'>X</button>
                     <span>{param.title}</span>
                 </div>
-                ))}
+                )): <NaoTemTags />}
             </main>
 
         )  
