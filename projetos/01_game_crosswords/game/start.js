@@ -11,9 +11,8 @@ import board from '../board-static/board-json.js';
 
 export let stop = false;
 export function startGame() {
-
-    let staticBoard = true;
-    let matriz = matrizSettings(staticBoard);
+    
+    let matriz = matrizSettings();
     displayBoard(matriz);
     showMessage('Você pode digitar 0 a qualquer momento para sair do jogo.');
     showMessage(`Palavras restantes (${words.length}): ${words.join(", ").toUpperCase()}.`);
