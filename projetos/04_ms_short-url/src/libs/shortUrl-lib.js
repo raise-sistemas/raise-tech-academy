@@ -37,7 +37,7 @@ export function addShortUrlSlug(slug, original_url){
   return newShortUrl;
 }
 
-export function getUrlShorts(){
+export function getShortUrls(){
   return db.listShortUrlDb();
 }
 

@@ -15,7 +15,7 @@ export async function newUrlSlugAction(request, { slug }) {
 }
 
 export function listUrlShorts(){
-  return shortUrlLib.getUrlShorts();
+  return shortUrlLib.getShortUrls();
 }
 
 export function getOriginalUrlAction(request, { slug }) {
