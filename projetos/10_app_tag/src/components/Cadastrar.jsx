@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import CadastroNaoRealizado from "./CadastroNaoRealizado";
 import CadastroRealizado from "./CadastroRealizado";
+import uuid from '../actions/uuid';
 
 export default function Cadastrar(props) {
   const [titleInput, setTitleInput] = useState("");
   const [infoInput, setInfoInput] = useState("");
   const [resposta, setResposta] = useState("");
+  
 
   const response = (event) => {
     event.preventDefault();
@@ -16,8 +18,8 @@ export default function Cadastrar(props) {
         localStorage.setItem(
             'tags',
             data
-            ? data + ';' + JSON.stringify({ 'title': title, 'info': info })
-            : JSON.stringify({ 'title': title, 'info': info })
+            ? data + ';' + JSON.stringify({ 'title': title, 'info': info, 'uuid': uuid()})
+            : JSON.stringify({ 'title': title, 'info': info, 'uuid': uuid()})
         );
         setResposta(<CadastroRealizado/>);
         setTitleInput("");

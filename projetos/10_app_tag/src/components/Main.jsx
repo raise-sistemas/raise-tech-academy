@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from "react";
 import NaoTemTags from "./NaoTemTags";
 import { background } from "../utils/backgrounds";
+import removeTag from "../actions/removeTag";
 
 export default function Main(props){ 
     const [tags, setTags] = useState([]);
-    
+    const [remove, setRemove] = useState(false);
+
     let data = localStorage.getItem('tags');
     if (data) {
         data = data.split(';');
@@ -31,9 +33,11 @@ export default function Main(props){
                     onClick={() => {
                     navigator.clipboard.writeText(param.info);
                     }}
-                >
-                    {bgIndex >= 4 ? bgIndex = 0 : bgIndex}
-                    <button className='w500'>X</button>
+                >   
+                    <div className="d-none">
+                        {bgIndex >= 4 ? bgIndex = 0 : bgIndex}
+                    </div>
+                    <button className='w500'onClick={() => {setRemove(removeTag(param.uuid))}}>X</button>
                     <span>{param.title}</span>
                 </div>
                 )): <NaoTemTags />}
