@@ -1,4 +1,4 @@
-import { BaseRouter } from "./deps.js";
+import { BaseRouter } from "../deps.js";
 
 export class Router extends BaseRouter {
   prefix = "";

@@ -1,7 +1,7 @@
 import { serve } from "./deps.js";
-import { shortUrlServer } from "./shortUrlServer.js";
+import { shortUrlServer } from "./src/shortUrlServer.js";
 
-// localStorage.clear();
+localStorage.clear();
 
 console.clear();
 console.log("Server started");

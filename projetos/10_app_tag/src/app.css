@@ -435,3 +435,7 @@ nav li:last-child {
   margin: auto;
   display: inline-block;
 }
+
+.d-none{
+  display: none;
+}
