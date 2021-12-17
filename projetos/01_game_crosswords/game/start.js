@@ -32,7 +32,9 @@ export function startGame() {
             if (foundWords.length === amountWordsFound) showMessage('Ops.. palavra incorreta!');
             showPlays(foundWords);
         } else {
-            showMessage('Entrada inválida! Exemplo válido: B3E3.');
+            displayBoard(matriz);
+            showPlays(foundWords);
+            showMessage('Entrada inválida! Exemplos válidos: B3D3, E4E8.');
         }
     } while (foundWords.length < words.length);
 
