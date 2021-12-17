@@ -1,7 +1,7 @@
 const db = localStorage;
 const shortUrls = JSON.parse(db.getItem("shortUrls") || "[]");
 
-export function getShortUrlsDb(){
+export function listShortUrlDb(){
   return shortUrls;
 }
 
@@ -10,8 +10,14 @@ export function addShortUrlsDb(object){
   db.setItem('shortUrls', JSON.stringify(shortUrls));
 }
 
-export function getOriginalUrlDb(slug){
+export function getShortUrlBySlug(slug){
   const urlFind = shortUrls.find(url => url.slug === slug);
 
   return urlFind;
+}
+
+export function updateVisitsUrlDb(slug){
+  const shortUrl = getShortUrlBySlug(slug);
+  shortUrl.visits++;
+  db.setItem('shortUrls', JSON.stringify(shortUrls));
 }

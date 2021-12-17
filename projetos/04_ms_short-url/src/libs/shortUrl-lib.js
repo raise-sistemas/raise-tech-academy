@@ -2,12 +2,17 @@ import { slugGenerate } from '../utils/slugGenerate.js';
 import { urlFormat } from '../utils/urlFormat.js';
 import * as db from '../database/shortUrlDb.js';
 
+export function updateVisitorsCount(slug){
+  db.updateVisitsUrlDb(slug);
+}
+
 export function addShortUrl(original_url){
   const slug = slugGenerate();
   const newShortUrl = {
     slug,
     short_url: `https://short.url/${slug}`,
-    original_url: urlFormat(original_url)
+    original_url: urlFormat(original_url),
+    visits: 0
   }
 
   db.addShortUrlsDb(newShortUrl);
@@ -19,7 +24,8 @@ export function addShortUrlSlug(slug, original_url){
   const newShortUrl = {
     slug,
     short_url: `https://short.url/${slug}`,
-    original_url: urlFormat(original_url)
+    original_url: urlFormat(original_url),
+    visits: 0
   }
 
   db.addShortUrlsDb(newShortUrl);
@@ -28,9 +34,9 @@ export function addShortUrlSlug(slug, original_url){
 }
 
 export function getUrlShorts(){
-  return db.getShortUrlsDb();
+  return db.listShortUrlDb();
 }
 
-export function getOriginalUrl(slug){
-  return db.getOriginalUrlDb(slug).original_url;
+export function getOriginalUrl(slug){  
+  return db.getShortUrlBySlug(slug).original_url;
 }
