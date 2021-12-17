@@ -1,97 +1,112 @@
-body {background-color: #103C7B;
-  font-family: verdana;
+body {background-color: #FF4D4F;
   text-align: center;
   font-size: 24px;
+  font-family: verdana
 }
+
+a { color: inherit; text-decoration: none} 
 
 h1 {color: #ffffff;
   text-align: center;
-  padding-top: 100px
+  padding-top: 100px;
+  font-family:'Segoe UI' Geneva;
 }
 
-.myButton {
-box-shadow: 0px 1px 0px 0px #1c1b18;
-background-color:#ffffff;
-  text-align: center;
-  display: block;
-  width: 100px;
-border-radius:10px;
-color:#000000;
-font-size:14px;
-font-weight:bold;
-padding:20px 35px;
-text-decoration:none;
-text-shadow:0px 1px 0px #ffffff;
+.btn-nomes {
+  background-color:#ffffff;
+  height: 50px;
+  width: 140px;
+  border-radius:10px;
+  color:#000000;
+  font-size:15px;
+  font-weight:bold;
+  padding:20px 35px;
   margin-right: 50px;
   text-transform: uppercase;
 }
-.myButton:hover {
-background:linear-gradient(to bottom, #0097fc 5%, #ffffff 100%);
-background-color:#ccc2a6;
+.btn-nomes:hover {
+  background-color:#66d7f3;
 }
 
 
 
-.myButton2 {
-  box-shadow: 0px 1px 0px 0px #1c1b18;
-background-color:#ffffff;
-  text-align: center;
-  display: block;
-  width: 100px;
-border-radius:10px;
-color:#000000;
-font-size:14px;
-font-weight:bold;
-padding:20px 35px;
-text-decoration:none;
-text-shadow:0px 1px 0px #ffffff;
+.btn-nomes-sorteados {
+  background-color:#ffffff;
+  height: 50px;
+  width: 140px;
+  border-radius:10px;
+  color:#000000;
+  font-size:15px;
+  font-weight:bold;
+  padding:20px 35px;
+  text-decoration:none;
   text-transform: uppercase;
 }
-.myButton2:hover {
-background:linear-gradient(to bottom, #0097fc 5%, #ffffff 100%);
-background-color:#ccc2a6;
+.btn-nomes-sorteados:hover {
+  background-color:#66d7f3;
 }
 
-.button {
+.inserir-revelar {
+  height: 100px;
+  width: 240px;
+  border-radius: 0.8em;
+  color: #000000;
+  font-family: Verdana;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 24px;
+  background-color: #FFFFFF;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 20px;
+  
+}
+
+.inserir-revelar:hover {
+  background: #66D7F3;
+  border: solid #FFFFFF 2px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+.nome-inicial{
+  height: 40px;
+  font-size: 26px;
   display: flex;
   justify-content: center;
-  margin-top: 60px;
-  text-align: center;
-}
-
-.nome-inicial{
-  height: 30px;
-  text-align: center;
-  font-size: 26px;
-  display: inline-flex;
-  justify-content: center;
-  margin-right: 220px;
   margin-top: 30px;
 }
 
 .nome-sorteio {
-  display: block;
-  margin-right: 20px;
+  width: 160px;
+  border-radius:0.5em;
+  font-family: verdana;
+  font-weight: bold;
+  
 }
 
-.nome-inicial a {
-  text-decoration:none;
+.btn-cadastrar {
+  margin-left: 5px;
+  border-radius:0.5em;
+  font-family: verdana;
+  font-weight: bold;
 }
 
-.botao-cadastrar {
-  margin-left: 20px;
+.btn-consultar {
+  margin-left: 40px;
+  border-radius:0.5em;
+  font-family: verdana;
+  font-weight: bold;
 }
 
 .botao-finalizar {
-  height: 30px;
+  height: 40px;
   text-align: center;
   font-size: 25px;
   display: block;
   margin-left: 620px;
   margin-top: 60px;
-}
-
-
-.botao-finalizar a {
-  text-decoration: none;
+  border-radius:0.3em;
+  font-family: verdana;
 }
