@@ -14,7 +14,7 @@ export function play(grid) {
   setInterval(() => {
     grid = walkToUp(grid)
     // grid = newCarrot(grid)
-  }, 1000)
+  }, 600)
 }
 
 play(gridTest)

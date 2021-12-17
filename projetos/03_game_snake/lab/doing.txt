@@ -1,29 +1,30 @@
- A função New Carrot tem que encontrar a última cenoura e apagar
- Ou, tenho que criar a função comer, que faz com que quando o coelho e a cenoura colidam, o coelho substitua a posição da cenoura, e aí chama a newCarrot
+Dois bugs:
 
- A função de nova cenoura tem que apagar a última
+Na função WalToUp:
+Quando o coelho sobe até o limite e raparece embaixo, no grid, na mesma fileira.
+O index dele realmente é adicionado 105, a diferença entre o primeiro bloco e o último de cada coluna.
+Mas, ao "atravessar" ele anda para a esquerda.
 
-Porque, quando o coelho e a cenoura colidem, dá um erro de index, a posição que o coelhor tá ocupando é metade das posições que a cenoura ocupa
+Quando ele tá na linha da cenoura, ele tem que subir um índice a mais.
+Isso é subtrair mais um índice da posição que ele tava.
 
-na função new carrot, tenho que criar um caso de ser a primeira cenoura, e outro caso de gerar uma nova cenoura apagando uma q já temn.
+Soluções?
 
-A função newCarrot tem que ser chamada na hora que o coelho for colidir com a cenoura
+Criar um estado pra o grid.
+Usar caracter nulo, pra ser o espaço do grid.
 
-Se a cenoura tiver à direita de onde eu vou, resolve
-Ou se tiver à esquerda de onde eu vou. resolve, na função walkToUp
+Fazer dos itens uns objetos.
 
-Quando tá na mesma fileira da cenoura, ele conta a fileira com um índice a mais, tenho que verificar se tá na mesma linha da cenoura (quando andar pra cima ou pra baixo) e diminuir ou aumentar um índice, pra ele não ir pra a esquerda ou pra a direita
 
-Não é necessariamente na mesma fileira, é quando ele tá depois da cenoura, em índices mesmo, se a cenoura tá no 50, quando ele passar pelo 51, vai bugar
 
-O bug:
+Assim:
 
 ╔════════════════════════╗
 ║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
@@ -34,23 +35,10 @@ O bug:
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ╚════════════════════════╝
-137
-
-╔════════════════════════╗
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-╚════════════════════════╝
-122
-
+136
