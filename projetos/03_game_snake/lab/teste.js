@@ -5,8 +5,8 @@
 
 // console.log(isOnTheLeft(gridTest))
 
-  // setTimeout(() => {
-  //   console.log('hi')
-  // }, 500)
+// setTimeout(() => {
+//   console.log('hi')
+// }, 500)
 
-console.log('🐰, 🐰'.split(''))
+// console.log('🐰, 🐰'.split(''))
