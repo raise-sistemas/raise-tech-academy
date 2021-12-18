@@ -10,3 +10,10 @@ Esses vão ser os if e else if:
 02 - Se não tá no topo e tem comida iminente
 03 - Se tá no topo
 04 - Se não tá no topo
+
+Vou criar 4 iminentCarrot, um pra cada direção, e chamar eles dentro de cada uma das funções de movimento.
+Só criei para a o WalToUp, mas como não funciona, ainda não implementei na função.
+
+--------------------------------------------------------------------------------
+Erro de indexação, mesmo quando o coelho e a cenoura estão na mesma coluna, o carrotFinder e bunnyFinder estão retornando colunas diferentes.
+

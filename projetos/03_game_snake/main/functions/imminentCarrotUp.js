@@ -1,14 +1,7 @@
-import {
-  bunnyFinder,
-  carrotFinder,
-  isOnTheLeft,
-  isOnTheRight,
-  isUnder,
-  isUpper
-} from './index.js'
+import { bunnyFinder, carrotFinder, isUpper } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
 
-export function iminentCarrotUp(grid) {
+export function imminentCarrotUp(grid) {
   const bunnyIndex = bunnyFinder(grid)
   const bunnyLine = bunnyIndex[0]
   const bunnyColumn = bunnyIndex[1]
@@ -28,6 +21,8 @@ export function iminentCarrotUp(grid) {
     coordinates[carrotLine][carrotColumn] ==
       coordinates[bunnyLine + 7][bunnyColumn]
   ) {
+    return true
+  } else if (isUpper(grid) && coordinates[bunnyLine + 7][bunnyColumn + 1]) {
     return true
   } else if (
     coordinates[carrotLine][carrotColumn] ==
