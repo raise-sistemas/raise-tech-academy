@@ -1,21 +1,21 @@
-import { matrizSettings } from "./matriz.js";
+import { matrizSettings } from "./board/modify/matriz.js";
 import { showMessage } from "../utils/message.js";
-import { displayBoard } from "./displayBoard.js";
-import { searchWord } from "./searchWord.js";
-import { checkCorrectWord } from "./checkCorrectWord.js";
-import { modifyBoard } from "./modifyBoard.js";
-import { showPlays } from "./showPlays.js";
-import { validateInput } from "./validateInput.js";
+import { displayBoard } from "./display/displayBoard.js";
+import { searchWord } from "./validation/searchWord.js";
+import { checkCorrectWord } from "./validation/checkCorrectWord.js";
+import { modifyBoard } from "./board/modify/modifyBoard.js";
+import { showPlays } from "./display/showPlays.js";
+import { validateInput } from "./validation/validateInput.js";
 import words from '../assets/words.js';
-import board from '../board-static/board-json.js';
+import board from '../assets/boards/board-json.js';
 
 export let stop = false;
 export function startGame() {
     
     let matriz = matrizSettings();
     displayBoard(matriz);
-    showMessage('Você pode digitar 0 a qualquer momento para sair do jogo.');
-    showMessage(`Palavras restantes (${words.length}): ${words.join(", ").toUpperCase()}.`);
+    showMessage('🟨 Você pode digitar 0 a qualquer momento para sair do jogo.');
+    showMessage(`🟥 Palavras restantes (${words.length}): ${words.join(", ").toUpperCase()}.`);
 
     let foundWords = [];
     do {
@@ -37,7 +37,7 @@ export function startGame() {
         }
     } while (foundWords.length < words.length);
 
-    if (foundWords.length === words.length) showMessage('Parabéns, você venceu! 😃');
+    if (foundWords.length === words.length) showMessage('Parabéns, você venceu !!!');
 
     return true;
 }

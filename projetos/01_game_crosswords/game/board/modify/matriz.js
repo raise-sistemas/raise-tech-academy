@@ -1,10 +1,12 @@
-import { isFreePosition } from "./validatePositions.js";
-import { randomPositionWord } from "./randomPositionWord.js";
-import { getLetter, getWord, removeWord } from "./word.js";
-import words from '../assets/words.js';
-import { boardSize } from './customBoard/boardSize.js';
+import { isFreePosition } from "../validation/validatePositions.js";
+import { randomPositionWord } from "../randomPositionWord.js";
+import { getLetter } from "../../getLetter.js";
+import { getWord } from "../../getWord.js";
+import words from '../../../assets/words.js';
+import { boardSize } from '../config/boardSize.js';
 import { addPosition } from "./fullPositionsBoard.js";
-import board from '../board-static/board-json.js';
+import board from '../../../assets/boards/board-json.js';
+import { removeWord } from "../../removeWord.js";
 
 export function matrizSettings() {
     let matriz = new Array(boardSize);

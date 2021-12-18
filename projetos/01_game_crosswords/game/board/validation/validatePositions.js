@@ -1,4 +1,4 @@
-import { verificarContemPosition } from "./fullPositionsBoard.js";
+import { verificarContemPosition } from "../modify/fullPositionsBoard.js";
 
 export function isFreePosition(posLinha, posColuna, tamanhoPalavra, modo) {
     let pos = modo == 0 ? posColuna : posLinha;

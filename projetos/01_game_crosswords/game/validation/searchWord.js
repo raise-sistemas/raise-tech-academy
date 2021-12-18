@@ -1,4 +1,4 @@
-import { getNumberByLetter } from "../utils/letterForNumber.js";
+import { getNumberByLetter } from "../../utils/letterForNumber.js";
 
 export function searchWord(entradaPosicoes, matriz) {
     let word = '';
