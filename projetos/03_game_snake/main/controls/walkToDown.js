@@ -1,8 +1,7 @@
-// import { gridtest } from '../assets/defaultGrid.js'
-import { isUnder } from '../utils/isUnder.js'
-import { bunnyFinder } from '../utils/bunnyFinder.js'
+// import { sleep } from '../functions/sleep.js'
+import { isUnder, bunnyFinder } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
-import { sleep } from '../functions/sleep.js'
+
 export function walkToDown(grid) {
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
@@ -22,7 +21,7 @@ export function walkToDown(grid) {
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
 
-    // Descer uma linha é o mesmo que aumentar uma no índice.
+    // Descer uma linha é o mesmo que aumentar uma linha no índice.
     grid[coordinates[bunnyLine + 1][bunnyColumn]] = '🐰'
     grid = grid.join('')
   }
@@ -30,5 +29,3 @@ export function walkToDown(grid) {
   console.log(grid)
   return grid
 }
-
-// walkToDown(gridtest)

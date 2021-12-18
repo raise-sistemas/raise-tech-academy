@@ -1,62 +1,30 @@
-import { bunnyFinder } from '../utils/bunnyFinder.js'
-import { carrotFinder } from '../utils/carrotFinder.js'
-import { isOver } from '../utils/IsOver.js'
-import { newCarrot } from '../functions/newCarrot.js'
-
-// import { gridFromBottom } from '../assets/defaultGrid.js'
+import { isUpper, bunnyFinder, carrotFinder } from '../utils/index.js'
+import { coordinates } from '../assets/indexes.js'
 
 export function walkToUp(grid) {
-  const index = bunnyFinder(grid)[0]
-  const carrotIndex = carrotFinder(grid)
+  const bunnyCoordinates = bunnyFinder(grid)
+  const bunnyLine = bunnyCoordinates[0]
+  const bunnyColumn = bunnyCoordinates[1]
   console.clear()
 
-  // Caso esteja no topo, vai voltar pra embaixo.
-  if (
-    (isOver(grid) && carrotIndex[0] == index + 105) ||
-    (isOver(grid) && carrotIndex[1] == index + 105)
-  ) {
-    console.log(carrotIndex)
-    console.log(isOver(grid))
-    grid = newCarrot(grid)
+  if (isUpper(grid)) {
     grid = grid.split('')
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
-    grid[index + 105] = '🐰'
-    grid = grid.join('')
-    console.log(index)
-  }
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
 
-  // Caso esteja no topo e a cenoura esteja na base da mesma coluna:, vai gerar uma nova cenoura, e o coelho vai pra onde ela tava.
-  else if (isOver(grid)) {
-    grid = grid.split('')
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
-    grid[index + 105] = '🐰'
+    // Para sair do topo e ir para a base do grid, são 7 linhas a mais.
+    grid[coordinates[bunnyLine + 7][bunnyColumn]] = '🐰'
     grid = grid.join('')
-    console.log(index)
-  }
-
-  // Caso esteja embaixo da cenoura, gera uma nova, e o coelho anda pra cima
-  else if (index - 15 == carrotIndex[0] || index - 15 == carrotIndex[1]) {
-    grid = newCarrot(grid)
-    grid = grid.split('')
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
-    grid[index - 15] = '🐰'
-    grid = grid.join('')
-    console.log(index)
   } else {
     grid = grid.split('')
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
-    grid[index - 15] = '🐰'
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
+
+    // Subir uma linha é diminuir uma no índice.
+    grid[coordinates[bunnyLine - 1][bunnyColumn]] = '🐰'
     grid = grid.join('')
-    console.log(index)
   }
 
-  // setTimeout(() => {
   console.log(grid)
   return grid
 }
-
-// walkToUp()

@@ -9,8 +9,7 @@
 // import { isOnTheLeft } from './utils/isOnTheLeft.js'
 // import { coordinates } from '../main/assets/indexes.js'
 
-import { gridFromLeft } from "../main/assets/defaultGrid.js";
-import { isOnTheLeft } from "../main/utils/isOnTheLeft.js";
-import { isUnder } from "../main/utils/isUnder.js";
+import { gridFromLeft } from '../main/assets/defaultGrid.js'
+import { isUpper } from '../main/utils/index.js'
 
-console.log(isOnTheLeft(gridFromLeft))
+console.log(isUpper(gridFromLeft))
