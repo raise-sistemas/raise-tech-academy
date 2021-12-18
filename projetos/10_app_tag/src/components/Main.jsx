@@ -5,23 +5,21 @@ import removeTag from "../actions/removeTag";
 
 export default function Main(props){ 
     const [tags, setTags] = useState([]);
-    const [remove, setRemove] = useState(false);
+    const [remove, setRemove] = useState(0);
 
     let data = localStorage.getItem('tags');
     if (data) {
-        data = data.split(';');
-        data.forEach((tag, index) => {
-            data[index] = JSON.parse(tag);
-        });
+        data = JSON.parse(data);
     }
 
     useEffect(()=>{
         if(data){
-
             setTags([...data])
         }
     
-    }, [])
+    }, [remove])
+
+    
     let bgIndex = 0;
     return (
 
