@@ -2,7 +2,6 @@ let fullPositions = [];
 
 export function addPosition(posLine, currentPosition) {
     fullPositions.push(posLine + '-' + currentPosition);
-    //console.log(fullPositions);
     return true;
 }
 

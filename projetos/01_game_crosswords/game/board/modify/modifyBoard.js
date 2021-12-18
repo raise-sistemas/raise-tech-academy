@@ -1,4 +1,4 @@
-import { getNumberByLetter } from "../utils/letterForNumber.js";
+import { getNumberByLetter } from "../../../utils/letterForNumber.js";
 
 export function modifyBoard(matriz, wordPositions) {
     let movePosition = wordPositions[1] == wordPositions[3] ? getNumberByLetter(wordPositions[0].toLowerCase()) : wordPositions[1];

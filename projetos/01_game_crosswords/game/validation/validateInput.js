@@ -1,5 +1,5 @@
-import { boardSize } from "./customBoard/boardSize.js";
-import { getNumberByLetter } from "../utils/letterForNumber.js";
+import { boardSize } from "../board/config/boardSize.js";
+import { getNumberByLetter } from "../../utils/letterForNumber.js";
 
 export function validateInput(input) {
     if (input != null) {
