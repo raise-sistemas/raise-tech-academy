@@ -13,13 +13,14 @@ export default function Main(props){
     }
 
     useEffect(()=>{
-        if(data){
+        if(data && data.length >= 1){
             setTags([...data])
+        }else{
+            setTags([data])
         }
     
     }, [remove])
 
-    
     let bgIndex = 0;
     return (
 

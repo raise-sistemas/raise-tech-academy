@@ -1,8 +1,7 @@
 export default function removeTag(uuid) {
   let filtered = localStorage.getItem('tags');
   filtered = JSON.parse(filtered);
-  if(filtered.length === 1){
-    console.log("SOU O ULTIMO");
+  if(filtered.length === undefined || filtered.length === 1){
     localStorage.removeItem('tags');
   }else{
     filtered = filtered.filter((obj) => {
