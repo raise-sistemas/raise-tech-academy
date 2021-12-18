@@ -3,6 +3,7 @@ import { coordinates } from '../assets/indexes.js'
 export function bunnyFinder(grid) {
   grid = grid.split('')
   const bunnyIndexes = []
+
   for (let index = 29; index < 145; index++) {
     if (grid[index] + grid[index + 1] == '🐰') {
       bunnyIndexes.push(index, index + 1)
