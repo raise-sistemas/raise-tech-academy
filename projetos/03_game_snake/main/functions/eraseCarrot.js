@@ -1,4 +1,4 @@
-import { carrotFinder } from './carrotFinder.js'
+import { carrotFinder } from '../utils/carrotFinder.js'
 
 export function eraseCarrot(grid) {
   const carrotIndex = carrotFinder(grid)

@@ -1,27 +1,14 @@
 export default function removeTag(uuid) {
-  const data = localStorage.getItem('tags').split(';');
-  console.log("DATA", data);
-  if (data) {
-    data.map((tag, index) => {
-      data[index] = JSON.parse(tag);
-    });
-    let filteredItems = data.filter(
-      (it) => it.uuid !== uuid
-    );
-    console.log("FILTRADO", filteredItems);
+  let filtered = localStorage.getItem('tags');
+  filtered = JSON.parse(filtered);
+  if(filtered.length === undefined || filtered.length === 1){
     localStorage.removeItem('tags');
-
-    filteredItems.forEach((element , index)=> {
-      filteredItems.length === index 
-      ? filteredItems[index] = JSON.stringify(filteredItems[index])
-      : filteredItems[index] = JSON.stringify(filteredItems[index]) + ";";
-      
+  }else{
+    filtered = filtered.filter((obj) => {
+      return obj.uuid !== uuid; 
     })
-    filteredItems = filteredItems.toString();
-    filteredItems.replace("};,", "};");
-    console.log(filteredItems);
-    localStorage.setItem('tags', filteredItems);
-    return true;
+    localStorage.setItem('tags', JSON.stringify(filtered));
   }
-  return false;
+  return uuid;
 }
+

@@ -1,8 +1,11 @@
 import { bunnyFinder } from './bunnyFinder.js'
+import { coordinates } from '../assets/indexes.js'
 
 export function isUnder(grid) {
   let finder = false
-  const bunnyIndex = bunnyFinder(grid)[0]
+  const bunnyCoordinates = bunnyFinder(grid)
+  const bunnyIndex = coordinates[bunnyCoordinates[0]][bunnyCoordinates[1]]
+
   for (let i = 134; i <= 145; i++) {
     if (bunnyIndex == i) {
       finder = true

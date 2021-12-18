@@ -358,7 +358,7 @@ ol {
   color: #1C2031;
 }
 nav div {
-  width: 45%;
+  width: 43%;
   display: inline-block;
   align-items: center;
 }
@@ -367,13 +367,16 @@ nav ul {
 }
 nav li {
   display: inline;
-  padding-right: 5px;
+  padding-right: 10px;
   line-height: 40px;
 }
 nav li:last-child {
   padding-right: 0px;
 }
 @media screen and (min-width: 768px) {
+  nav div{
+    width: 45%;
+  }
   nav li {
     padding-right: 20px;
   }
@@ -381,6 +384,20 @@ nav li:last-child {
     padding-right: 0px;
   }
 }
+
+@media screen and (max-width: 362px) {
+  nav div{
+    width: 20%;
+  }
+  nav li {
+    padding-right: 10px;
+  }
+  nav li:last-child {
+    padding-right: 0px;
+  }
+}
+
+
 .line {
   width: 50px;
   height: 2px;
@@ -388,18 +405,27 @@ nav li:last-child {
   margin-bottom: 20px;
 }
 .card {
-  width: 120px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-  padding: 12px 14px 12px 8px;
-  font-size: 22px;
   display: inline-block;
   margin-right: 8px;
+  margin-bottom: 25px;
+  max-width: 170px;
+  max-height: 60px;
+  border-radius: 12px;
+  padding: 8px 14px 8px 8px;
+  font-size: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .card button {
-  font-size: 25px;
-  color: #df0404;
+  font-size: 22px;
+  color: #ff3c00;
+
 }
+
+.result{
+  display: flex;
+}
+
 @media screen and (min-width: 540px) {
   .card {
     margin-right: 20px;

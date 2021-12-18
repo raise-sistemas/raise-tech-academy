@@ -5,23 +5,22 @@ import removeTag from "../actions/removeTag";
 
 export default function Main(props){ 
     const [tags, setTags] = useState([]);
-    const [remove, setRemove] = useState(false);
+    const [remove, setRemove] = useState(0);
 
     let data = localStorage.getItem('tags');
     if (data) {
-        data = data.split(';');
-        data.forEach((tag, index) => {
-            data[index] = JSON.parse(tag);
-        });
+        data = JSON.parse(data);
     }
 
     useEffect(()=>{
-        if(data){
-
+        if(data && data.length >= 1){
             setTags([...data])
+        }else{
+            setTags([data])
         }
     
-    }, [])
+    }, [remove])
+
     let bgIndex = 0;
     return (
 
@@ -37,8 +36,10 @@ export default function Main(props){
                     <div className="d-none">
                         {bgIndex >= 4 ? bgIndex = 0 : bgIndex}
                     </div>
-                    <button className='w500'onClick={() => {setRemove(removeTag(param.uuid))}}>X</button>
-                    <span>{param.title}</span>
+                    <div className="result">
+                        <button className='w500'onClick={() => {setRemove(removeTag(param.uuid))}}>X</button>
+                        <span>{param.title}</span>
+                    </div>
                 </div>
                 )): <NaoTemTags />}
             </main>

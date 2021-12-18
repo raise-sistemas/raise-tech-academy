@@ -1,12 +1,15 @@
 // import { isUnder } from '../lab/utils/isUnder.js'
-// import { gridTest } from './assets/defaultGrid.js'
-// import { bunnyFinder } from './utils/bunnyFinder.js'
+// import {
+//   gridTest,
+//   gridFromBottom,
+//   gridFromLeft,
+//   gridFromRight
+// } from '../main/assets/defaultGrid.js'
+// import { bunnyFinder } from '../main/utils/bunnyFinder.js'
 // import { isOnTheLeft } from './utils/isOnTheLeft.js'
+// import { coordinates } from '../main/assets/indexes.js'
 
-// console.log(isOnTheLeft(gridTest))
+import { gridFromLeft } from '../main/assets/defaultGrid.js'
+import { isUpper } from '../main/utils/index.js'
 
-  // setTimeout(() => {
-  //   console.log('hi')
-  // }, 500)
-
-console.log('🐰, 🐰'.split(''))
+console.log(isUpper(gridFromLeft))

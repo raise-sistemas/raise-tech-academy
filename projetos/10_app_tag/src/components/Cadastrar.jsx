@@ -14,24 +14,31 @@ export default function Cadastrar(props) {
     const title = event.target.elements.title.value;
     const info = event.target.elements.info.value;
     if(title !== "" && info !== ""){ 
-        const data = localStorage.getItem('tags');
-        localStorage.setItem(
-            'tags',
-            data
-            ? data + ';' + JSON.stringify({ 'title': title, 'info': info, 'uuid': uuid()})
-            : JSON.stringify({ 'title': title, 'info': info, 'uuid': uuid()})
-        );
+        let data = localStorage.getItem('tags');
+        if(data){
+          data = JSON.parse(data)
+          switch (data.length) {  
+            case undefined:  
+              localStorage.setItem('tags', JSON.stringify([data, {'title': title, 'info': info,'uuid': uuid()}]))
+              break;
+            default:
+              localStorage.setItem('tags', JSON.stringify([...data, {'title': title, 'info': info,'uuid': uuid()}]))
+              break;
+          }
+        }else{
+          localStorage.setItem('tags', JSON.stringify({'title': title, 'info': info,'uuid': uuid()}));
+        }
         setResposta(<CadastroRealizado/>);
         setTitleInput("");
         setInfoInput("");  
         return true;
-    }
-    setResposta(<CadastroNaoRealizado />);
-    return false;
-  };
-  
-  return (
-    <main className='container'>
+      }
+      setResposta(<CadastroNaoRealizado />);
+      return false;
+    };
+    
+    return (
+      <main className='container'>
       <div className='container t20 '>
         <form className='container bg-roxo add' onSubmit={response}>
           <label>Título</label>
