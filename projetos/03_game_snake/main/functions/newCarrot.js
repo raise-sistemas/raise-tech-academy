@@ -1,5 +1,5 @@
 // import { gridFromLeft } from '../assets/defaultGrid.js'
-import { indexes } from '../assets/indexes.js'
+import { coordinates, indexes } from '../assets/indexes.js'
 import { carrotFinder } from '../utils/carrotFinder.js'
 import { eraseCarrot } from './eraseCarrot.js'
 
@@ -31,7 +31,7 @@ export function newCarrot(grid) {
   const carrotIndex = carrotFinder(grid)
 
   // Caso não exista uma cenoura, uma vai ser gerada
-  if (!carrotIndex[1]) {
+  if (!carrotIndex[1] && carrotIndex[1] !== 0) {
     grid = randomCarrot(grid)
   }
   // Caso já exista, ela vai ser apagada, e gerada outra.

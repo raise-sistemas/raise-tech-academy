@@ -15,12 +15,28 @@ import {
   gridTest,
   emptyGrid
 } from '../main/assets/defaultGrid.js'
+import { eraseCarrot } from '../main/functions/eraseCarrot.js'
 import { newCarrot } from '../main/functions/newCarrot.js'
 import { isUpper, carrotFinder } from '../main/utils/index.js'
+
+const errors = `
+╔════════════════════════╗
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║🥕⬛⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+╚════════════════════════╝
+`
 
 // console.log(gridTest.length)
 // console.log(gridTest[143])
 // console.log(gridTest[144]+gridTest[145])
 // console.log(gridTest[146]+gridTest[147])
 
-console.log(newCarrot(gridTest))
+// console.log(carrotFinder(errors))
+// console.log(eraseCarrot(errors))
+console.log(newCarrot(errors))

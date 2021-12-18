@@ -14,7 +14,6 @@ export function eraseCarrot(grid) {
   } else {
     const carrotLine = carrotPosition[0]
     const carrotColumn = carrotPosition[1]
-
     grid = grid.split('')
     grid[coordinates[carrotLine][carrotColumn]] = '⬛'
     grid.splice(coordinates[carrotLine][carrotColumn] + 1, 1)
