@@ -25,8 +25,9 @@ export function imminentCarrotUp(grid) {
   } else if (isUpper(grid) && coordinates[bunnyLine + 7][bunnyColumn + 1]) {
     return true
   } else if (
+    // Por conta da indexação, o índice encontrado é sempre 1 a menos que o da cenoura, em linha ou coluna.
     coordinates[carrotLine][carrotColumn] ==
-    coordinates[bunnyLine - 1][bunnyColumn]
+    coordinates[bunnyLine - 1][bunnyColumn - 1]
   ) {
     return true
   } else {

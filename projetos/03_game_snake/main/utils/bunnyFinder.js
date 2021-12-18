@@ -16,5 +16,9 @@ export function bunnyFinder(grid) {
   const line = finder.indexOf(column)
   const bunnyCoordinates = [line, column]
 
-  return bunnyCoordinates
+  if (!column) {
+    return bunnyIndexes
+  } else {
+    return bunnyCoordinates
+  }
 }

@@ -9,6 +9,6 @@ import { newCarrot } from '../main/functions/newCarrot.js'
 import { imminentCarrotUp } from '../main/functions/imminentCarrotUp.js'
 import { isUpper, carrotFinder, bunnyFinder } from '../main/utils/index.js'
 
-console.log(carrotFinder(gridTest))
+// console.log(carrotFinder(gridTest))
 console.log(bunnyFinder(gridTest))
-console.log(imminentCarrotUp(gridTest))
+// console.log(imminentCarrotUp(gridTest))

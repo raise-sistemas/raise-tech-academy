@@ -1,6 +1,7 @@
 import { isUpper, bunnyFinder, carrotFinder } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
 import { newCarrot } from '../functions/newCarrot.js'
+import { imminentCarrotUp } from '../functions/imminentCarrotUp.js'
 
 export function walkToUp(grid) {
   const bunnyCoordinates = bunnyFinder(grid)
@@ -10,7 +11,10 @@ export function walkToUp(grid) {
   console.clear()
 
   // Se o coelho estiver no topo e a cenoura estiver onde o coelho vai estar no próximo passo, a função newCarrot precisa ser chamada
-  if (isUpper(grid)) {
+  if (isUpper(grid) && imminentCarrotUp(grid)) {}
+
+
+  else if (isUpper(grid)) {
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
