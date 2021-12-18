@@ -1,5 +1,6 @@
 import { bunnyFinder, carrotFinder, isUpper } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
+import { outOfRange } from '../utils/outOfRange.js'
 
 export function imminentCarrotUp(grid) {
   const bunnyIndex = bunnyFinder(grid)
@@ -13,8 +14,7 @@ export function imminentCarrotUp(grid) {
   // Considerando que a cenoura ta na última posição do grid (146 e 147)
   // O maior index do grid é 145, por isso precisa somar 1 pra encontrar a cenoura.
   if (
-    isUpper(grid) &&
-    carrotPosition[0] == coordinates[bunnyLine + 7][bunnyColumn] + 1
+    isUpper(grid) && outOfRange(bunnyLine)
   ) {
     return true
   } else if (
