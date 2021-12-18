@@ -14,6 +14,16 @@ Criar um estado pra o grid.
 Usar caracter nulo, pra ser o espaço do grid.
 Usar a função sleep no código
 
+Próximos passos:
+
+- Resolver o bug de gerar cenoura, que quando ela é gerada no canto esquerdo da tela, não apaga, fica gerando outras no grid.
+
+- Resolver erro de indexação, pra fazer o coelho comer a cenoura:
+Isso é, chamar a função newCarrot quando os índicies forem colidir, pra apagar e gerar outra.
+
+- Criar um score, pra cada vez que a função newCarrot for chamada, esse score aumentar 1
+
+
 ╔════════════════════════╗
 ║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
