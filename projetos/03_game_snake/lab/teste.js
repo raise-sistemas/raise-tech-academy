@@ -5,8 +5,12 @@
 //   gridFromLeft,
 //   gridFromRight
 // } from '../main/assets/defaultGrid.js'
-import { bunnyFinder } from '../main/utils/bunnyFinder.js'
+// import { bunnyFinder } from '../main/utils/bunnyFinder.js'
 // import { isOnTheLeft } from './utils/isOnTheLeft.js'
 // import { coordinates } from '../main/assets/indexes.js'
 
-console.log(bunnyFinder(gridFromRight))
+import { gridFromLeft } from "../main/assets/defaultGrid.js";
+import { isOnTheLeft } from "../main/utils/isOnTheLeft.js";
+import { isUnder } from "../main/utils/isUnder.js";
+
+console.log(isOnTheLeft(gridFromLeft))

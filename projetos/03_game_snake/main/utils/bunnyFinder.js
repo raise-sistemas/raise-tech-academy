@@ -13,7 +13,7 @@ export function bunnyFinder(grid) {
   const finder = coordinates.map(element => element.indexOf(bunnyIndexes[0]))
   const column = finder.find(element => element !== -1)
   const line = finder.indexOf(column)
-  const position = [line, column]
+  const bunnyCoordinates = [line, column]
 
-  return position
+  return bunnyCoordinates
 }

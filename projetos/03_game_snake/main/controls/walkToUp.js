@@ -1,7 +1,7 @@
 import { bunnyFinder } from '../utils/bunnyFinder.js'
 import { carrotFinder } from '../utils/carrotFinder.js'
 import { isOver } from '../utils/IsOver.js'
-import { newCarrot } from '../utils/newCarrot.js'
+import { newCarrot } from '../functions/newCarrot.js'
 
 // import { gridFromBottom } from '../assets/defaultGrid.js'
 

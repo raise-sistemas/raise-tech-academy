@@ -1,28 +1,32 @@
 // import { gridFromRight } from '../assets/defaultGrid.js'
-import { timeout } from '../assets/timeout.js'
+import { coordinates } from '../assets/indexes.js'
 import { bunnyFinder } from '../utils/bunnyFinder.js'
 import { isOnTheLeft } from '../utils/isOnTheLeft.js'
 
 export function walkToLeft(grid) {
-  let index = bunnyFinder(grid)[0]
+  const bunnyCoordinates = bunnyFinder(grid)
+  const bunnyLine = bunnyCoordinates[0]
+  const bunnyColumn = bunnyCoordinates[1]
   console.clear()
 
   if (isOnTheLeft(grid)) {
     grid = grid.split('')
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
-    grid[index + 11] = '🐰'
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
+
+    // Para sair do canto esquero e ir para o canto direito do grid, são 11 colunas a mais.
+    grid[coordinates[bunnyLine][bunnyColumn + 11]] = '🐰'
     grid = grid.join('')
   } else {
     grid = grid.split('')
-    grid[index - 1] = '🐰'
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
+
+    // Andar uma posição para a esquerda é diminuir uma coluna.
+    grid[coordinates[bunnyLine][bunnyColumn - 1]] = '🐰'
     grid = grid.join('')
   }
-  // setTimeout(() => {
-    console.log(grid)
-    return grid
-  // }, timeout)
+
+  console.log(grid)
+  return grid
 }
-// walkToleft()
