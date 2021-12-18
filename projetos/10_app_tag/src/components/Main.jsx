@@ -35,8 +35,10 @@ export default function Main(props){
                     <div className="d-none">
                         {bgIndex >= 4 ? bgIndex = 0 : bgIndex}
                     </div>
-                    <button className='w500'onClick={() => {setRemove(removeTag(param.uuid))}}>X</button>
-                    <span>{param.title}</span>
+                    <div className="result">
+                        <button className='w500'onClick={() => {setRemove(removeTag(param.uuid))}}>X</button>
+                        <span>{param.title}</span>
+                    </div>
                 </div>
                 )): <NaoTemTags />}
             </main>
