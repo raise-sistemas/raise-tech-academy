@@ -1,14 +1,3 @@
-// import { isUnder } from '../lab/utils/isUnder.js'
-// import {
-//   gridTest,
-//   gridFromBottom,
-//   gridFromLeft,
-//   gridFromRight
-// } from '../main/assets/defaultGrid.js'
-// import { bunnyFinder } from '../main/utils/bunnyFinder.js'
-// import { isOnTheLeft } from './utils/isOnTheLeft.js'
-// import { coordinates } from '../main/assets/indexes.js'
-
 import {
   gridFromLeft,
   carrotTest,
@@ -17,26 +6,13 @@ import {
 } from '../main/assets/defaultGrid.js'
 import { eraseCarrot } from '../main/functions/eraseCarrot.js'
 import { newCarrot } from '../main/functions/newCarrot.js'
-import { isUpper, carrotFinder } from '../main/utils/index.js'
+import {
+  isUpper,
+  carrotFinder,
+  bunnyFinder,
+  iminentCarrotUp
+} from '../main/utils/index.js'
 
-const errors = `
-╔════════════════════════╗
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║🥕⬛⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-╚════════════════════════╝
-`
-
-// console.log(gridTest.length)
-// console.log(gridTest[143])
-// console.log(gridTest[144]+gridTest[145])
-// console.log(gridTest[146]+gridTest[147])
-
-// console.log(carrotFinder(errors))
-// console.log(eraseCarrot(errors))
-console.log(newCarrot(errors))
+// console.log(carrotFinder(gridTest))
+// console.log(bunnyFinder(gridTest))
+// console.log(iminentCarrotUp(gridTest))

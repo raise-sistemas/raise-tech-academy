@@ -12,8 +12,7 @@ export function play(grid) {
   console.log(grid)
   setInterval(() => {
     console.clear()
-    grid = newCarrot(grid)
-    console.log(grid)
+    grid = walkToUp(grid)
   }, 500)
 }
 
