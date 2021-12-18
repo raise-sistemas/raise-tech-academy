@@ -1,12 +1,19 @@
+import { coordinates } from '../assets/indexes.js'
 
 export function bunnyFinder(grid) {
   grid = grid.split('')
-  let finder = []
+  const bunnyIndexes = []
   for (let index = 29; index < 145; index++) {
     if (grid[index] + grid[index + 1] == '🐰') {
-      finder.push(index, index + 1)
+      bunnyIndexes.push(index, index + 1)
       break
     }
   }
-  return finder
+
+  const finder = coordinates.map(element => element.indexOf(bunnyIndexes[0]))
+  const column = finder.find(element => element !== -1)
+  const line = finder.indexOf(column)
+  const position = [line, column]
+
+  return position
 }

@@ -4,7 +4,7 @@ import { bunnyFinder } from '../utils/bunnyFinder.js'
 import { timeout } from '../assets/timeout.js'
 
 export function walkToDown(grid) {
-  let index = bunnyFinder(grid)[0]
+  const index = bunnyFinder(grid)[0]
   console.clear()
 
   if (isUnder(grid)) {
