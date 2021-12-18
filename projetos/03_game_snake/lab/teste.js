@@ -12,3 +12,5 @@ import { isUpper, carrotFinder, bunnyFinder } from '../main/utils/index.js'
 // console.log(carrotFinder(gridTest))
 console.log(bunnyFinder(gridTest))
 // console.log(imminentCarrotUp(gridTest))
+console.log(isUpper(gridTest))
+
