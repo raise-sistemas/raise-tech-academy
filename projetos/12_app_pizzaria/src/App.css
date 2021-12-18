@@ -1,0 +1,217 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+/* meu codigo */
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #65AFFF;
+  color: #FFF;
+}
+
+h1{
+  font-size: 26px;
+}
+
+p{
+  font-size: 24px;
+}
+
+.container{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+  background-color: #F46036;
+  padding: 20px 15px;
+}
+
+.menu h1{
+    font-size: 36px;
+}
+
+.menuPizzas h1{
+  margin: 20px 0px;
+  font-size: 30px;
+}
+
+.pizza{
+    max-width: 150px;
+    text-align: center;
+    background-color: #F2D0A4;
+}
+.pizza img{
+    max-width: 150px;
+}
+
+.pizza button{
+    background-color: #F46036;
+}
+
+.pizza h1{
+    font-size: 26px;
+}
+
+/* segundo template */
+
+
+.tamanhoMassas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tamanho, .massa{
+  padding: 20px;
+}
+.tamanho h1, .massa h1{
+  text-align: center;
+}
+.opcoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* terceiro template */
+.ingredientes{
+    display: flex;
+}
+
+.cardsPizzas{
+
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-between;
+  grid-row-gap: 50px;
+}
+
+#progressBar {
+	margin-bottom: 30px;
+	overflow: hidden;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  font-size: 18px;
+}
+#progressBar li{
+  display: flex;
+  width: 90px;
+  height: 40px;
+  justify-content: center;
+  bottom: 0px;
+  align-items: center;
+  text-align: center;
+  border-radius: 15px;
+  padding: 25px 60px;
+}
+
+.liActive{
+  background-color: #F46036;
+}
+
+.liDisable{
+  background-color: #0A2463;
+}
+
+.line{
+  width: 10%;
+  height: 2px;
+
+}
+
+.pedido h2{
+  font-size: 36px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.imgPizza{
+  text-align: center;
+  margin-top: 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.imgPizza img{
+  border-radius: 30px;
+}
