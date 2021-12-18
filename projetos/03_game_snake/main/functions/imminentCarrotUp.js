@@ -8,6 +8,7 @@ export function imminentCarrotUp(grid) {
   const carrotPosition = carrotFinder(grid)
   const carrotLine = carrotPosition[0]
   const carrotColumn = carrotPosition[1]
+  console.log(bunnyColumn)
 
   // Considerando que a cenoura ta na última posição do grid (146 e 147)
   // O maior index do grid é 145, por isso precisa somar 1 pra encontrar a cenoura.
