@@ -11,37 +11,40 @@ export function walkToUp(grid) {
   console.clear()
 
   // Caso esteja no topo, vai voltar pra embaixo.
-  if (isOver(grid)) {
-    grid = grid.split('')
-    grid[index] = '⬛'
-    grid.splice(index + 1, 1)
-
-    // Pra garantir que não vai pegar um dos índices na cenoura:
-    // Caso a cenoura esteja à esquerda
-    if (index + 105 !== '⬛') {
-      grid[index + 106] = '🐰'
-      grid = grid.join('')
-      console.log(index)
-    }
-  }
-  // Caso esteja no topo e a cenoura esteja na base da mesma coluna:, vai gerar uma nova, e ir pra onde ela tava.
-  else if (isOver(grid) && carrotIndex(grid)[0] == index + 105) {
+  if (
+    (isOver(grid) && carrotIndex[0] == index + 105) ||
+    (isOver(grid) && carrotIndex[1] == index + 105)
+  ) {
+    console.log(carrotIndex)
+    console.log(isOver(grid))
     grid = newCarrot(grid)
     grid = grid.split('')
     grid[index] = '⬛'
     grid.splice(index + 1, 1)
     grid[index + 105] = '🐰'
     grid = grid.join('')
+    console.log(index)
+  }
+
+  // Caso esteja no topo e a cenoura esteja na base da mesma coluna:, vai gerar uma nova cenoura, e o coelho vai pra onde ela tava.
+  else if (isOver(grid)) {
+    grid = grid.split('')
+    grid[index] = '⬛'
+    grid.splice(index + 1, 1)
+    grid[index + 105] = '🐰'
+    grid = grid.join('')
+    console.log(index)
   }
 
   // Caso esteja embaixo da cenoura, gera uma nova, e o coelho anda pra cima
-  else if (index - 15 == carrotIndex) {
+  else if (index - 15 == carrotIndex[0] || index - 15 == carrotIndex[1]) {
     grid = newCarrot(grid)
     grid = grid.split('')
     grid[index] = '⬛'
     grid.splice(index + 1, 1)
     grid[index - 15] = '🐰'
     grid = grid.join('')
+    console.log(index)
   } else {
     grid = grid.split('')
     grid[index] = '⬛'
@@ -50,6 +53,7 @@ export function walkToUp(grid) {
     grid = grid.join('')
     console.log(index)
   }
+
   // setTimeout(() => {
   console.log(grid)
   return grid
