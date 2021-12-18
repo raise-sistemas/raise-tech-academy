@@ -12,13 +12,13 @@ function randomCarrot(grid) {
     grid[indexes[index]] = '🥕'
     grid = grid.join('')
   }
-  // Nos elseIfs eu quero ter certeza que, caso sorteie o mesmo index do coelho, a cenoura possa ir uma casa para cima,
+  // Nos elseIfs eu quero ter certeza que, caso sorteie o mesmo index do coelho, a cenoura possa ir uma casa para cima.
   else if (grid[indexes[index] - 15] == '⬛') {
     grid = grid.split('')
     grid[indexes[index] - 15] = '🥕'
     grid = grid.join('')
   }
-  // ou uma casa para baixo,
+  // ou uma casa para baixo.
   else if (grid[indexes[index] + 15] == '⬛') {
     grid = grid.split('')
     grid[indexes[index] + 15] = '🥕'
@@ -31,7 +31,7 @@ export function newCarrot(grid) {
   const carrotIndex = carrotFinder(grid)
 
   // Caso não exista uma cenoura, uma vai ser gerada
-  if (!carrotIndex[0]) {
+  if (!carrotIndex[1]) {
     grid = randomCarrot(grid)
   }
   // Caso já exista, ela vai ser apagada, e gerada outra.

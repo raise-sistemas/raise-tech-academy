@@ -12,8 +12,10 @@
 import {
   gridFromLeft,
   carrotTest,
-  gridTest
+  gridTest,
+  emptyGrid
 } from '../main/assets/defaultGrid.js'
+import { newCarrot } from '../main/functions/newCarrot.js'
 import { isUpper, carrotFinder } from '../main/utils/index.js'
 
 // console.log(gridTest.length)
@@ -21,4 +23,4 @@ import { isUpper, carrotFinder } from '../main/utils/index.js'
 // console.log(gridTest[144]+gridTest[145])
 // console.log(gridTest[146]+gridTest[147])
 
-console.log(carrotFinder(gridTest))
+console.log(newCarrot(gridTest))

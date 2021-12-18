@@ -12,11 +12,7 @@ Soluções?
 
 Criar um estado pra o grid.
 Usar caracter nulo, pra ser o espaço do grid.
-
 Usar a função sleep no código
-
-
-Assim:
 
 ╔════════════════════════╗
 ║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║

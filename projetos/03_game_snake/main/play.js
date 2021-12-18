@@ -5,12 +5,15 @@ import {
   walkToRight
 } from './controls/index.js'
 import { gridTest } from './assets/defaultGrid.js'
+import { newCarrot } from './functions/newCarrot.js'
 // import { timeout } from './assets/timeout.js'
 
 export function play(grid) {
   console.log(grid)
   setInterval(() => {
-    grid = walkToRight(grid)
+    console.clear()
+    grid = newCarrot(grid)
+    console.log(grid)
   }, 500)
 }
 
