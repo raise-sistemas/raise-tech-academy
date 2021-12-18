@@ -28,16 +28,16 @@ export function startGame() {
             foundWords = checkCorrectWord(word, foundWords);
             if (foundWords.length > amountWordsFound) matriz = modifyBoard(matriz, wordPositions);
             displayBoard(matriz);
-            if (foundWords.length === amountWordsFound) showMessage('Ops.. palavra incorreta!');
+            if (foundWords.length === amountWordsFound) showMessage('❌ Ops.. palavra incorreta!');
             showPlays(foundWords);
         } else {
             displayBoard(matriz);
+            showMessage('❌ Entrada inválida! Exemplos válidos: B3D3, E4E8, b3d3.');
             showPlays(foundWords);
-            showMessage('Entrada inválida! Exemplos válidos: B3D3, E4E8.');
         }
     } while (foundWords.length < words.length);
 
-    if (foundWords.length === words.length) showMessage('Parabéns, você venceu!');
+    if (foundWords.length === words.length) showMessage('Parabéns, você venceu! 😃');
 
     return true;
 }
