@@ -23,7 +23,7 @@ Isso é, chamar a função newCarrot quando os índicies forem colidir, pra apag
 
 - Criar um score, pra cada vez que a função newCarrot for chamada, esse score aumentar 1
 
-
+*Melhoria pra o final, criar a função eraseBunny, por que eu sempre repito o splice, adiciono o bloco mais um, apago o próximo e dou .join.
 
 
 ╔════════════════════════╗
