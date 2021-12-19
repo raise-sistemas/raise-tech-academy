@@ -1,4 +1,5 @@
-import { bunnyFinder, carrotFinder, isBunnyUpper } from '../utils/index.js'
+import { isBunnyUpper } from '../utils/index.js'
+import { bunnyFinder, carrotFinder } from '../functions/bunnyFinder.js'
 
 export function imminentCarrotUp(grid) {
   const bunnyIndex = bunnyFinder(grid)
@@ -9,19 +10,11 @@ export function imminentCarrotUp(grid) {
   const carrotLine = carrotPosition[0]
   const carrotColumn = carrotPosition[1]
 
-  // A função de cenoura iminente retorna true caso, o coelho esteja no topo, e cenoura esteja na mesma coluna na base, que corresponde à linha 7. São 3 condições.
-
   if (isBunnyUpper(grid) && carrotColumn === bunnyColumn && carrotLine === 7) {
     return true
-  }
-
-  // O segundo caso possível de comida iminente, como o coelho está subindo, é que a linha abaixo da cenoura seja a dele, isso é carrotLine + 1, e que eles estejam na mesma coluna.
-  else if (bunnyColumn === carrotColumn && carrotLine + 1 === bunnyLine) {
+  } else if (bunnyColumn === carrotColumn && carrotLine + 1 === bunnyLine) {
     return true
-  }
-
-  // Se esses casos não acontecerem, não tem cenoura iminente enquanto o coelho sobe.
-  else {
+  } else {
     return false
   }
 }
