@@ -89,6 +89,10 @@ input{
   line-height: 110px;
 }
 
+  .title-average {
+    line-height: 190px;
+  }
+
 .vector {
   width: 700px;
   height: 30px;
@@ -125,4 +129,8 @@ input{
   font-family: 'Poppins';
   text-decoration: none;
   box-shadow:0px 2px#246E5D;
+}
+
+.back-average {
+  margin-top: 200px;
 }

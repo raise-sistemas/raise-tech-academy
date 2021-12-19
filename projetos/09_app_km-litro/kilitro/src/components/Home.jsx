@@ -9,7 +9,7 @@ export default function Home(){
                 </div>
                     <h3>O calculador de autonomia do seu carro</h3>
                     <div>
-                        <Link class="link btn" to={{ pathname: '/form' }}> Calcular Nova Autonomia </Link>
+                        <Link class="link btn" to={{ pathname: '/pageform' }}> Calcular Nova Autonomia </Link>
                     </div>
                     <div>
                         <Link class="link btn" to={{ pathname: '/average' }}> Ver Média Geral de Autonomia </Link>

@@ -9,31 +9,18 @@ export default function Form () {
     function Autonomy(e) {
         e.preventDefault();
         window.location.reload(false);
-        if (km !== '' || newKm !== '' || liter !== '') {
-            const autonomy = (newKm-km)/liter;
-            alert("A autonomia é " + autonomy.toFixed(1));
-            localStorage.setItem('autonomy', autonomy);
-            let list = [];
-            if (localStorage.hasOwnProperty("list")) {
-                list = JSON.parse(localStorage.getItem("list"))
-            }
-            list.push({name: autonomy})
-            localStorage.setItem("list", JSON.stringify(list));
-            const numbers = list.map((data) => {
-                return{
-                    soma: data.name
-                }
-            });
 
-            console.log(numbers);
-            let total = numbers.reduce((total, data) => total + data.soma, 0); 
-            let media = total/numbers.length;
+        const autonomy = (newKm-km)/liter;
+        alert("A autonomia é " + autonomy.toFixed(1));
+        localStorage.setItem('autonomy', autonomy);
 
-            alert("A média geral da autonomia é " + media.toFixed(1));
-
-        } else {
-            alert("Verifique se todos os campos foram preenchidos.")
+        let list = [];
+        if (localStorage.hasOwnProperty("list")) {
+            list = JSON.parse(localStorage.getItem("list"))
         }
+        list.push({name: autonomy})
+        localStorage.setItem("list", JSON.stringify(list));
+ 
     }
 
     return (
@@ -48,8 +35,9 @@ export default function Form () {
                 <div>
                     <input id="liter" type='number' placeholder='Insira a quantidade de litros abastecido...' onChange={(e) => setLiter(e.target.value)}/>
                 </div>
-                <button id="autonomy" class="btn btn-form form" type="submit">Descobrir Autonomia</button>
+                <button id="autonomy" class="btn btn-form form" type="submit" disabled={!km || !newKm || !liter}>Descobrir Autonomia</button>
             </form>
         </div>
+
     )
 }
