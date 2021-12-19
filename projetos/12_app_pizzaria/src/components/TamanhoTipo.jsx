@@ -23,7 +23,7 @@ export default function TamanhoTipo(){
                 <h1>Escolha o tamanho</h1>
                 <form>
                     {tamanhos.map((element)=>(
-                    <div key={element}>
+                    <div className="checkboxStyle" key={element}>
                         <input type="checkbox" name={element} onChange={(event)=> {verMudanca(event.target.checked, event.target.name, setTamanho)}} checked={tamanho === element ? true : false} />
                         <label>{element}</label>
                     </div>
@@ -34,7 +34,7 @@ export default function TamanhoTipo(){
                 <h1>Escolha o tipo de massa</h1>
                 <form>
                 {massas.map((element)=>(
-                        <div key={element}>
+                        <div className="checkboxStyle" key={element}>
                             <input type="checkbox" name={element} onChange={(event)=> {verMudanca(event.target.checked , event.target.name, setMassa)}} checked={massa === element ? true: false}/>
                         <label>{element}</label>
                     </div>
