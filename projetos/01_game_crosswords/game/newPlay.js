@@ -14,6 +14,6 @@ export function newPlay(input, matriz) {
     if (foundWords.length > amountWordsFound) matriz = modifyBoard(matriz, wordPositions);
     displayBoard(matriz);
     if (foundWords.length === amountWordsFound) showMessage('❌ Ops.. palavra incorreta!');
-    showPlays();0
+    showPlays();
     return matriz;
 }

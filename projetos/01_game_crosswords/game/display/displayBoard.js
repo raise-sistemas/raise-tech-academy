@@ -4,13 +4,13 @@ import { boardSize } from '../board/config/boardSize.js';
 export function displayBoard(matriz) {
     console.clear();
     let traits = '';
-    for (let i = 1; i < boardSize * 3; i++) {
+    for (let i = 1; i < boardSize.width * 3; i++) {
         traits = traits + '-';
     }
     let decoration;
-    if (boardSize <= 7) {
-        decoration = '|=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=|';
-    } else if (boardSize <= 15) {
+    if (boardSize.width <= 11) {
+        decoration = '|-=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=-|';
+    } else if (boardSize.width <= 15) {
         decoration = '|-=-=-=-=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=-=-=-=-|';
     } else {
         decoration = '|=-=-=-=-=-=-=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=-=-=-=-=-=-=|';
