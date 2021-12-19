@@ -1,43 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-.App {
+body {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
   background-color: #51BBA2;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 .container {
   background-color: #fff;
@@ -56,6 +27,14 @@ h1 {
   margin-bottom: 15px;
 }
 
+h2 {
+  font-family: 'Poppins';
+  color: #246E5D;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
 h3 {
   font-family: 'Poppins';
   color: #246E5D;
@@ -68,7 +47,7 @@ button {
   justify-content: center;
   width: 20%;
   margin-bottom: 20px;
-  box-shadow: 0px 3px 3px rgba(104, 128, 236, 0.25);
+  /* box-shadow: 0px 3px 3px rgba(104, 128, 236, 0.25); */
   margin-top: 35px;
   border-radius: 10px;
 }
@@ -77,8 +56,9 @@ input{
   border:none;
   border-bottom: 2px solid #246E5D;
   outline: none;
-  width: 270px;
+  width: 300px;
   margin-bottom: 7px;
+  margin-top: 40px;
 }
 
 .btn {
@@ -91,6 +71,24 @@ input{
   height: 30px;
 }
 
+.btn-return {
+  justify-content: center;
+  background-color: #246E5D;
+  color:#fff;
+  font-family: 'Poppins';
+  font-size: 15px;
+  width: 200px;
+  height: 30px;
+}
+
+.title{
+  line-height: 150px;
+}
+
+.title- {
+  line-height: 110px;
+}
+
 .vector {
   width: 700px;
   height: 30px;
@@ -100,4 +98,31 @@ input{
 .img {
   max-width: 60%;
   
+}
+
+.form {
+  margin-top: 65px;
+  margin-bottom: 80px;
+}
+
+.link {
+  justify-content: center;
+  line-height: 70px;
+  margin-top: 40px;
+  border-radius: 5px;
+  font-size: 17px;
+  color: fff;
+  font-family: 'Poppins';
+  text-decoration: none;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+}
+
+.link-form {
+  justify-content: center;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #246E5D;
+  font-family: 'Poppins';
+  text-decoration: none;
+  box-shadow:0px 2px#246E5D;
 }
