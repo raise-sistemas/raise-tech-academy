@@ -152,6 +152,7 @@ button{
 .pizza button{
   margin-top: 8px;
   margin-bottom: 0px;
+  padding: 20px;
 }
 
 .pizza h1{
@@ -213,7 +214,9 @@ button{
 
 .cardsPizzas{
 
-  display: grid;
+  /* display: grid; */
+  display: flex;
+  flex-wrap: wrap;
   grid-template-columns: auto auto auto auto;
   justify-content: space-between;
   grid-row-gap: 50px;

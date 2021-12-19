@@ -8,13 +8,7 @@ export default function Finalizacao(){
     const [tamTipo, setTamTipo] = useState([]);
     const [adicionais, setAdicionais] = useState([]);
     const [observacao, setObservacao] = useState("");
-    
-    // setSabor(localStorage.getItem("sabor"))
-    // setTamTipo(localStorage.getItem("step1"))
-    // setAdicionais(localStorage.getItem("step2"))
-    // setObservacao(localStorage.getItem("step2-obs"))
-    
-    
+      
     useEffect(()=>{
         
         let sabor = localStorage.getItem("sabor");
@@ -26,7 +20,6 @@ export default function Finalizacao(){
         if(sabor){setNome(sabor)}
         if(obs){setObservacao(obs)} 
 
-        console.log("oi")
 
     },[] )
     return(
