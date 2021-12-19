@@ -13,4 +13,8 @@ import { isCarrotUpper } from '../main/utils/isCarrotUpper.js'
 import { outOfRange } from '../main/utils/outOfRange.js'
 
 
+console.log(gridTest)
+// console.log(eraseCarrot(gridTest))
+gridTest.replace('🥕', '🐰')
+console.log(gridTest)
 

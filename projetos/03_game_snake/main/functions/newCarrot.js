@@ -36,7 +36,7 @@ export function newCarrot(grid) {
   }
   // Caso já exista, ela vai ser apagada, e gerada outra.
   else {
-    grid = eraseCarrot(grid)
+    // grid = eraseCarrot(grid)
     grid = randomCarrot(grid)
   }
   return grid

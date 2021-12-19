@@ -1,19 +1,36 @@
 WalToUp: Só faz duas verificações:
 
-01 - Se tá no topo
-02 - Se não tá no topo
+Quando o coelho tá indexamente, antes da cenoura, ele tá ok.
+Quando ele tá depois, ele aparece num índice diferente do que o seu:
+Aí o programa rodando:
 
-Eu preciso conciliar esses ifs, pra verificar se tem uma comida iminente.
-Esses vão ser os if e else if:
+╔════════════════════════╗
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛🥕⬛⬛⬛║
+║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+╚════════════════════════╝
+[ 1, 8 ]
+[ 2, 3 ]
 
-Obs: Não tem como o coelho tá out of range e a comida iminente.
-01 - Se o coelho tá no topo, tem comida iminente e o coelho não tá out of range ✅
-02 - Caso do coelho no topo e nem ele, nem a cenoura out of range.  E tem comida iminente.✅
-03 - Casos com o coelho out of range e com comida iminente, fora do topo.✅
-04 - Coelho no topo, cenoura outOfRange em qq canto do canto direito.
+╔════════════════════════╗
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛🐰⬛⬛⬛⬛🥕⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
+╚════════════════════════╝
+[ 1, 9 ]
+[ 1, 3 ]
 
-Vou criar 4 iminentCarrot, um pra cada direção, e chamar eles dentro de cada uma das funções de movimento.
-Só criei para a o WalToUp, mas como não funciona, ainda não implementei na função.
+
 
 --------------------------------------------------------------------------------
 Erro de indexação, mesmo quando o coelho e a cenoura estão na mesma coluna, o carrotFinder e bunnyFinder estão retornando colunas diferentes.
