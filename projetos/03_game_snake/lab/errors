@@ -8,9 +8,9 @@ Esses vão ser os if e else if:
 
 Obs: Não tem como o coelho tá out of range e a comida iminente.
 01 - Se o coelho tá no topo, tem comida iminente e o coelho não tá out of range ✅
-02 - Caso do coelho no topo e nem ele, nem a cenoura out of range. ✅
-03 - Casos com o coelho out of range e com comida iminente, fora do topo.
-
+02 - Caso do coelho no topo e nem ele, nem a cenoura out of range.  E tem comida iminente.✅
+03 - Casos com o coelho out of range e com comida iminente, fora do topo.✅
+04 - Coelho no topo, cenoura outOfRange em qq canto do canto direito.
 
 Vou criar 4 iminentCarrot, um pra cada direção, e chamar eles dentro de cada uma das funções de movimento.
 Só criei para a o WalToUp, mas como não funciona, ainda não implementei na função.

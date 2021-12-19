@@ -11,38 +11,45 @@ export function imminentCarrotUp(grid) {
   const carrotLine = carrotPosition[0]
   const carrotColumn = carrotPosition[1]
 
-  if (isUpper(grid) && outOfRange(carrotLine) && carrotLine[0] == 146) {
+  if (
+    isUpper(grid) &&
+    outOfRange(carrotLine) &&
+    carrotLine[0] == 146 &&
+    bunnyColumn == 11
+  ) {
     return true
   } else if (
     isUpper(grid) &&
     !outOfRange(carrotLine) &&
-    !outOfRange(bunnyLine)
+    !outOfRange(bunnyLine) &&
+    coordinates[carrotLine][carrotColumn] ==
+      coordinates[bunnyLine + 7][bunnyColumn + 1]
   ) {
     return true
-  } else if (!isUpper(grid) && outOfRange(bunnyLine) && isCarrotUpper(grid)) {
+  } else if (
+    !isUpper(grid) &&
+    outOfRange(bunnyLine) &&
+    coordinates[carrotLine][carrotColumn] - bunnyLine == 16
+  ) {
+    return true
+  } else if (
+    outOfRange(bunnyLine) &&
+    coordinates[carrotLine][carrotColumn] - bunnyLine == 16
+  ) {
+    console.log('hii')
+    return true
   }
 
-  // else if (isUpper(grid) && carrotLine[0] == 146) {
+  // else if (
+  //   !isUpper(grid) &&
+  //   !outOfRange(bunnyLine) &&
+  //   !outOfRange(carrotLine) &&
+  //   coordinates[bunnyLine - 1][bunnyColumn - 1] ==
+  //     coordinates[carrotLine][carrotColumn]
+  // ) {
   //   return true
   // }
-
-  // ) {
-  //   return true
-  // } else if (
-  //   isUpper(grid) &&
-  //   coordinates[carrotLine][carrotColumn] ==
-  //     coordinates[bunnyLine + 7][bunnyColumn]
-  // ) {
-  //   return true
-  // } else if (isUpper(grid) && coordinates[bunnyLine + 7][bunnyColumn + 1]) {
-  //   return true
-  // } else if (
-  //   // Por conta da indexação, o índice encontrado é sempre 1 a menos que o da cenoura, em linha ou coluna.
-  //   coordinates[carrotLine][carrotColumn] ==
-  //   coordinates[bunnyLine - 1][bunnyColumn - 1]
-  // ) {
-  //   return true
-  // } else {
-  //   return false
-  // }
+  else {
+    return false
+  }
 }

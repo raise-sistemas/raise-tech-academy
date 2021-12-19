@@ -1,4 +1,4 @@
-import { coordinates } from '../assets/indexes'
+import { coordinates } from '../assets/indexes.js'
 import { carrotFinder } from './carrotFinder.js'
 
 export function isCarrotUpper(grid) {
