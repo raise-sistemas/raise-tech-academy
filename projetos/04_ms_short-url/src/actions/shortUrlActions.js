@@ -1,5 +1,12 @@
 import * as shortUrlLib from '../libs/shortUrl-lib.js'; 
 
+function getSlug(request, slug){
+  const url = new URL(request.url);
+  slug = slug || url.searchParams.get("slug");
+
+  return slug;
+}
+
 export async function newUrlAction(request) {
   const {url} = await request.json(); 
   
@@ -7,9 +14,8 @@ export async function newUrlAction(request) {
 }
 
 export async function newUrlSlugAction(request, { slug }) {
-  const response = await request.json(); 
-  const url = new URL(request.url);
-  slug = slug || url.searchParams.get("slug");
+  const response = await request.json();
+  slug = getSlug(request, slug); 
 
   return shortUrlLib.addShortUrlSlug(slug, response.url);
 }
@@ -19,9 +25,7 @@ export function listUrlShorts(){
 }
 
 export function getOriginalUrlAction(request, { slug }) {
-  const url = new URL(request.url);
-  slug = slug || url.searchParams.get("slug");
-  
+  slug = getSlug(request, slug);
   shortUrlLib.updateVisitorsCount(slug);
 
   return shortUrlLib.getOriginalUrl(slug);

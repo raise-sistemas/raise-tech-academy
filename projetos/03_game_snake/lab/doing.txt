@@ -23,9 +23,6 @@ Isso é, chamar a função newCarrot quando os índicies forem colidir, pra apag
 
 - Criar um score, pra cada vez que a função newCarrot for chamada, esse score aumentar 1
 
-
-
-
 ╔════════════════════════╗
 ║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
 ║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║

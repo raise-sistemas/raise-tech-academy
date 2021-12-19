@@ -4,7 +4,7 @@ import { carrotFinder } from '../utils/carrotFinder.js'
 import { eraseCarrot } from './eraseCarrot.js'
 
 function randomCarrot(grid) {
-  const index = Math.round(Math.random() * indexes.length - 1)
+  const index = Math.round(Math.random() * indexes.length)
 
   // Aqui garante que o index sorteado não é o mesmo do coelho.
   if (grid[indexes[index]] == '⬛') {
@@ -24,6 +24,16 @@ function randomCarrot(grid) {
     grid[indexes[index] + 15] = '🥕'
     grid = grid.join('')
   }
+  // Ou uma casa para a direita
+  else if (grid[indexes[index] + 1] == '⬛') {
+    grid = grid.split('')
+    grid[indexes[index] + 1] = '🥕'
+    grid = grid.join('')
+  } else if (grid[indexes[index] - 1] == '⬛') {
+    grid = grid.split('')
+    grid[indexes[index] - 1] = '🥕'
+    grid = grid.join('')
+  }
 
   return grid
 }
@@ -31,12 +41,13 @@ export function newCarrot(grid) {
   const carrotIndex = carrotFinder(grid)
 
   // Caso não exista uma cenoura, uma vai ser gerada
-  if (!carrotIndex[1] && carrotIndex[1] !== 0) {
+  if (String(carrotIndex) == 'undefined') {
     grid = randomCarrot(grid)
   }
   // Caso já exista, ela vai ser apagada, e gerada outra.
   else {
     grid = eraseCarrot(grid)
+    grid = grid.join('')
     grid = randomCarrot(grid)
   }
   return grid

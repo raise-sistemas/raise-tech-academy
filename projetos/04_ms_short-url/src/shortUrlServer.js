@@ -1,10 +1,11 @@
-import { mainHandler } from "./handllers/mainHandler.js";
+import { mainHandler } from "./handlers/mainHandler.js";
+import { newParamsResponseJson } from './utils/newParamsResponseJson.js';
 
 export async function shortUrlServer(request) {
   try {
     return await mainHandler(request);
-  } catch (e) {
-    console.error(e);
-    return new Response(e.message, { status: 500 });
+  } catch (error) {
+    console.error('Request error:', error);
+    return new Response(...newParamsResponseJson({error}, 500));
   }
 }
