@@ -1,15 +1,15 @@
-import { verificarContemPosition } from "../modify/fullPositionsBoard.js";
+import { isPositionOccupied } from "../modify/fullPositionsBoard.js";
 
-export function isFreePosition(posLinha, posColuna, tamanhoPalavra, modo) {
-    let pos = modo == 0 ? posColuna : posLinha;
-    while (pos <= tamanhoPalavra) {
-        if (verificarContemPosition(posLinha, posColuna)) {
+export function isFreePosition(posLine, posCol, wordSize, orientation) {
+    let pos = orientation == 0 ? posCol : posLine;
+    while (pos < wordSize) {
+        if (isPositionOccupied(posLine, posCol)) {
             return false;
         }
-        if (modo == 0) {
-            posColuna++;
+        if (orientation == 0) {
+            posCol++;
         } else {
-            posLinha++;
+            posLine++;
         }
         pos++;
     }

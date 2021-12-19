@@ -10,7 +10,6 @@ export function getLetter() {
 }
 
 export function getWord(index) {
-    //const index = Math.round(Math.random() * (words.length-1));
     if (words[index] != null) {
         let palavra = new Object();
         palavra.word = words[index].toUpperCase();
