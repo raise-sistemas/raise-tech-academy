@@ -15,7 +15,7 @@ export function play(grid) {
     console.clear()
     grid = walkToUp(grid)
     console.log(imminentCarrotUp(grid))
-  }, 250)
+  }, 400)
 }
 
 play(gridTest)
