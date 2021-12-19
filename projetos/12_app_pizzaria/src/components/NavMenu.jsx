@@ -6,7 +6,7 @@ export default function NavMenu(){
             <div className="container">
                 <div className="menu">
                     <h1><Link to="/" >Pizzaria </Link> </h1>
-                    <h1><Link to="/pedidos" >Pedidos</Link></h1>
+                    <h1><Link to="/pedidos" >Pedido</Link></h1>
                 </div>
             </div>
         </div>

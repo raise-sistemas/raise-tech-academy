@@ -12,5 +12,6 @@ export  default [
     "Baiana",
     "Caipira",
     "Atum",
-    "Canadense"
+    "Canadense",
+    "Pão de alho",
 ]
