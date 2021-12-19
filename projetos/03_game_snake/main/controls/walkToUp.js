@@ -19,8 +19,7 @@ export function walkToUp(grid) {
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
     // Bugfix
     grid.splice(coordinates[bunnyLine - 1][bunnyColumn - 1], 1)
-    console.log(carrotPosition)
-    console.log(bunnyCoordinates)
+
     grid = grid.join('')
   } else if (imminentCarrotUp(grid)) {
     grid = grid.replace('🥕', '🐰')
@@ -29,26 +28,39 @@ export function walkToUp(grid) {
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
 
-    console.log(carrotPosition)
-    console.log(bunnyCoordinates)
     grid = grid.join('')
   } else if (isUpper(grid)) {
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
 
-    console.log(carrotPosition)
-    console.log(bunnyCoordinates)
     // Para sair do topo e ir para a base do grid, são 7 linhas a mais.
     grid[coordinates[bunnyLine + 7][bunnyColumn + 1]] = '🐰'
     grid = grid.join('')
   } else {
     grid = grid.split('')
-    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-    console.log(carrotPosition)
-    console.log(bunnyCoordinates)
-    if (bunnyLine - 1 == carrotPosition[0]) {
+
+    // Garantindo que o índice do coelho veio como coordenadas:
+
+    if (bunnyLine <= 7) {
+      grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+      grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
+    } else {
+      grid[bunnyLine[0]] = '⬛'
+      grid.splice(bunnyLine + 1, 1)
+    }
+
+    if (bunnyLine - 1 == carrotPosition[0] && bunnyColumn < carrotPosition[1]) {
+      grid[coordinates[bunnyLine - 1][bunnyColumn - 1]] = '🐰'
+      grid = grid.join('')
+    } else if ( 
+
+    // O código tá chegando aqui e recebendo como retorno o índex o coelho, 146
+    
+      coordinates[bunnyLine - 1][bunnyColumn] <
+        coordinates[carrotPosition[0]][carrotPosition[1]] &&
+      bunnyColumn > carrotPosition[1]
+    ) {
       grid[coordinates[bunnyLine - 1][bunnyColumn - 1]] = '🐰'
       grid = grid.join('')
     } else {

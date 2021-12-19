@@ -39,6 +39,7 @@ export function imminentCarrotUp(grid) {
     return true
   } else if (
     !isUpper(grid) &&
+    bunnyLine[0] <= 11 &&
     coordinates[bunnyLine - 1][bunnyColumn - 1] ==
       coordinates[carrotLine][carrotColumn]
   ) {

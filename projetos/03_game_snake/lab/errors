@@ -1,3 +1,6 @@
+O código tá chegando na linha 58 do walkToUp e tá recebendo como retorno o índex o coelho, 146.
+Vou ter que criar indexes extras, pra poder trabalhar só com indexes. Não dá pra ficar misturando.
+
 WalToUp: Só faz duas verificações:
 
 Quando o coelho tá indexamente, antes da cenoura, ele tá ok.
