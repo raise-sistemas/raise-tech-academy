@@ -1,27 +1,18 @@
-import { isRepeatedCoordinate } from "./start/getShipLib/isRepeatedCoordinate.js"
 import { limitDirection } from "./start/getShipLib/limitDirection.js"
 
 
-export function readInputCoordinate(prompt) {
-  const coordinate = (prompt("Digite a coordenada desejada (Ex: a 1): ") || "");
-  const regExp = /^[a-jA-J] ([1-9]||10)(?!.)/
+export function readInputCoordinate(prompt,callback,analyze) {
+  const coordinate = (prompt("Digite a coordenada desejada (Ex: a 1): ") || "").toLowerCase();
+  const regExp = /[a-j]\s([1-9]||10)(?!.)/
 
-  if(!regExp.test(coordinate)) {
+  if(!regExp.test(coordinate)||callback(coordinate,analyze)) {
     console.log("Entrada inválida");
-
-    return readInputCoordinate(prompt);
+    return readInputCoordinate(prompt,callback,analyze);
   }
   
   return coordinate;
 }
 
-export function readInputStern(ships, prompt) {
-  const coordinate = readInputCoordinate(prompt)
-  if(isRepeatedCoordinate(coordinate, ships)) {
-    return readInputStern(ships, prompt);
-  }
-  return coordinate
-}
 
 export function readInputDirection(ship, shipSize, prompt) {
   const direction = (prompt("digite a direção do barco (n (norte↑), s (sul↓), l (leste→) ou o (oeste←)): ") || "").toLowerCase()

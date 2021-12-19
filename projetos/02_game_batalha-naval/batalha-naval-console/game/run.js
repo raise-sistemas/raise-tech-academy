@@ -4,6 +4,7 @@ import { readInputCoordinate } from "./readInput.js"
 import { setShot } from "./setShot.js"
 import { getEnemy } from "./getEnemy.js"
 import { isWinner } from "./isWinner.js"
+import { isRepeatedShot } from "./isRepeatedShot.js"
 
 export function run(game){
   for (const player of game.players){
@@ -12,15 +13,14 @@ export function run(game){
       changePlayerView(player)
       view(player)
 
-      const shot = readInputCoordinate(prompt)
+      const shot = readInputCoordinate(prompt,isRepeatedShot,player.shots)
       drawShot(shot,player,enemy.ships)
       enemy.ships = setShot(shot,enemy.ships,enemy.grid)
+      player.shots.push(shot)
       
-
-      console.log(enemy.ships)
       if(isWinner(enemy.ships)){
-      game.Winner = game.players.indexOf(player)
-      return game
+      game.winner = game.players.indexOf(player)
+      return 
       }
     }
   return run(game)  

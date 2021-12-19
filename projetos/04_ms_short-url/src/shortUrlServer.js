@@ -1,4 +1,4 @@
-import { mainHandler } from "./handllers/mainHandler.js";
+import { mainHandler } from "./handlers/mainHandler.js";
 
 export async function shortUrlServer(request) {
   try {

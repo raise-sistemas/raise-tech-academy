@@ -12,4 +12,5 @@ export function setup(){
     player = setShips(player)
 
   }
+  return game
 }
