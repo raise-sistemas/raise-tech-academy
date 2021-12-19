@@ -1,5 +1,5 @@
 import { coordinates } from '../assets/indexes.js'
-import { bunnyFinder } from '../utils/bunnyFinder.js'
+import { bunnyFinder } from './bunnyFinder.js'
 
 export function eraseBunny(grid) {
   const bunnyCoordinates = bunnyFinder(grid)

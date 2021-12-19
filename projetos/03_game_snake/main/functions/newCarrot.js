@@ -1,6 +1,6 @@
 // import { gridFromLeft } from '../assets/defaultGrid.js'
 import { coordinates, indexes } from '../assets/indexes.js'
-import { carrotFinder } from '../utils/carrotFinder.js'
+import { carrotFinder } from './carrotFinder.js'
 import { eraseCarrot } from './eraseCarrot.js'
 
 function randomCarrot(grid) {

@@ -21,7 +21,7 @@ export function walkToUp(grid) {
 
     // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     if (newCarrotIndex[0] == 7) {
-      grid[coordinates[bunnyLine + 7][bunnyColumn - 1]] = '🐰'
+      grid[coordinates[bunnyLine + 7][bunnyColumn]] = '🐰'
       grid = grid.join('')
     } else {
       grid[coordinates[bunnyLine + 7][bunnyColumn + 1]] = '🐰'

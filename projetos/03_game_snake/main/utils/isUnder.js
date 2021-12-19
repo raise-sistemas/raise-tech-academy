@@ -1,4 +1,4 @@
-import { bunnyFinder } from './bunnyFinder.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
 import { coordinates } from '../assets/indexes.js'
 
 export function isUnder(grid) {
