@@ -15,25 +15,11 @@ export function walkToUp(grid) {
 
   // Se o coelho estiver no topo e a cenoura estiver onde o coelho vai estar no próximo passo, a função newCarrot precisa ser chamada
   if (isUpper(grid) && imminentCarrotUp(grid)) {
-    grid = newCarrot(grid)
-    const newCarrotIndex = carrotFinder(grid)
-    grid = eraseBunny(grid)
 
-    // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-    if (newCarrotIndex[0] == 7) {
-      grid[coordinates[bunnyLine + 7][bunnyColumn]] = '🐰'
-      grid = grid.join('')
-    } else {
-      grid[coordinates[bunnyLine + 7][bunnyColumn + 1]] = '🐰'
-      grid = grid.join('')
-    }
-  } else if (imminentCarrotUp(grid)) {
-    grid = newCarrot(grid)
-    grid = eraseBunny(grid)
+  } 
+  
+  else if (imminentCarrotUp(grid)) {
 
-    // Quando o coelho tá embaixo da cenoura, e na mesma coluna, é tido como uma coluna a mais, então dominuir uma, corrige.
-    grid[coordinates[bunnyLine + 7][bunnyColumn - 1]] = '🐰'
-    grid = grid.join('')
   } else if (isUpper(grid)) {
     grid = eraseBunny(grid)
     // Para sair do topo e ir para a base do grid, são 7 linhas a mais.
