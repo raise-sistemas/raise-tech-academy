@@ -1,9 +1,10 @@
 import { completeShip, isOverShip } from "./getShipLib/index.js"
-import { readInputDirection, readInputStern } from "../readInput.js"
+import { readInputDirection, readInputCoordinate } from "../readInput.js"
+import { isRepeatedCoordinate } from "./getShipLib/isRepeatedCoordinate.js"
 
 export function getShip(ships, shipSize, prompt){
   
-  const stern = readInputStern(ships, prompt)
+  const stern = readInputCoordinate (prompt,isRepeatedCoordinate,ships)
   if(shipSize === 1){
     return [stern]
   }
