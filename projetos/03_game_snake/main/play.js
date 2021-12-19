@@ -1,21 +1,16 @@
-import {
-  walkToDown,
-  walkToLeft,
-  walkToUp,
-  walkToRight
-} from './controls/index.js'
 import { gridTest } from './assets/defaultGrid.js'
+import { goUp } from './controls/goUp.js'
 import { newCarrot } from './functions/newCarrot.js'
-import { imminentCarrotUp } from './functions/imminentCarrotUp.js'
+import { imminentCarrotUp } from './imminent-carrot/imminentCarrotUp.js'
 // import { timeout } from './assets/timeout.js'
 
 export function play(grid) {
   console.log(grid)
   setInterval(() => {
     console.clear()
-    grid = walkToUp(grid)
+    grid = goUp(grid)
     console.log(imminentCarrotUp(grid))
-  }, 400)
+  }, 500)
 }
 
 play(gridTest)

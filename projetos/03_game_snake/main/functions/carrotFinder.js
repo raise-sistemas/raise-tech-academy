@@ -4,7 +4,7 @@ export function carrotFinder(grid) {
   let carrotIndex
 
   for (let index = 29; index < 147; index++) {
-    if (grid[index] === 'B') {
+    if (grid[index] === 'C') {
       carrotIndex = index
       break
     }

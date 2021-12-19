@@ -1,9 +1,9 @@
 import { bunnyFinder } from '../functions/bunnyFinder.js'
 
-export function isBunnyUpper(grid) {
-  const bunnyLine = bunnyFinder(grid)[0]
+export function isBunnyRight(grid) {
+  const bunnyColumn = bunnyFinder(grid)[1]
 
-  if (bunnyLine === 0) {
+  if (bunnyColumn === 11) {
     return true
   } else {
     return false
