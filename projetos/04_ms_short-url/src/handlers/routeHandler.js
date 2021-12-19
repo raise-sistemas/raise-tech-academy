@@ -11,7 +11,6 @@ export async function routeHandler(request) {
   
   const payload = await handler(request, params);
     
-  // a rota GET /:slug é a única que retorna uma string
   if(typeof(payload) === 'string')
     return payload instanceof Response ? payload : redirectResponse(payload);
 
