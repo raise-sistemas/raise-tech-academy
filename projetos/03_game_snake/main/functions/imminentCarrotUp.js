@@ -13,36 +13,11 @@ export function imminentCarrotUp(grid) {
   if (
     isUpper(grid) &&
     coordinates[carrotLine][carrotColumn] ==
-      coordinates[bunnyLine + 7][bunnyColumn + 1]
+      coordinates[bunnyLine + 7][bunnyColumn + 1] &&
+    carrotLine > bunnyLine
   ) {
     return true
-  } else if (
-    isUpper(grid) &&
-    !outOfRange(carrotLine) &&
-    !outOfRange(bunnyLine) &&
-    coordinates[carrotLine][carrotColumn] ==
-      coordinates[bunnyLine + 7][bunnyColumn + 1]
-  ) {
-    return true
-  } else if (
-    !isUpper(grid) &&
-    outOfRange(bunnyLine) &&
-    bunnyLine >= 29 &&
-    bunnyLine - coordinates[carrotLine][carrotColumn] == 16
-  ) {
-    return true
-  } else if (
-    outOfRange(bunnyLine) &&
-    bunnyLine >= 29 &&
-    bunnyLine - coordinates[carrotLine][carrotColumn] == 16
-  ) {
-    return true
-  } else if (
-    !isUpper(grid) &&
-    bunnyLine[0] <= 11 &&
-    coordinates[bunnyLine - 1][bunnyColumn - 1] ==
-      coordinates[carrotLine][carrotColumn]
-  ) {
+  } else if (bunnyLine - carrotLine == 1 && carrotColumn - bunnyColumn <= 1) {
     return true
   } else {
     return false

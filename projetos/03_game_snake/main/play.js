@@ -6,6 +6,7 @@ import {
 } from './controls/index.js'
 import { gridTest } from './assets/defaultGrid.js'
 import { newCarrot } from './functions/newCarrot.js'
+import { imminentCarrotUp } from './functions/imminentCarrotUp.js'
 // import { timeout } from './assets/timeout.js'
 
 export function play(grid) {
@@ -13,7 +14,8 @@ export function play(grid) {
   setInterval(() => {
     console.clear()
     grid = walkToUp(grid)
-  }, 500)
+    console.log(imminentCarrotUp(grid))
+  }, 250)
 }
 
 play(gridTest)
