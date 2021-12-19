@@ -1,5 +1,5 @@
 import { coordinates } from '../assets/indexes.js'
-import { bunnyFinder } from './bunnyFinder.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
 
 export function isOnTheRight(grid) {
   let finder = false

@@ -1,48 +1,19 @@
-Dois bugs:
+Vou fazer agora uma refatoração gigante.
 
-Na função WalToUp:
-Quando o coelho sobe até o limite e raparece embaixo, no grid, na mesma fileira.
-O index dele realmente é adicionado 105, a diferença entre o primeiro bloco e o último de cada coluna.
-Mas, ao "atravessar" ele anda para a esquerda.
+Invés de usar os emojis no grid, que vai ser parâmetro das funções, eu vou usar letras.
 
-Quando ele tá na linha da cenoura, ele tem que subir um índice a mais.
-Isso é subtrair mais um índice da posição que ele tava.
+B = Coelho (bunny)
+C = Cenoura (carrot)
 
-Soluções?
+Cada função vai retornar o grid com o movimento das letras, e vai imprimir com replace, trocando as letras pelo emoji.
 
-Criar um estado pra o grid.
-Usar caracter nulo, pra ser o espaço do grid.
-Usar a função sleep no código
+Primeiro:
 
-Próximos passos:
+- Começar pelas funções de achar coelho e cenoura! bunnyFinder e CarrotFinder
 
-- Resolver o bug de gerar cenoura, que quando ela é gerada no canto esquerdo da tela, não apaga, fica gerando outras no grid. OK
+- Depois a função de checar se o coelho está no topo.
 
-- Resolver erro de indexação, pra fazer o coelho comer a cenoura:
-Isso é, chamar a função newCarrot quando os índicies forem colidir, pra apagar e gerar outra.
+- Depois a função de checar se tem cenoura iminente.
 
-- Criar um score, pra cada vez que a função newCarrot for chamada, esse score aumentar 1
+- Depois a função de apagar coelho.
 
-╔════════════════════════╗
-║⬛⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-╚════════════════════════╝
-31
-
-╔════════════════════════╗
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛🥕⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-║⬛🐰⬛⬛⬛⬛⬛⬛⬛⬛⬛⬛║
-╚════════════════════════╝
-136

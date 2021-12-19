@@ -1,5 +1,5 @@
 import { coordinates } from '../assets/indexes.js'
-import { carrotFinder } from '../utils/carrotFinder.js'
+import { carrotFinder } from './carrotFinder.js'
 
 export function eraseCarrot(grid) {
   const carrotCoordinates = carrotFinder(grid)
