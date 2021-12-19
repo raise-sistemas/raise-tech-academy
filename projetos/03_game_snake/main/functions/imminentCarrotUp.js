@@ -1,7 +1,6 @@
 import { bunnyFinder, carrotFinder, isUpper } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
 import { outOfRange } from '../utils/outOfRange.js'
-import { isCarrotUpper } from '../utils/isCarrotUpper.js'
 
 export function imminentCarrotUp(grid) {
   const bunnyIndex = bunnyFinder(grid)
@@ -13,9 +12,8 @@ export function imminentCarrotUp(grid) {
 
   if (
     isUpper(grid) &&
-    outOfRange(carrotLine) &&
-    carrotLine[0] == 146 &&
-    bunnyColumn == 11
+    coordinates[carrotLine][carrotColumn] ==
+      coordinates[bunnyLine + 7][bunnyColumn + 1]
   ) {
     return true
   } else if (
@@ -29,27 +27,23 @@ export function imminentCarrotUp(grid) {
   } else if (
     !isUpper(grid) &&
     outOfRange(bunnyLine) &&
-    coordinates[carrotLine][carrotColumn] - bunnyLine == 16
+    bunnyLine >= 29 &&
+    bunnyLine - coordinates[carrotLine][carrotColumn] == 16
   ) {
     return true
   } else if (
     outOfRange(bunnyLine) &&
-    coordinates[carrotLine][carrotColumn] - bunnyLine == 16
+    bunnyLine >= 29 &&
+    bunnyLine - coordinates[carrotLine][carrotColumn] == 16
   ) {
-    console.log('hii')
     return true
-  }
-
-  // else if (
-  //   !isUpper(grid) &&
-  //   !outOfRange(bunnyLine) &&
-  //   !outOfRange(carrotLine) &&
-  //   coordinates[bunnyLine - 1][bunnyColumn - 1] ==
-  //     coordinates[carrotLine][carrotColumn]
-  // ) {
-  //   return true
-  // }
-  else {
+  } else if (
+    !isUpper(grid) &&
+    coordinates[bunnyLine - 1][bunnyColumn - 1] ==
+      coordinates[carrotLine][carrotColumn]
+  ) {
+    return true
+  } else {
     return false
   }
 }

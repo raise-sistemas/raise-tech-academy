@@ -16,7 +16,7 @@ export function carrotFinder(grid) {
   const line = finder.indexOf(column)
   const carrotCoordinates = [line, column]
 
-  if (!column) {
+  if (column > 11 || column == String('undefined')) {
     return carrotIndexes
   } else {
     return carrotCoordinates

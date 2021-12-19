@@ -31,7 +31,7 @@ export function newCarrot(grid) {
   const carrotIndex = carrotFinder(grid)
 
   // Caso não exista uma cenoura, uma vai ser gerada
-  if (!carrotIndex[1] && carrotIndex[1] !== 0) {
+  if (String(carrotIndex) == 'undefined') {
     grid = randomCarrot(grid)
   }
   // Caso já exista, ela vai ser apagada, e gerada outra.

@@ -11,10 +11,17 @@ export function walkToUp(grid) {
   console.clear()
 
   // Se o coelho estiver no topo e a cenoura estiver onde o coelho vai estar no próximo passo, a função newCarrot precisa ser chamada
-  if (isUpper(grid) && imminentCarrotUp(grid)) {}
-
-
-  else if (isUpper(grid)) {
+  if (isUpper(grid) && imminentCarrotUp(grid)) {
+    grid = newCarrot(grid)
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
+    console.log(carrotPosition)
+    console.log(bunnyCoordinates)
+    grid[coordinates[bunnyLine + 7][bunnyColumn]] = '🐰'
+    grid = grid.join('')
+    
+  } else if (isUpper(grid)) {
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
