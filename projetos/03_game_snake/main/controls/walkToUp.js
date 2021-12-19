@@ -19,8 +19,8 @@ export function walkToUp(grid) {
     grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
     // Bugfix
     grid.splice(coordinates[bunnyLine - 1][bunnyColumn - 1], 1)
-
     grid = grid.join('')
+    
   } else if (imminentCarrotUp(grid)) {
     grid = grid.replace('🥕', '🐰')
     grid = newCarrot(grid)
