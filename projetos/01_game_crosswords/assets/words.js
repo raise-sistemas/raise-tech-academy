@@ -1,7 +1,7 @@
 export default [
     "javascript",
     "android",
-    "mundo",
     "escola",
+    "mundo",
     "jogo"
   ];

@@ -1,4 +1,5 @@
 import foundWords from './board/foundWords.js';
+import { showMessage } from "../utils/message.js";
 import { showPlays } from "./display/showPlays.js";
 import { searchWord } from "./validation/searchWord.js";
 import { displayBoard } from "./display/displayBoard.js";
@@ -13,6 +14,6 @@ export function newPlay(input, matriz) {
     if (foundWords.length > amountWordsFound) matriz = modifyBoard(matriz, wordPositions);
     displayBoard(matriz);
     if (foundWords.length === amountWordsFound) showMessage('❌ Ops.. palavra incorreta!');
-    showPlays(foundWords);
+    showPlays();0
     return matriz;
 }

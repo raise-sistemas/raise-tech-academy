@@ -1,4 +1,4 @@
-let fullPositions = [];
+import fullPositions from '../fullPositions.js';
 
 export function addPosition(posLine, currentPosition) {
     fullPositions.push(posLine + '-' + currentPosition);
@@ -6,6 +6,7 @@ export function addPosition(posLine, currentPosition) {
 }
 
 export function verificarContemPosition(posLine, posCol) {
+    //console.log('posicoes ocupadas: ' + fullPositions);
     if (fullPositions.includes(posLine + '-' + posCol)) {
         return true;
     }

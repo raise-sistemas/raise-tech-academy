@@ -6,9 +6,9 @@ import words from '../../../assets/words.js';
 import { boardSize } from '../config/boardSize.js';
 import { addPosition } from "./fullPositionsBoard.js";
 import board from '../../../assets/boards/board-json.js';
-import { removeWord } from "../../removeWord.js";
+import remainingWords from '../remainingWords.js';
 
-export function matrizSettings() {
+export function boardSettings() {
     let matriz = new Array(boardSize);
     let pos = 0;
     for (let i = boardSize; i > 0; i--) {
@@ -42,6 +42,7 @@ export function fullMatriz(matriz, boardSize) {
 export function addWordMatriz(matriz, boardSize) {
     let count = 0;
     let amountWords = words.length;
+    let attempts = [];
     while(amountWords > 0 && count < 1000) {
         
         let randomPosition = randomPositionWord(boardSize);
@@ -49,46 +50,27 @@ export function addWordMatriz(matriz, boardSize) {
         let posCol = randomPosition.posCol;
 
         let palavra = getWord(amountWords-1);
-        if ((posLine > 0 && posCol > 0 && ((boardSize - (posCol-1) > palavra.word.length) &&
-            (boardSize - (posLine-1) > palavra.word.length)) &&
-            (isFreePosition(posLine, posCol, palavra.word.length, randomPosition.orientation)))) {
-                let posicaoAtual = randomPosition.orientation == 0 ? posCol : posLine;
-                for (const letra in palavra.word) {
-                    if (randomPosition.orientation == 0) {
-                        matriz[posLine][posicaoAtual] = palavra.word[letra];
-                        addPosition(posLine, posicaoAtual);
-                    } else {
-                        matriz[posicaoAtual][posCol] = palavra.word[letra];
-                        addPosition(posicaoAtual, posCol);
+        if (!attempts.includes(`${posLine}${posCol}${randomPosition.orientation}${palavra.word}`)) {
+            if ((posLine > 0 && posCol > 0 && ((boardSize - (posCol-1) > palavra.word.length) &&
+                (boardSize - (posLine-1) > palavra.word.length)) &&
+                (isFreePosition(posLine, posCol, palavra.word.length, randomPosition.orientation)))) {
+                    let posicaoAtual = randomPosition.orientation == 0 ? posCol : posLine;
+                    for (let letra in palavra.word) {
+                        if (randomPosition.orientation == 0) {
+                            matriz[posLine][posicaoAtual] = palavra.word[letra];
+                            addPosition(posLine, posicaoAtual);
+                        } else {
+                            matriz[posicaoAtual][posCol] = palavra.word[letra];
+                            addPosition(posicaoAtual, posCol);
+                        }
+                        posicaoAtual++;
                     }
-                    posicaoAtual++;
-                }
-                amountWords--;
+                    remainingWords.push(palavra.word);
+                    amountWords--;
+            }
+            attempts.push(`${posLine}${posCol}${randomPosition.orientation}${palavra.word}`);
         }
         count++;
-    }
-    return matriz;
-}
-
-export function staticMatrizSettings() {
-    let matriz = new Array(board.width);
-    let pos = 0;
-    for (let i = board.height; i > 0; i--) {
-        matriz[pos] = new Array(board.width);
-        pos++;
-    }
-    matriz = addFirstLineMatriz(matriz, board.width);
-    matriz = fullStaticMatriz(matriz);
-    matriz = addWordMatriz(matriz, boardSize);
-    return matriz;
-}
-
-export function fullStaticMatriz(matriz) {
-    for (let linha=1; linha < board.height; linha++) {
-        matriz[linha][0] = (linha < 10 ? '0' : '') + linha;
-        for (let coluna = 1; coluna < board.width; coluna++) {
-            matriz[linha][coluna] = getLetter();
-        }
     }
     return matriz;
 }
