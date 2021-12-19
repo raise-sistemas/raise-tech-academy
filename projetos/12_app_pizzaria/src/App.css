@@ -90,17 +90,45 @@ p{
   font-size: 24px;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+button{
+  background-color: #F46036;
+  color: #FFF;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: button-bg;
+  color: button-text-color;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 5px #F46036;
+}
+
 .container{
-    max-width: 960px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
+.menuBg{
+  background-color: #F46036;
+  padding: 20px 15px;
+}
 .menu{
   display: flex;
   justify-content: space-between;
-  background-color: #F46036;
-  padding: 20px 15px;
 }
 
 .menu h1{
@@ -115,18 +143,26 @@ p{
 .pizza{
     max-width: 150px;
     text-align: center;
-    background-color: #F2D0A4;
 }
 .pizza img{
     max-width: 150px;
+    border-radius: 15px 15px 0 0;
 }
 
 .pizza button{
-    background-color: #F46036;
+  margin-top: 8px;
+  margin-bottom: 0px;
 }
 
 .pizza h1{
-    font-size: 26px;
+    font-size: 24px;
+}
+
+.infoPizza{
+  max-width: 150px;
+  height: 250px;
+  background-color: #0A2463;
+  border-radius: 15px;
 }
 
 /* segundo template */
@@ -151,7 +187,28 @@ p{
 
 /* terceiro template */
 .ingredientes{
+  margin-top: 20px;
     display: flex;
+    justify-content: center;
+}
+
+.checkboxStyle{
+  font-size: 18px;
+  margin-top: 12px;
+  margin-left: 20px;
+}
+
+.checkboxStyle label{
+  margin-left: 8px;
+}
+
+.observacoes{
+  margin-top: 15px;
+  margin-left: 20px;
+  font-size: 18px;
+}
+.observacoes input{
+  margin-left: 8px;
 }
 
 .cardsPizzas{
@@ -213,5 +270,28 @@ p{
 }
 
 .imgPizza img{
+  margin-top: 20px;
+  width: 450px;
+}
+
+.imgPizza img{
   border-radius: 30px;
+}
+
+.finalizacao{
+  margin-top: 20px;
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.confirmacao{
+  margin-top: 20px;
+  text-align: center;
+}
+
+.opcoes{
+  max-width: 600px;
+  margin: 0 auto;
 }

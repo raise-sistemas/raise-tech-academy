@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import ProgressBar from "./ProgressBar";
 import ImagePizza from "./ImagePizza";
 import TamanhoTipo from "./TamanhoTipo";
-import Opcoes from "./Opcoes";
 import Ingredientes from "./Ingredientes";
 import Finalizacao from "./Finalizacao";
-import OpcoesFinalizar from "./OpcoesFinalizar";
 import ConfirmacaoPedido from "./ConfirmacaoPedido";
 
 let sabor = "";
 export function nomePizza(nome){
     sabor = nome;
+    localStorage.setItem("sabor", nome);
     return true;
 } 
 
@@ -28,7 +27,7 @@ export default function Pedido(){
             <ImagePizza/>
             {escolha === 0 ? <TamanhoTipo/> : null}
             {escolha === 1 ? <Ingredientes/> : null}
-            {escolha === 2 ? <Finalizacao/> : null}
+            {escolha === 2 ? <Finalizacao nome={sabor} /> : null}
             {escolha === 3 ? <ConfirmacaoPedido/> : null}          
             <div className="opcoes">
                 {escolha >= 1 && escolha <= 2 ? <button onClick={()=>{setEscolha(escolha - 1)}}>Voltar</button> : null} 
