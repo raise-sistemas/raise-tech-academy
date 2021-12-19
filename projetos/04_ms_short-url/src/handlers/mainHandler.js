@@ -5,7 +5,7 @@ import { addCors } from "../utils/addCors.js";
 export async function mainHandler(request) {
   console.log(request.method, request.url);
   
-  if(request.url.match('favicon'))
+  if(request.url.match('favicon.ico'))
     return;
 
   if(request.method === 'POST')
