@@ -1,21 +1,18 @@
 import { coordinates } from '../assets/indexes.js'
 
 export function carrotFinder(grid) {
-  grid = grid.split('')
-  const carrotIndexes = []
+  let carrotIndex
 
   for (let index = 29; index < 147; index++) {
-    if (grid[index] + grid[index + 1] == '🥕') {
-      carrotIndexes.push(index, index + 1)
+    if (grid[index] === 'B') {
+      carrotIndex = index
       break
     }
   }
 
-  const finder = coordinates.map(element => element.indexOf(carrotIndexes[0]))
+  const finder = coordinates.map(element => element.indexOf(carrotIndex))
   const column = finder.find(element => element !== -1)
   const line = finder.indexOf(column)
-  const carrotCoordinates = [line, column]
 
-    return carrotCoordinates
-
+  return [line, column]
 }

@@ -4,7 +4,7 @@ export function bunnyFinder(grid) {
   let bunnyIndex
 
   for (let index = 29; index < 145; index++) {
-    if (grid[index] == 'C') {
+    if (grid[index] === 'C') {
       bunnyIndex = index
       break
     }
