@@ -6,13 +6,15 @@ import { showWordPositions } from "./display/showWordPositions.js";
 import { validateInput } from "./validation/validateInput.js";
 import { newPlay } from "./newPlay.js";
 import { clearWords } from "./clearWords.js";
+import { inputDifficulty } from "./inputDifficulty.js";
 import foundWords from './board/foundWords.js';
 import remainingWords from './board/remainingWords.js';
 
 export let stop = false;
 export function startGame() {
-    
-    let board = boardSettings();
+
+    let difficulty = inputDifficulty(false);
+    let board = boardSettings(difficulty);
     displayBoard(board);
     showMessage('🟨 Você pode digitar 0 a qualquer momento para sair do jogo.');
     showMessage('🟨 Você pode digitar 1 para desistir.');

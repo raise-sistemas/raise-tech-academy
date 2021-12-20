@@ -1,15 +1,16 @@
 import { isFreePosition } from "../validation/validatePositions.js";
-import { getNumberByLetter } from "../../../utils/letterForNumber.js";
 import { randomPositionWord } from "../randomPositionWord.js";
 import { getLetter } from "../../getLetter.js";
 import { getWord } from "../../getWord.js";
 import words from '../../../assets/words.js';
 import { boardSize } from '../config/boardSize.js';
 import { addPosition } from "./fullPositionsBoard.js";
+import { setBoardCharacteristics } from "../boardCharacteristics.js";
 import remainingWords from '../remainingWords.js';
 import positionsWords from '../positionsWords.js';
 
-export function boardSettings() {
+export function boardSettings(difficulty) {
+    setBoardCharacteristics(difficulty);
     let matriz = new Array(boardSize.height);
     let pos = 0;
     for (let i = boardSize.height; i > 0; i--) {

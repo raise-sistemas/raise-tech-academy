@@ -1,3 +1,9 @@
+# INFO:
+# Arquivo para execução do programa: mod.js
+# Implementações que ainda poderiam ser feitas:
+# - Palavras invertidas, na diagonal e na diagonal invertida;
+# - O usuário poder escolher as dimensões e palavras do tabuleiro.
+
 # 01 Game Crosswords
 
 1. Criar o layout estátido do jogo para aprovação.

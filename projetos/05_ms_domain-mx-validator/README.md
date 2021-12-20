@@ -4,6 +4,17 @@ Não é possível saber se um email existe sem tentar enviar um email para ele, 
 
 Utilizar a API https://doc.deno.land/deno/stable/~/Deno.resolveDns para resolver o dominio do email verificando se existe registro MX.
 
-* Resultados
-Entrada de domínio válida: https://mx-validator.deno.dev?mx=google.com
-Entrada de domínio inválida: https://mx-validator.deno.dev?mx=google.google
+Para executar localmente:
+```
+deno run --allow-net ./mod.js
+```
+
+Para verificar os testes de entrada:
+```
+deno test --allow-read ./test/isDomainMxValid.test.js
+```
+
+* Disponível em: https://mx-validator.deno.dev
+
+* Acesso com entrada de parâmetro válido: https://mx-validator.deno.dev?mx=google.com
+* Acesso com entrada de parâmetro inválido: https://mx-validator.deno.dev?mx=google.google
