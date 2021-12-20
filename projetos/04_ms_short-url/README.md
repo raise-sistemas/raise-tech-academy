@@ -10,17 +10,36 @@ POST / url='https://www.google.com'
 retorna:
 {
   "slug": "afgts",
-  "short_url": "https://short.url/afgts"
-  "original_url": "https://www.google.com"
+  "short_url": "https://short.url/afgts",
+  "original_url": "https://www.google.com",
+  "visits": 0
 }
 
 POST /afgbf url='https://www.google.com'
 retorna:
 {
   "slug": "afgbf",
-  "short_url": "https://short.url/afgts"
-  "original_url": "https://www.google.com"
+  "short_url": "https://short.url/afgts",
+  "original_url": "https://www.google.com",
+  "visits": 0
 }
+
+GET /
+retorna:
+[
+  {
+    "slug": "afgbf",
+    "short_url": "https://short.url/afgts",
+    "original_url": "https://www.google.com",
+    "visits": 0
+  },
+  {
+    "slug": "abcdf",
+    "short_url": "https://short.url/afgts",
+    "original_url": "https://github.com",
+    "visits": 0
+  },
+]
 
 GET /afgbf
 retorna:
