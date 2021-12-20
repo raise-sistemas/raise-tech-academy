@@ -1,13 +1,13 @@
 import { limitDirection } from "./start/getShipLib/limitDirection.js"
 
 
-export function readInputCoordinate(prompt,callback,analyze) {
+export function readInputCoordinate(callback,analyze,prompt) {
   const coordinate = (prompt("Digite a coordenada desejada (Ex: a 1): ") || "").toLowerCase();
-  const regExp = /[a-j]\s([1-9]||10)(?!.)/
-
+  const regExp = /^[a-j]\s[1-9]||10(?!.)/
+  
   if(!regExp.test(coordinate)||callback(coordinate,analyze)) {
     console.log("Entrada inválida");
-    return readInputCoordinate(prompt,callback,analyze);
+    return readInputCoordinate(callback,analyze,prompt) ;
   }
   
   return coordinate;

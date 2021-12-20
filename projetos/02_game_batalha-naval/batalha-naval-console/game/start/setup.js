@@ -1,16 +1,22 @@
 import { setShips } from "./setShips.js"
 import { newGame } from "./newGame.js"
 import { changePlayerView, view } from "../../display/index.js"
+import { getBot } from "./getBot.js"
 
 export function setup(){
-  const  game = newGame()
-  for(let player of game.players){
-    
-    changePlayerView(player)
-    view(player)
+  const  bot = getBot()
 
+  const  game = newGame(bot)
+  for(let player of game.players){
+
+    if(!player.bot){
+      changePlayerView(player)
+      view(player)
+    }
+    
     player = setShips(player)
 
   }
+
   return game
 }
