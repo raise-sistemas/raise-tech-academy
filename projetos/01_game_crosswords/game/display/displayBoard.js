@@ -13,7 +13,7 @@ export function displayBoard(matriz) {
     } else if (boardSize.width <= 15) {
         decoration = '|-=-=-=-=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=-=-=-=-|';
     } else {
-        decoration = '|=-=-=-=-=-=-=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=-=-=-=-=-=-=|';
+        decoration = '|=-=-=-=-=-=-=-=-=-=-=-=-%cCAÇA-PALAVRAS%c-=-=-=-=-=-=-=-=-=-=-=-=|';
     }
     console.log(traits);
     console.log(decoration, 'color: red; font-weight: bold', '');
