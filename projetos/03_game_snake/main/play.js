@@ -5,7 +5,7 @@ import { newCarrot } from './functions/newCarrot.js'
 import { sleep } from './functions/sleep.js'
 import { sameRow, sameColumn } from './utils/index.js'
 
-const game = {
+let game = {
   state: 'goingRight',
   grid: newCarrot(gridDefault),
   score: 0
@@ -39,7 +39,7 @@ while (true) {
     await sleep(timeout)
     game = move(game)
   }
-  
+
   console.log(game.score)
   await sleep(timeout)
 }
