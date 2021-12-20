@@ -11,34 +11,35 @@ function randomCarrot(grid) {
     grid = grid.split('')
     grid[coordinates[randomLine][randomColumn]] = 'C'
     grid = grid.join('')
+  }
+  // Nos elseIfs eu quero ter certeza que, caso sorteie o mesmo index do coelho, a cenoura possa ir uma casa para cima.
+  else if (grid[coordinates[randomLine - 1][randomColumn]] === '⬛') {
+    grid = grid.split('')
+    grid[coordinates[randomLine - 1][randomColumn]] = 'C'
+    grid = grid.join('')
+  }
+  // ou uma casa para baixo.
+  else if (grid[coordinates[randomLine + 1][randomColumn]] === '⬛') {
+    grid = grid.split('')
+    grid[coordinates[randomLine + 1][randomColumn]] = 'C'
+    grid = grid.join('')
+  }
+  // Ou uma casa para a direita
+  else if (grid[coordinates[randomLine][randomColumn + 1]] === '⬛') {
+    grid = grid.split('')
+    grid[coordinates[randomLine][randomColumn + 1]] = 'C'
+    grid = grid.join('')
+  }
+  // Ou uma para a esquerda
+  else if (grid[coordinates[randomLine][randomColumn - 1]] === '⬛') {
+    grid = grid.split('')
+    grid[coordinates[randomLine][randomColumn - 1]] = 'C'
+    grid = grid.join('')
+
+    return grid
   } else {
     return randomCarrot(grid)
   }
-  // // Nos elseIfs eu quero ter certeza que, caso sorteie o mesmo index do coelho, a cenoura possa ir uma casa para cima.
-  // else if (grid[coordinates[randomLine - 1][randomColumn]] === '⬛') {
-  //   grid = grid.split('')
-  //   grid[coordinates[randomLine - 1][randomColumn]] = 'C'
-  //   grid = grid.join('')
-  // }
-  // // ou uma casa para baixo.
-  // else if (grid[coordinates[randomLine + 1][randomColumn]] === '⬛') {
-  //   grid = grid.split('')
-  //   grid[coordinates[randomLine + 1][randomColumn]] = 'C'
-  //   grid = grid.join('')
-  // }
-  // // Ou uma casa para a direita
-  // else if (grid[coordinates[randomLine][randomColumn + 1]] === '⬛') {
-  //   grid = grid.split('')
-  //   grid[coordinates[randomLine][randomColumn + 1]] = 'C'
-  //   grid = grid.join('')
-  // }
-  // // Ou uma para a esquerda
-  // else if (grid[coordinates[randomLine][randomColumn - 1]] === '⬛') {
-  //   grid = grid.split('')
-  //   grid[coordinates[randomLine][randomColumn - 1]] = 'C'
-  //   grid = grid.join('')
-  
-  return grid
 }
 export function newCarrot(grid) {
   const carrotIndex = carrotFinder(grid)

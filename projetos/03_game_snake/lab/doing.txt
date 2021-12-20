@@ -1,3 +1,7 @@
-Possíveis recursos adicionais:
 
-- Sortear direções pra o coelho seguir, quando tiver na mesma linha e coluna.
+A shortesDistance tem que calcular duas distâncias.
+
+A distância dela até o topo e a distância dela até a cenoura.
+A mesma coisa pra as laterais, calcular a distância entre a borda e a cenoura.
+
+Tem que condicionar pra saber qual borda tá mais perto.
