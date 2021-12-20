@@ -7,7 +7,6 @@ export default function Average(){
         list = JSON.parse(localStorage.getItem("list"))
     }
     list.push()
-    localStorage.setItem("list", JSON.stringify(list));
     const numbers = list.map((data) => {
         return{
             soma: data.name

@@ -38,9 +38,9 @@ h2 {
 h3 {
   font-family: 'Poppins';
   color: #246E5D;
-  font-size: 15px;
+  font-size: 17px;
   margin-top:0px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 button {
@@ -59,6 +59,7 @@ input{
   width: 300px;
   margin-bottom: 7px;
   margin-top: 40px;
+  font-family: 'Poppins';
 }
 
 .btn {
@@ -69,6 +70,10 @@ input{
   font-size: 15px;
   width: 300px;
   height: 30px;
+}
+
+.btn-home {
+  padding: 5px;
 }
 
 .btn-return {
@@ -82,15 +87,23 @@ input{
 }
 
 .title{
-  line-height: 150px;
+  line-height: 120px;
 }
 
 .title- {
   line-height: 110px;
 }
 
-  .title-average {
+.title-average {
     line-height: 190px;
+  }
+
+.sub-title {
+    margin-bottom: 50px;
+  }
+
+.result {
+    margin-top:25px;
   }
 
 .vector {
@@ -105,8 +118,8 @@ input{
 }
 
 .form {
-  margin-top: 65px;
-  margin-bottom: 80px;
+  margin-top: 60px;
+  margin-bottom: 50px;
 }
 
 .link {
@@ -133,4 +146,8 @@ input{
 
 .back-average {
   margin-top: 200px;
+}
+
+.clear {
+  margin-bottom: 50px;
 }

@@ -1,27 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Form () {
 
     const [km, setKm] = useState();
     const [liter, setLiter] = useState();
     const [newKm, setNewKm] = useState();
+    // const [autonomy, setAutonomy] = useState();
 
     function Autonomy(e) {
         e.preventDefault();
         window.location.reload(false);
 
-        const autonomy = (newKm-km)/liter;
-        alert("A autonomia é " + autonomy.toFixed(1));
-        localStorage.setItem('autonomy', autonomy);
+        // setAutonomy((newKm-km)/liter)
+        let autonomy = (newKm-km)/liter
+        alert(" \n \nA autonomia é " + autonomy.toFixed(1) +"km/litro")
 
-        let list = [];
-        if (localStorage.hasOwnProperty("list")) {
-            list = JSON.parse(localStorage.getItem("list"))
-        }
-        list.push({name: autonomy})
-        localStorage.setItem("list", JSON.stringify(list));
- 
+        // useEffect(() => {
+            localStorage.setItem('autonomy', autonomy);
+            let list = [];
+            if (localStorage.hasOwnProperty("list")) {
+                list = JSON.parse(localStorage.getItem("list"))
+            }
+            list.push({name: autonomy})
+            localStorage.setItem("list", JSON.stringify(list));
+        // }, [autonomy]);
     }
+
+    // function Clear() {
+    //     document.getElementById("km").value=""
+    //     document.getElementById("newKm").value=""
+    //     document.getElementById("liter").value=""
+    // }
 
     return (
         <div>
@@ -35,9 +44,12 @@ export default function Form () {
                 <div>
                     <input id="liter" type='number' placeholder='Insira a quantidade de litros abastecido...' onChange={(e) => setLiter(e.target.value)}/>
                 </div>
-                <button id="autonomy" class="btn btn-form form" type="submit" disabled={!km || !newKm || !liter}>Descobrir Autonomia</button>
+                <button id="autonomy" class="btn form" type="submit" disabled={!km || !newKm || !liter}>Descobrir Autonomia</button>
             </form>
+            <div class="result">
+                {/* <h3> A autonomia é: {autonomy}</h3> */}
+            </div>
+            {/* <button class="btn form clear" onClick={Clear}> Limpar </button> */}
         </div>
-
     )
 }
