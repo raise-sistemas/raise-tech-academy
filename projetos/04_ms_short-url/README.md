@@ -3,7 +3,7 @@
 Esse MS recebe uma url e um /slug opcional e salva a url neste slug, de modo que quando acessado novamente,
 ele redireciona para a url salva.
 
-Os métodos seriam:
+## Rotas
 
 ```
 POST / url='https://www.google.com'
@@ -46,5 +46,5 @@ retorna:
 Location: https://www.google.com
 ```
 
-1. Após criar o funcionamento básico, proteger as rotas post utilizando api_key
-2. Armazenar um contador de visitas por slug
+## API KEY
+Para utilizar as rotas POST deve-se colocar uma chave, cujo valor é **ap147ldokdmra00kmbrgkdk2mgja75p1km5gnvjdnefhhfkdna5asd2lwlm6fkaweiuitnbl**
