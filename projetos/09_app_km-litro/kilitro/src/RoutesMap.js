@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home'
 import PageForm from './components/PageForm'
-import Average from './components/Average'
+import PageAverage from './components/PageAverage'
 
 export default function RoutesMap(){
     return(
@@ -9,7 +9,7 @@ export default function RoutesMap(){
             <Routes>
                 <Route path='/' element={<Home/>}/>
                 <Route path='/pageform' element={<PageForm/>}/>
-                <Route path='/average' element={<Average/>}/>
+                <Route path='/pageaverage' element={<PageAverage/>}/>
             </Routes>
         </BrowserRouter>
     )

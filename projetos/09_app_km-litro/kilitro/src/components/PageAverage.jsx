@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function Average(){
+export default function PageAverage(){
 
     let list = [];
     if (localStorage.hasOwnProperty("list")) {
@@ -12,8 +12,7 @@ export default function Average(){
             soma: data.name
         }
     });
-        
-    console.log(numbers);
+    
     let total = numbers.reduce((total, data) => total + data.soma, 0); 
     let media = total/numbers.length;
 

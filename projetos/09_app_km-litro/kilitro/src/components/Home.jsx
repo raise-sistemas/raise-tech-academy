@@ -14,7 +14,7 @@ export default function Home(){
                         <Link class="link btn btn-home" to={{ pathname: '/pageform' }}> Calcular Nova Autonomia </Link>
                     </div>
                     <div>
-                        <Link class="link btn btn-home" to={{ pathname: '/average' }}> Ver Média Geral de Autonomia </Link>
+                        <Link class="link btn btn-home" to={{ pathname: '/pageaverage' }}> Ver Média Geral de Autonomia </Link>
                     </div>                
                 <div class= "vector">
                     <img class= "img" src={kilitro}/>

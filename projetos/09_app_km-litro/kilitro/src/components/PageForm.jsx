@@ -8,7 +8,6 @@ export default function PageForm() {
                     <h2>Informe os dados do último abastecimento</h2>
                 </div>
                 <Form/>
-                {/* <h3>A autonomia é {autonomy}</h3> */}
                 <Link class="link-form" to={{ pathname: '/' }}>Voltar a página inicial</Link>
             </div>
     )
