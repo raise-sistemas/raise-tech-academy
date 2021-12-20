@@ -1,5 +1,5 @@
 import { gridDefault } from './assets/defaultGrid.js'
-import { goDown, goRight, goLeft, goUp, move } from './controls/index.js'
+import { move } from './controls/index.js'
 import { newCarrot } from './functions/newCarrot.js'
 import { sleep } from './functions/sleep.js'
 import { sameRow, sameColumn } from './utils/index.js'
@@ -13,21 +13,24 @@ let game = {
 
 const verticals = ['goingDown', 'goingUp']
 const horizontals = ['goingLeft', 'goingRight']
-let randomHorizontal
-let randomVertical
+let randomHorizontal, randomVertical
 
-// Math.round(Math.random())
+Math.round(Math.random())
+Math.round(Math.random())
+
 while (true) {
   game = move(game)
 
-  if (sameColumn(game.grid)) {
+  randomVertical = Math.round(Math.random())
+  randomHorizontal = Math.round(Math.random())
+
+  while (sameColumn(game.grid)) {
     await sleep(timeout)
-    randomVertical = Math.round(Math.random())
     game.state = verticals[randomVertical]
     game = move(game)
-  } else if (sameRow(game.grid)) {
+  }
+  while (sameRow(game.grid)) {
     await sleep(timeout)
-    randomHorizontal = Math.round(Math.random())
     game.state = horizontals[randomHorizontal]
     game = move(game)
   }

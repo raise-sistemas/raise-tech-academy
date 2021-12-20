@@ -4,7 +4,7 @@ import { newCarrot } from '../functions/newCarrot.js'
 import { imminentCarrotLeft } from '../imminent-carrot/index.js'
 import { bunnyFinder } from '../functions/bunnyFinder.js'
 
-export function goLeft(grid) {
+export function goLeft(game) {
   let { grid, score } = game
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
