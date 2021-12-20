@@ -17,3 +17,13 @@ export const coordinates = [
   [119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130],
   [134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145]
 ]
+
+export const grid = () => {
+  let newGrid = new Array(8)
+  newGrid.fill(new Array(12))
+  newGrid = newGrid.map(line => line.fill('⬛'))
+  return newGrid
+}
+
+const teste = grid().map(line => line.join(''))
+// console.log(teste.join('\n'))

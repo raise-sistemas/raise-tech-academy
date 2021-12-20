@@ -3,18 +3,16 @@ import { coordinates } from '../assets/indexes.js'
 import { carrotFinder } from './carrotFinder.js'
 
 function randomCarrot(grid) {
-  const randomLine = Math.round(Math.random() * coordinates.length)
-  const randomColumn = Math.round(Math.random() * coordinates[0].length)
+  const randomLine = Math.round(Math.random() * (coordinates.length - 1))
+  const randomColumn = Math.round(Math.random() * (coordinates[0].length - 1))
 
   // Aqui garante que o index sorteado não é o mesmo do coelho.
   if (grid[coordinates[randomLine][randomColumn]] === '⬛') {
     grid = grid.split('')
     grid[coordinates[randomLine][randomColumn]] = 'C'
     grid = grid.join('')
-  }
-
-  else {
-    return randomCarrot(grid) 
+  } else {
+    return randomCarrot(grid)
   }
   // // Nos elseIfs eu quero ter certeza que, caso sorteie o mesmo index do coelho, a cenoura possa ir uma casa para cima.
   // else if (grid[coordinates[randomLine - 1][randomColumn]] === '⬛') {
@@ -39,8 +37,7 @@ function randomCarrot(grid) {
   //   grid = grid.split('')
   //   grid[coordinates[randomLine][randomColumn - 1]] = 'C'
   //   grid = grid.join('')
-  // }
-
+  
   return grid
 }
 export function newCarrot(grid) {
@@ -57,4 +54,3 @@ export function newCarrot(grid) {
   }
   return grid
 }
-

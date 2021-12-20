@@ -38,5 +38,6 @@ export function goRight(game) {
   }
 
   console.log(grid.replace('B', '🐰').replace('C', '🥕'))
+  console.log(`🥕 x ${score}`)
   return {grid, score, state: game.state}
 }

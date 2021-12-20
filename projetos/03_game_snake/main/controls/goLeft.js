@@ -5,6 +5,7 @@ import { imminentCarrotLeft } from '../imminent-carrot/index.js'
 import { bunnyFinder } from '../functions/bunnyFinder.js'
 
 export function goLeft(grid) {
+  let { grid, score } = game
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
   const bunnyColumn = bunnyCoordinates[1]
@@ -12,12 +13,14 @@ export function goLeft(grid) {
 
   if (isBunnyLeft(grid) && imminentCarrotLeft(grid)) {
     grid = newCarrot(grid)
+    score++
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid[coordinates[bunnyLine][bunnyColumn + 11]] = 'B'
     grid = grid.join('')
   } else if (imminentCarrotLeft(grid)) {
     grid = newCarrot(grid)
+    score++
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
     grid[coordinates[bunnyLine][bunnyColumn - 1]] = 'B'
@@ -35,5 +38,6 @@ export function goLeft(grid) {
   }
 
   console.log(grid.replace('B', '🐰').replace('C', '🥕'))
-  return grid
+  console.log(`🥕 x ${score}`)
+  return { grid, score, state: game.state }
 }
