@@ -1,7 +1,8 @@
-import { isBunnyUpper, bunnyFinder, carrotFinder } from '../utils/index.js'
+import { isBunnyUpper } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
 import { newCarrot } from '../functions/newCarrot.js'
-import {imminentCarrotUp} from '../imminent-carrot/imminentCarrotUp.js'
+import { imminentCarrotUp } from '../imminent-carrot/imminentCarrotUp.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
 
 export function goUp(grid) {
   const bunnyCoordinates = bunnyFinder(grid)
@@ -9,7 +10,6 @@ export function goUp(grid) {
   const bunnyColumn = bunnyCoordinates[1]
   console.clear()
 
-  // Sempre que tiver uma cenoura iminente, a função newCarrot precisa ser chamada, pra apagar a cenoura e gerar outra.
   if (isBunnyUpper(grid) && imminentCarrotUp(grid)) {
     grid = newCarrot(grid)
     grid = grid.split('')

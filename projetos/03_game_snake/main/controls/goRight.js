@@ -1,33 +1,39 @@
-// import { gridFromLeft } from '../assets/defaultGrid.js'
+import { isBunnyRight } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
-import { bunnyFinder } from '../utils/bunnyFinder.js'
-import { isOnTheRight } from '../utils/isOnTheRight.js'
+import { newCarrot } from '../functions/newCarrot.js'
+import { imminentCarrotRight } from '../imminent-carrot/imminentCarrotRight.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
 
-export function walkToRight(grid) {
+export function goRight(grid) {
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
   const bunnyColumn = bunnyCoordinates[1]
   console.clear()
 
-  if (isOnTheRight(grid)) {
+  if (isBunnyRight(grid) && imminentCarrotRight(grid)) {
+    grid = newCarrot(grid)
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-
-    // Para sair do canto direito e ir para canto esquerdo do grid, são 11 colunas a menos.
-    grid[coordinates[bunnyLine][bunnyColumn - 11]] = '🐰'
+    grid[coordinates[bunnyLine][bunnyColumn - 11]] = 'B'
+    grid = grid.join('')
+  } else if (imminentCarrotRight(grid)) {
+    grid = newCarrot(grid)
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid[coordinates[bunnyLine][bunnyColumn + 1]] = 'B'
+    grid = grid.join('')
+  } else if (isBunnyRight(grid)) {
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid[coordinates[bunnyLine][bunnyColumn - 11]] = 'B'
     grid = grid.join('')
   } else {
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-
-    // Ir para a direita é aumentar uma coluna
-    grid[coordinates[bunnyLine][bunnyColumn + 1]] = '🐰'
+    grid[coordinates[bunnyLine][bunnyColumn + 1]] = 'B'
     grid = grid.join('')
   }
-  console.log(grid)
+
+  console.log(grid.replace('B', '🐰').replace('C', '🥕'))
   return grid
 }
-
-// walkToRight()

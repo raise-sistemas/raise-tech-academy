@@ -1,31 +1,39 @@
-// import { sleep } from '../functions/sleep.js'
-import { isUnder, bunnyFinder } from '../utils/index.js'
+import { isBunnyUnder} from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
+import { newCarrot } from '../functions/newCarrot.js'
+import { imminentCarrotDown } from '../imminent-carrot/imminentCarrotDown.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
 
-export function walkToDown(grid) {
+export function goDown(grid) {
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
   const bunnyColumn = bunnyCoordinates[1]
   console.clear()
 
-  if (isUnder(grid)) {
+  if (isBunnyUnder(grid) && imminentCarrotDown(grid)) {
+    grid = newCarrot(grid)
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-
-    // Para sair da base e ir para o topo do grid, são 7 linhas a menos.
-    grid[coordinates[bunnyLine - 7][bunnyColumn]] = '🐰'
+    grid[coordinates[bunnyLine - 7][bunnyColumn]] = 'B'
+    grid = grid.join('')
+  } else if (imminentCarrotDown(grid)) {
+    grid = newCarrot(grid)
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid[coordinates[bunnyLine + 1][bunnyColumn]] = 'B'
+    grid = grid.join('')
+  } else if (isBunnyUnder(grid)) {
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid[coordinates[bunnyLine - 7][bunnyColumn]] = 'B'
     grid = grid.join('')
   } else {
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-
-    // Descer uma linha é o mesmo que aumentar uma linha no índice.
-    grid[coordinates[bunnyLine + 1][bunnyColumn]] = '🐰'
+    grid[coordinates[bunnyLine + 1][bunnyColumn]] = 'B'
     grid = grid.join('')
   }
 
-  console.log(grid)
+  console.log(grid.replace('B', '🐰').replace('C', '🥕'))
   return grid
 }

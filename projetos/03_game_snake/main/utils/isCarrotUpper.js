@@ -1,5 +1,5 @@
 import { coordinates } from '../assets/indexes.js'
-import { carrotFinder } from './carrotFinder.js'
+import { carrotFinder } from '../functions/carrotFinder.js'
 
 export function isCarrotUpper(grid) {
   let finder = false

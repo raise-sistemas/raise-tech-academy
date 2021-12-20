@@ -1,7 +1,8 @@
 import { isBunnyUnder } from '../utils/index.js'
-import { bunnyFinder, carrotFinder } from '../functions/bunnyFinder.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
+import { carrotFinder } from '../functions/carrotFinder.js'
 
-export function imminentCarrotUp(grid) {
+export function imminentCarrotDown(grid) {
   const bunnyIndex = bunnyFinder(grid)
   const bunnyLine = bunnyIndex[0]
   const bunnyColumn = bunnyIndex[1]

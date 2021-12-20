@@ -1,7 +1,7 @@
 import { isBunnyLeft } from '../utils/index.js'
-import { bunnyFinder, carrotFinder } from '../functions/bunnyFinder.js'
+import { bunnyFinder, carrotFinder } from '../functions/index.js'
 
-export function imminentCarrotUp(grid) {
+export function imminentCarrotLeft(grid) {
   const bunnyIndex = bunnyFinder(grid)
   const bunnyLine = bunnyIndex[0]
   const bunnyColumn = bunnyIndex[1]

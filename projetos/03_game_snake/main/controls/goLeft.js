@@ -1,32 +1,39 @@
-// import { gridFromRight } from '../assets/defaultGrid.js'
+import { isBunnyLeft } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
-import { bunnyFinder } from '../utils/bunnyFinder.js'
-import { isOnTheLeft } from '../utils/isOnTheLeft.js'
+import { newCarrot } from '../functions/newCarrot.js'
+import { imminentCarrotLeft } from '../imminent-carrot/index.js'
+import { bunnyFinder } from '../functions/bunnyFinder.js'
 
-export function walkToLeft(grid) {
+export function goLeft(grid) {
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
   const bunnyColumn = bunnyCoordinates[1]
   console.clear()
 
-  if (isOnTheLeft(grid)) {
+  if (isBunnyLeft(grid) && imminentCarrotLeft(grid)) {
+    grid = newCarrot(grid)
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-
-    // Para sair do canto esquero e ir para o canto direito do grid, são 11 colunas a mais.
-    grid[coordinates[bunnyLine][bunnyColumn + 11]] = '🐰'
+    grid[coordinates[bunnyLine][bunnyColumn + 11]] = 'B'
+    grid = grid.join('')
+  } else if (imminentCarrotLeft(grid)) {
+    grid = newCarrot(grid)
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid[coordinates[bunnyLine][bunnyColumn - 1]] = 'B'
+    grid = grid.join('')
+  } else if (isBunnyLeft(grid)) {
+    grid = grid.split('')
+    grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
+    grid[coordinates[bunnyLine][bunnyColumn + 11]] = 'B'
     grid = grid.join('')
   } else {
     grid = grid.split('')
     grid[coordinates[bunnyLine][bunnyColumn]] = '⬛'
-    grid.splice(coordinates[bunnyLine][bunnyColumn] + 1, 1)
-
-    // Andar uma posição para a esquerda é diminuir uma coluna.
-    grid[coordinates[bunnyLine][bunnyColumn - 1]] = '🐰'
+    grid[coordinates[bunnyLine][bunnyColumn - 1]] = 'B'
     grid = grid.join('')
   }
 
-  console.log(grid)
+  console.log(grid.replace('B', '🐰').replace('C', '🥕'))
   return grid
 }
