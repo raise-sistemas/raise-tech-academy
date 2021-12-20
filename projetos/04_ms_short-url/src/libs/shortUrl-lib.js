@@ -43,6 +43,11 @@ export function getShortUrls(){
   return db.listShortUrlDb();
 }
 
-export function getOriginalUrl(slug){  
-  return db.getShortUrlBySlug(slug).original_url;
+export function getOriginalUrl(slug){
+  const shortUrlFind =   db.getShortUrlBySlug(slug);
+
+  if(!shortUrlFind)
+    throw "Short url not found!";
+  
+  return shortUrlFind.original_url;
 }

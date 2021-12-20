@@ -26,7 +26,9 @@ export function listUrlShorts(){
 
 export function getOriginalUrlAction(request, { slug }) {
   slug = getSlug(request, slug);
+  const url = shortUrlLib.getOriginalUrl(slug);
+
   shortUrlLib.updateVisitorsCount(slug);
 
-  return shortUrlLib.getOriginalUrl(slug);
+  return url;
 }
