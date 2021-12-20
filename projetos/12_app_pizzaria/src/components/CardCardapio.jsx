@@ -9,8 +9,10 @@ export default function CardCardapio(){
             {saboresPizzas.map((element)=> (
                 
                 <div className="pizza" key={element}>
-                    <img src={pizza1} alt="pizza 1"/>
-                    <h1>{element}</h1>
+                    <div className="infoPizza">
+                        <img src={pizza1} alt="pizza 1"/>
+                        <h1>{element}</h1>
+                    </div>
                     <button onClick={() => {nomePizza(element)}} ><Link to="/pedido">Selecionar</Link></button>
                 </div>
 

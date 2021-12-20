@@ -1,10 +1,10 @@
 import { coordinates } from '../assets/indexes.js'
 
 export function bunnyFinder(grid) {
-  let bunnyIndex
+  let bunnyIndex;
 
-  for (let index = 29; index < 145; index++) {
-    if (grid[index] === 'C') {
+  for (let index = 29; index < 146; index++) {
+    if (grid[index] === 'B') {
       bunnyIndex = index
       break
     }

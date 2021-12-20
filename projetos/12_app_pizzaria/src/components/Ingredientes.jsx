@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import ingredientes from "../utils/ingredientes";
 
 export default function Ingredientes(){
-    let filtered = [];
+    const [ingrediente,setIngrediente] = useState([]);
+    const [observacao, setObservacao] = useState("");
+
+
     function verMudanca(event , name, set){
         if(event){
             if(ingrediente){
@@ -13,33 +16,36 @@ export default function Ingredientes(){
         }else{
             
             set(ingrediente.filter((element) => element !== name));
-            // set(filtered);
         }
         return event;
     }
-    const [ingrediente,setIngrediente] = useState([]);
+
+    function verObservacao(event){
+        setObservacao(event);
+    }
 
 
     useEffect(()=>{
         localStorage.setItem("step2", JSON.stringify(ingrediente));
-    }, [verMudanca])
+        localStorage.setItem("step2-obs", observacao);
+    }, [verMudanca, verObservacao])
 
     
 
     return (
         <div className="ingredientes">
-            <div className="adicionais ">
+            <div>
                 <h1>Adicione ingredientes</h1>
                 <form>
                     {ingredientes.map((element)=>(
-                        <div key={element}>
+                        <div className="checkboxStyle" key={element}>
                             <input type="checkbox" name={element} onChange={(event)=> {verMudanca(event.target.checked, event.target.name, setIngrediente)}}/>
                             <label >{element}</label>
                         </div>
                     ))}
                     <div className="observacoes">
-                        <label for="observacao">Observações</label>
-                        <input type="text" name="observacao" placeholder="Ex: Remover cebola"/>
+                        <label>Observações</label>
+                        <input type="text" name="observacao" placeholder="Ex: Remover cebola" onChange={(event)=> {verObservacao(event.target.value)}}/>
                     </div>
                 </form>
             </div>    

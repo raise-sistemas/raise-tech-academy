@@ -1,23 +1,11 @@
-import {
-  gridFromLeft,
-  carrotTest,
-  gridTest,
-  emptyGrid
-} from '../main/assets/defaultGrid.js'
-import { coordinates } from '../main/assets/indexes.js'
-import { eraseCarrot } from '../main/functions/eraseCarrot.js'
-import { imminentCarrotUp } from '../main/functions/imminentCarrotUp.js'
-import { newCarrot } from '../main/functions/newCarrot.js'
-import { isUpper, carrotFinder, bunnyFinder } from '../main/utils/index.js'
-import { isCarrotUpper } from '../main/utils/isCarrotUpper.js'
-import { outOfRange } from '../main/utils/outOfRange.js'
+import { carrotTest, emptyGrid, gridDefault, gridTest } from "../main/assets/defaultGrid.js"
+import { coordinates } from "../main/assets/indexes.js"
+import { bunnyFinder } from "../main/functions/bunnyFinder.js"
+import { carrotFinder } from "../main/functions/carrotFinder.js"
+import { imminentCarrotUp } from "../main/imminent-carrot/imminentCarrotUp.js"
+import { isBunnyUnder } from "../main/utils/isBunnyUnder.js"
+import { isBunnyUpper } from "../main/utils/isBunnyUpper.js"
+import { sameColumn } from "../main/utils/sameColumn.js"
+import {sameRow} from "../main/utils/sameRow.js"
 
-
-const bunnyCoordinates = bunnyFinder(gridTest)
-const carrotCoordinates = carrotFinder(gridTest)
-// const bunnyLine = bunnyCoordinates[0]
-// const bunnyColumn = bunnyCoordinates[1]
-console.log(bunnyCoordinates)
-console.log(carrotCoordinates)
-console.log(coordinates[carrotCoordinates[0]][carrotCoordinates[1]])
-console.log(gridTest[coordinates[carrotCoordinates[0]][carrotCoordinates[1]]])
+console.log(carrotTest[coordinates[7][11]])
