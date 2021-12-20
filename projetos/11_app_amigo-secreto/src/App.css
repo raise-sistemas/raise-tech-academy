@@ -140,7 +140,7 @@ h1 {color: #ffffff;
 }
 
 .btn-limpar {
-  position: absolute;
+  position: fixed;
   right: 20px;
   bottom: 20px;
   width: 120px;
