@@ -1,5 +1,3 @@
 01 - Depois de um certo tempo, não gera cenoura.
-02 - A tela fica piscando. Quero deixar ela com a impressão de estática.
-Ele pula um print por conta do await que tá no meio do código.
 
 Notas: A função sleep não funciona se for chamada dentro de outra função.

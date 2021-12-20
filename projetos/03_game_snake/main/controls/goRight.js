@@ -5,7 +5,7 @@ import { imminentCarrotRight } from '../imminent-carrot/imminentCarrotRight.js'
 import { bunnyFinder } from '../functions/bunnyFinder.js'
 
 export function goRight(game) {
-  let { grid, score } = game
+  let { score, grid } = game
   const bunnyCoordinates = bunnyFinder(grid)
   const bunnyLine = bunnyCoordinates[0]
   const bunnyColumn = bunnyCoordinates[1]
@@ -39,5 +39,5 @@ export function goRight(game) {
 
   console.log(grid.replace('B', '🐰').replace('C', '🥕'))
   console.log(`🥕 x ${score}`)
-  return {grid, score, state: game.state}
+  return { grid, score, state: game.state }
 }

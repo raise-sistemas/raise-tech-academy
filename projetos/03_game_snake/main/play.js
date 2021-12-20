@@ -11,12 +11,10 @@ let game = {
   score: 0
 }
 
+
 const verticals = ['goingDown', 'goingUp']
 const horizontals = ['goingLeft', 'goingRight']
 let randomHorizontal, randomVertical
-
-Math.round(Math.random())
-Math.round(Math.random())
 
 while (true) {
   game = move(game)
