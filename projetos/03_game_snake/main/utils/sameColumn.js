@@ -1,13 +1,12 @@
 import { bunnyFinder, carrotFinder } from '../functions/index.js'
 
 export function sameColumn(grid) {
-  const bunnyCoordinates = bunnyFinder(grid)
-  const carrotCoordinates = carrotFinder(grid)
+  const bunnyColumn = bunnyFinder(grid)[1]
+  const carrotColumn = carrotFinder(grid)[1]
 
-  if (bunnyCoordinates[1] === carrotCoordinates[1]) {
+  if (bunnyColumn === carrotColumn) {
     return true
-  }
-  else {
+  } else {
     return false
   }
 }

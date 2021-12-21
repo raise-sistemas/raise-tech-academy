@@ -1,8 +1,7 @@
 import { isBunnyLeft } from '../utils/index.js'
 import { coordinates } from '../assets/indexes.js'
-import { newCarrot } from '../functions/newCarrot.js'
+import { newCarrot, bunnyFinder } from '../functions/index.js'
 import { imminentCarrotLeft } from '../imminent-carrot/index.js'
-import { bunnyFinder } from '../functions/bunnyFinder.js'
 
 export function goLeft(game) {
   let { grid, score } = game
