@@ -2,7 +2,7 @@ import { gridDefault } from './assets/defaultGrid.js'
 import { move } from './controls/index.js'
 import { newCarrot } from './functions/newCarrot.js'
 import { sleep } from './functions/sleep.js'
-import { sameRow, sameColumn } from './utils/index.js'
+import { sameRow, sameColumn, shortestWayColumn } from './utils/index.js'
 
 const timeout = 200
 let game = {
@@ -10,7 +10,6 @@ let game = {
   grid: newCarrot(gridDefault),
   score: 0
 }
-
 
 const verticals = ['goingDown', 'goingUp']
 const horizontals = ['goingLeft', 'goingRight']
@@ -24,7 +23,8 @@ while (true) {
 
   while (sameColumn(game.grid)) {
     await sleep(timeout)
-    game.state = verticals[randomVertical]
+    game.state = shortestWayColumn(game.grid)
+    // game.state = verticals[randomHorizontal]
     game = move(game)
   }
   while (sameRow(game.grid)) {
