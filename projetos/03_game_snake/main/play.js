@@ -2,7 +2,12 @@ import { gridDefault } from './assets/defaultGrid.js'
 import { move } from './controls/index.js'
 import { newCarrot } from './functions/newCarrot.js'
 import { sleep } from './functions/sleep.js'
-import { sameRow, sameColumn, shortestWayColumn } from './utils/index.js'
+import {
+  sameRow,
+  sameColumn,
+  shortestWayColumn,
+  shortestWayRow
+} from './utils/index.js'
 
 const timeout = 200
 let game = {
@@ -23,13 +28,14 @@ while (true) {
 
   while (sameColumn(game.grid)) {
     await sleep(timeout)
-    game.state = shortestWayColumn(game.grid)
-    // game.state = verticals[randomHorizontal]
+    // game.state = shortestWayColumn(game.grid)
+    game.state = verticals[randomHorizontal]
     game = move(game)
   }
   while (sameRow(game.grid)) {
     await sleep(timeout)
     game.state = horizontals[randomHorizontal]
+    // game.state = shortestWayRow(game.grid)
     game = move(game)
   }
 
