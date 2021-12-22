@@ -1,3 +1,5 @@
-export { coordinateInput } from "./coordinateInput.js"
-export { directionInput } from "./directionInput.js"
-export { nameInput } from "./nameInput.js"
+export { analizeDirection } from "./analizeDirection.js"
+export { newBot } from "./newBot.js"
+export { oppositeDirection } from "./oppositeDirection.js"
+export { possibleDirections } from "./possibleDirections.js"
+export { setBotMemory } from "./setBotMemory.js"

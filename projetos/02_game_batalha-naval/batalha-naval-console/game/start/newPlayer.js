@@ -1,7 +1,7 @@
 import { initGrid } from "./initGrid.js"
 import { newBoat } from "./newBoat.js"
 import { getName } from "./getName.js"
-
+import { newBot } from "../../bot/newBot.js"
 
 export function newPlayer(playerNumber,bot=false) { 
   return {
@@ -15,8 +15,8 @@ export function newPlayer(playerNumber,bot=false) {
       Destroyers : newBoat(`Contratorpedeiro`,2),        //2  
       Submarines : newBoat(`Submarino`,1)                  //1  
     },
-    shots:[],
-    bot
+    shots: [],
+    bot:newBot(bot),
   }
  
 }

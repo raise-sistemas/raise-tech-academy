@@ -1,7 +1,7 @@
 import { completeShip, isOverShip } from "./getShipLib/index.js"
 import { readInputDirection, readInputCoordinate } from "../readInput.js"
 import { isRepeatedCoordinate } from "./getShipLib/isRepeatedCoordinate.js"
-import { coordinateInput, directionInput } from "../../bot/index.js"
+import { coordinateInput, directionInput } from "../../bot/botInputs/index.js"
 
 export function getShip(player, shipSize, prompt){
   let stern

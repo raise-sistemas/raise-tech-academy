@@ -1,11 +1,11 @@
 import { changePlayerView, view} from "../display/index.js"
 import { drawShot } from "./drawShot.js"
-import { readInputCoordinate } from "./readInput.js"
+import { readInputCoordinate, readInputBotShot } from "./readInput.js"
 import { setShot } from "./setShot.js"
 import { getEnemy } from "./getEnemy.js"
 import { isWinner } from "./isWinner.js"
-import { isRepeatedShot } from "./isRepeatedShot.js"
-import { coordinateInput } from "../bot/coordinateInput.js"
+import { isRepeated } from "./isRepeated.js"
+import { setBotMemory } from "../bot/setBotMemory.js"
 
 export function run(game){
   for (const player of game.players){
@@ -13,12 +13,14 @@ export function run(game){
 
       let shot  
       if (player.bot){
-        shot = readInputCoordinate(isRepeatedShot,player.shots,coordinateInput)
+        shot = readInputBotShot(isRepeated,player.shots,player.bot)
+        setBotMemory(player.bot,shot,enemy.ships)
+
       }else{
         changePlayerView(player)
         view(player)
         
-        shot = readInputCoordinate(isRepeatedShot,player.shots,prompt)
+        shot = readInputCoordinate(isRepeated,player.shots,prompt)
       }
       drawShot(shot,player,enemy.ships)
       enemy.ships = setShot(shot,enemy.ships,enemy.grid)

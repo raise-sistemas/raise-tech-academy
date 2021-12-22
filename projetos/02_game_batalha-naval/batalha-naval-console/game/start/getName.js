@@ -1,4 +1,4 @@
-import { nameInput } from "../../bot/nameInput.js"
+import { nameInput } from "../../bot/botInputs/index.js"
 
 export function getName(playerNumber,prompt,bot=false){
   console.clear()
