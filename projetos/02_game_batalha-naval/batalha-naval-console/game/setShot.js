@@ -1,11 +1,11 @@
 import { changeEmoji } from "../utils/changeEmoji.js"
 
-export function setShot(lastEnemyShot,ships,grid) {
+export function setShot(shot,ships,grid) {
   for(const ship in ships){
 
-      if(ships[ship].coordinates.find(element => element === lastEnemyShot)){
-        ships[ship].coordinates.splice(ships[ship].coordinates.indexOf(lastEnemyShot),1)
-        changeEmoji(grid,'💥',lastEnemyShot)
+      if(ships[ship].coordinates.find(element => element === shot)){
+        ships[ship].coordinates.splice(ships[ship].coordinates.indexOf(shot),1)
+        changeEmoji(grid,'💥',shot)
       }
 
     }

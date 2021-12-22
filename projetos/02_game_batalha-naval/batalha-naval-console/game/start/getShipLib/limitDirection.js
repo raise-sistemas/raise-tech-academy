@@ -2,7 +2,7 @@ import { letterToNumber } from "../../../utils/letterToNumber.js"
 
 export function limitDirection(stern,shipSize,direction){
   let [letter, number]=stern.split(" ")
-  const displacement =shipSize - 1
+  const displacement =shipSize
   number = Number(number)
   letter = letterToNumber(letter)
   
