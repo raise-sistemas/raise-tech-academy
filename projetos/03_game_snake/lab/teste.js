@@ -21,9 +21,9 @@ import { sameRow } from '../main/utils/sameRow.js'
 //   console.log([randomLine, randomColumn])
 // }, 400)
 
-console.log(newCarrot(gridDefault))
+// console.log(newCarrot(gridDefault))
 
-
+console.log('iae')
 
 
 
