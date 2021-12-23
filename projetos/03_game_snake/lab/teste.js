@@ -23,9 +23,7 @@ import { sameRow } from '../main/utils/sameRow.js'
 
 // console.log(newCarrot(gridDefault))
 
-console.log('iae')
-
-
+console.log('⚫', '⚫'.length)
 
 
 
