@@ -10,7 +10,9 @@ export function setup(){
   for(let player of game.players){
 
     if(!player.bot){
+      if(!bot){
       changePlayerView(player)
+      }
       view(player)
     }
     
