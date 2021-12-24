@@ -1,0 +1,5 @@
+export { drawShot } from "./drawShot.js"
+export { getEnemy } from "./getEnemy.js"
+export { isRepeated } from "./isRepeated.js"
+export { isWinner } from "./isWinner.js"
+export { setShot } from "./setShot.js"
