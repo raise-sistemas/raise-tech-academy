@@ -6,7 +6,7 @@ export function init(){
 
 const game = setup()
 
-run(game)
+run(game,game.players[0])
 
 endView(game)
 
