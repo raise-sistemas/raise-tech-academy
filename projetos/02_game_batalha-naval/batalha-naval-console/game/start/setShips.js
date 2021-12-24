@@ -8,7 +8,7 @@ export function setShips(player){
 
     player.ships[ship].coordinates.map((coordinate)=>changeEmoji(player.grid, "🟨", coordinate))
 
-    console.clear()
+    console.clear() 
     view(player)
   }
 
