@@ -4,5 +4,10 @@ import { newPlayer } from "../../../game/start/newPlayer.js"
 
 Deno.test("player is a object?", () => {
   const player = newPlayer()
-  assertEquals((typeof player === 'object'), true)
+  assertEquals(typeof player, 'object')
+})
+
+Deno.test("player bot is a bot?", () => {
+  const player = newPlayer(2,true)
+  assertEquals(typeof player.bot, 'object')
 })
