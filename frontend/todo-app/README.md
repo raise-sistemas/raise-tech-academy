@@ -12,3 +12,7 @@
 - Tela de Profile - Profile
 - Tela de Listagem de Todos - Leonardo
 
+# DADOS
+
+- User: email, senha, id, sobre, idade;
+- Todo: id, descrição, título, data de entrega;
